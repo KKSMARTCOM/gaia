@@ -13,8 +13,8 @@ class BlogSectionSettingController extends Controller
      */
     public function index()
     {
-        $blogTitle = BlogSectionSetting::first();
-        return view('admin.blog-setting.index', compact('blogTitle'));
+        /* $blogTitle = BlogSectionSetting::first(); */
+        return view('admin.blog-setting.index' /* compact('blogTitle') */);
     }
 
     /**

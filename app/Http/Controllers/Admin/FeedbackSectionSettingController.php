@@ -13,8 +13,8 @@ class FeedbackSectionSettingController extends Controller
      */
     public function index()
     {
-        $feedbackTitle = FeedbackSectionSetting::first();
-        return view('admin.feedback-setting.index', compact('feedbackTitle'));
+        /* $feedbackTitle = FeedbackSectionSetting::first(); */
+        return view('admin.feedback-setting.index'/* , compact('feedbackTitle') */);
     }
 
     /**

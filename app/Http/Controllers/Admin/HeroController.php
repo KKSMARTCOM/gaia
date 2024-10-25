@@ -16,8 +16,8 @@ class HeroController extends Controller
      */
     public function index()
     {
-        $hero = Hero::first();
-        return view('admin.hero.index', compact('hero'));
+        //$hero = Hero::first();
+        return view('admin.hero.index' /* compact('hero') */);
     }
 
     /**
@@ -82,16 +82,16 @@ class HeroController extends Controller
 
         $hero = Hero::first();
 
-        if($request->hasFile('image')){
-            if($hero && File::exists(public_path($hero->image))) {
+        if ($request->hasFile('image')) {
+            if ($hero && File::exists(public_path($hero->image))) {
                 File::delete(public_path($hero->image));
             }
 
             $image = $request->file('image');
-            $imageName = rand().$image->getClientOriginalName();
+            $imageName = rand() . $image->getClientOriginalName();
             $image->move(public_path('/uploads'), $imageName);
 
-            $imagePath = "/uploads/".$imageName;
+            $imagePath = "/uploads/" . $imageName;
         }
 
         Hero::updateOrCreate(
@@ -108,7 +108,6 @@ class HeroController extends Controller
         toastr()->success('Updated Successfully', 'Congrats');
 
         return redirect()->back();
-
     }
 
     /**

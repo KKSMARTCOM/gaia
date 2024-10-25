@@ -13,8 +13,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $about = About::first();
-        return view('admin.about.index', compact('about'));
+        /* $about = About::first(); */
+        return view('admin.about.index');
     }
 
     /**
@@ -68,10 +68,10 @@ class AboutController extends Controller
         About::updateOrCreate(
             ['id' => $id],
             [
-               'title' => $request->title,
-               'description' => $request->description,
-               'image' => (!empty($imagePath) ? $imagePath : $about->image),
-               'resume' => (!empty($resumePath) ? $resumePath : $about->resume)
+                'title' => $request->title,
+                'description' => $request->description,
+                'image' => (!empty($imagePath) ? $imagePath : $about->image),
+                'resume' => (!empty($resumePath) ? $resumePath : $about->resume)
             ]
         );
 

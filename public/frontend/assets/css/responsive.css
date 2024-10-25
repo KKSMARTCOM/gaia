@@ -2,7 +2,7 @@
 
 @media only screen and (max-width: 1500px) {
     .testimonial-slider {
-        padding: 100px 100px;
+        padding: 0px 100px;
         margin-left: -100px;
         margin-right: -100px;
     }
@@ -47,7 +47,7 @@
 
 @media only screen and (max-width: 1199.99px) {
     .testimonial-slider {
-        padding: 80px 80px;
+        padding: 0px 80px;
         margin-left: -80px;
         margin-right: -80px;
     }
@@ -116,7 +116,7 @@
     }
 
     .testimonial-slider .single-testimonial {
-        padding: 20px;
+        padding: 0 20px;
     }
 
     .blog-content {
@@ -245,6 +245,15 @@
         padding-top: 10px;
     }
 
+    .main_menu{
+        height: auto;
+    }
+
+    .main_menu .navbar-right{
+        display: flex;
+        align-items: center;
+    }
+
     .main_menu .container {
         padding: 3px 12px;
     }
@@ -313,7 +322,7 @@
     }
 
     .testimonial-slider {
-        padding: 30px 30px;
+        padding: 0px 30px;
         margin-left: -15px;
         margin-right: -15px;
         box-sizing: border-box;

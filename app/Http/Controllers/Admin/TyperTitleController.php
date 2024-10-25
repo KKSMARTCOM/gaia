@@ -12,7 +12,7 @@ class TyperTitleController extends Controller
     /**
      * Display a listing of the resource.
      */
-   public function index(TyperTitleDataTable $dataTable)
+    public function index(TyperTitleDataTable $dataTable)
     {
         return $dataTable->render('admin.typer-title.index');
     }

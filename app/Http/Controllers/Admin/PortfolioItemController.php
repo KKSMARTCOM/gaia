@@ -23,8 +23,8 @@ class PortfolioItemController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.portfolio-item.create', compact('categories'));
+        /* $categories = Category::all(); */
+        return view('admin.portfolio-item.create'/* , compact('categories') */);
     }
 
     /**

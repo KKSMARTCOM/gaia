@@ -13,8 +13,8 @@ class GeneralSettingController extends Controller
      */
     public function index()
     {
-        $setting = GeneralSetting::first();
-        return view('admin.setting.general-setting.index', compact('setting'));
+        /* $setting = GeneralSetting::first(); */
+        return view('admin.setting.general-setting.index'/* , compact('setting') */);
     }
 
     /**

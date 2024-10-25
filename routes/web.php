@@ -55,85 +55,85 @@ Route::post('contact', [HomeController::class, 'contact'])->name('contact');
 
 /** Admin Routes */
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])/* ->middleware(['auth', 'verified']) */->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::/* middleware('auth')-> */group([], function () {
+  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+  Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group([/* 'middleware' => ['auth', 'verified'], */'prefix' => 'admin', 'as' => 'admin.'], function () {
   /** Hero Route */
-    Route::resource('hero', HeroController::class);
-    Route::resource('typer-title', TyperTitleController::class);
+  Route::resource('hero', HeroController::class);
+  Route::resource('typer-title', TyperTitleController::class);
 
-    // ** Service Route */
-    Route::resource('service', ServiceController::class);
+  // ** Service Route */
+  Route::resource('service', ServiceController::class);
 
-    /** About Route */
-    Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
-    Route::resource('about', AboutController::class);
+  /** About Route */
+  Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
+  Route::resource('about', AboutController::class);
 
-    /** Portfolio Category Route */
-    Route::resource('category', CategoryController::class);
+  /** Portfolio Category Route */
+  Route::resource('category', CategoryController::class);
 
-    /** Portfolio Item Route */
-    Route::resource('portfolio-item', PortfolioItemController::class);
+  /** Portfolio Item Route */
+  Route::resource('portfolio-item', PortfolioItemController::class);
 
-    /** Portfolio Section Setting Route */
-    Route::resource('portfolio-section-setting', PortfolioSectionSettingController::class);
+  /** Portfolio Section Setting Route */
+  Route::resource('portfolio-section-setting', PortfolioSectionSettingController::class);
 
-     /** Skill Section Setting Route */
-    Route::resource('skill-section-setting', SkillSectionSettingController::class);
+  /** Skill Section Setting Route */
+  Route::resource('skill-section-setting', SkillSectionSettingController::class);
 
-     /** Skill Items Route */
-    Route::resource('skill-item', SkillItemController::class);
+  /** Skill Items Route */
+  Route::resource('skill-item', SkillItemController::class);
 
-    /** Skill Items Route */
-    Route::resource('experience', ExperienceController::class);
+  /** Skill Items Route */
+  Route::resource('experience', ExperienceController::class);
 
-    /** Feedback Route */
-    Route::resource('feedback', FeedbackController::class);
+  /** Feedback Route */
+  Route::resource('feedback', FeedbackController::class);
 
-    /** Feedback Section Setting Route */
-    Route::resource('feedback-section-setting', FeedbackSectionSettingController::class);
+  /** Feedback Section Setting Route */
+  Route::resource('feedback-section-setting', FeedbackSectionSettingController::class);
 
-    /** Blog Category Route */
-    Route::resource('blog-category', BlogCategoryController::class);
+  /** Blog Category Route */
+  Route::resource('blog-category', BlogCategoryController::class);
 
-    /** Blog Route */
-    Route::resource('blog', BlogController::class);
+  /** Blog Route */
+  Route::resource('blog', BlogController::class);
 
-    /** Blog Section Setting Route */
-    Route::resource('blog-section-setting', BlogSectionSettingController::class);
+  /** Blog Section Setting Route */
+  Route::resource('blog-section-setting', BlogSectionSettingController::class);
 
-    /** Contact Section Setting Route */
-    Route::resource('contact-section-setting', ContactSectionSettingController::class);
+  /** Contact Section Setting Route */
+  Route::resource('contact-section-setting', ContactSectionSettingController::class);
 
-    /** Footer Social Route */
-    Route::resource('footer-social', FooterSocialLinkController::class);
+  /** Footer Social Route */
+  Route::resource('footer-social', FooterSocialLinkController::class);
 
-    /** Footer Info Route */
-    Route::resource('footer-info', FooterInfoController::class);
+  /** Footer Info Route */
+  Route::resource('footer-info', FooterInfoController::class);
 
-    /** Footer Contact Info Route */
-    Route::resource('footer-contact-info', FooterContactInfoController::class);
+  /** Footer Contact Info Route */
+  Route::resource('footer-contact-info', FooterContactInfoController::class);
 
-    /** Footer Useful Links Route */
-    Route::resource('footer-useful-links', FooterUsefulLinkController::class);
+  /** Footer Useful Links Route */
+  Route::resource('footer-useful-links', FooterUsefulLinkController::class);
 
-    /** Footer Help Links Route */
-    Route::resource('footer-help-links', FooterHelpLinkController::class);
+  /** Footer Help Links Route */
+  Route::resource('footer-help-links', FooterHelpLinkController::class);
 
-    /** Settings Route */
-    Route::get('settings', SettingController::class)->name('settings.index');
+  /** Settings Route */
+  Route::get('settings', SettingController::class)->name('settings.index');
 
-    /** General setting Route */
-    Route::resource('general-setting', GeneralSettingController::class);
+  /** General setting Route */
+  Route::resource('general-setting', GeneralSettingController::class);
 
-    /** Seo setting Route */
-    Route::resource('seo-setting', SeoSettingController::class);
+  /** Seo setting Route */
+  Route::resource('seo-setting', SeoSettingController::class);
 });

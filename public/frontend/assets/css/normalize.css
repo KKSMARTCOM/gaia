@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Poppins:400,700,800&amp;display=swap');
 * {
     outline: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 0;
 }
 
 html {
@@ -41,7 +45,7 @@ a:focus {
 
 img {
     max-width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 h1,

@@ -13,8 +13,8 @@ class ExperienceController extends Controller
      */
     public function index()
     {
-        $experience = Experience::first();
-        return view('admin.experience.index', compact('experience'));
+        /* $experience = Experience::first(); */
+        return view('admin.experience.index'/* , compact('experience') */);
     }
 
     /**
@@ -68,11 +68,11 @@ class ExperienceController extends Controller
         Experience::updateOrCreate(
             ['id' => $id],
             [
-               'image' => (!empty($imagePath) ? $imagePath : $experience->image),
-               'title' => $request->title,
-               'description' => $request->description,
-               'phone' => $request->phone,
-               'email' => $request->email
+                'image' => (!empty($imagePath) ? $imagePath : $experience->image),
+                'title' => $request->title,
+                'description' => $request->description,
+                'phone' => $request->phone,
+                'email' => $request->email
             ]
         );
 

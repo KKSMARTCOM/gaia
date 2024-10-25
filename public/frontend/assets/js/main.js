@@ -8,7 +8,7 @@
         $(window).scroll(function () {
             var scrolling = $(this).scrollTop();
 
-            if (scrolling > navoff) {
+            if (scrolling > 100) {
                 $('.main_menu').addClass('menu_fix');
             } else {
                 $('.main_menu').removeClass('menu_fix');
@@ -70,6 +70,20 @@
             }, 1500);
         });
 
+        $('.header-slider').slick({
+            dots: true,
+            arrows: false,
+            infinite: true,
+            centerMode: false,
+            autoplay: true,
+            vertical: false,
+            verticalSwiping: false,
+            speed: 1000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+
+        });
+
         $('.blog-slider').slick({
             dots: false,
             arrows: false,
@@ -118,25 +132,32 @@
             vertical: false,
             verticalSwiping: false,
             speed: 1000,
-            slidesToShow: 2,
+            slidesToShow: 4,
             slidesToScroll: 1,
             responsive: [
                 {
                     breakpoint: 1170,
                     settings: {
-                        slidesToShow: 2,
+                        slidesToShow: 3,
                         slidesToScroll: 1,
                     }
                 },
                 {
                     breakpoint: 992,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: 3,
                         slidesToScroll: 1
                     }
                 },
                 {
                     breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 468,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1

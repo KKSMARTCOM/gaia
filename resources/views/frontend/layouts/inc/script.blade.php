@@ -10,14 +10,13 @@
 <script>
     @if (!empty($errors->all()))
         @foreach ($errors->all() as $error)
-            toastr.error("{{$error}}",)
+            toastr.error("{{ $error }}", )
         @endforeach
     @endif
-
 </script>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         // Csrf token
         $.ajaxSetup({
             headers: {
@@ -26,7 +25,7 @@
         });
 
         // sweet alert for delete
-        $('body').on('click', '.delete-item', function(e){
+        $('body').on('click', '.delete-item', function(e) {
             e.preventDefault();
             let deleteUrl = $(this).attr('href');
 
@@ -38,28 +37,28 @@
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
+            }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
                         type: 'DELETE',
                         url: deleteUrl,
-                        success: function(data){
-                            if(data.status == 'error'){
+                        success: function(data) {
+                            if (data.status == 'error') {
                                 Swal.fire(
-                                'You can not delete!',
-                                'This category contain items cant be deleted!',
-                                'error'
-                            )
-                            }else {
+                                    'You can not delete!',
+                                    'This category contain items cant be deleted!',
+                                    'error'
+                                )
+                            } else {
                                 Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
                                 )
                                 window.location.reload();
                             }
                         },
-                        error: function(xhr, status, error){
+                        error: function(xhr, status, error) {
                             console.log(error);
                         }
                     })
@@ -70,4 +69,3 @@
 </script>
 
 @stack('scripts')
-

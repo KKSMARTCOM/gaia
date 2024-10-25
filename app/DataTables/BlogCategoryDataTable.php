@@ -22,9 +22,9 @@ class BlogCategoryDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function($query){
-                return '<a href="'.route('admin.blog-category.edit', $query->id).'" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                <a href="'.route('admin.blog-category.destroy', $query->id).'" class="btn btn-danger delete-item"><i class="fas fa-trash"></i></a>';
+            ->addColumn('action', function ($query) {
+                return '<a href="' . route('admin.blog-category.edit', $query->id) . '" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                <a href="' . route('admin.blog-category.destroy', $query->id) . '" class="btn btn-danger delete-item"><i class="fas fa-trash"></i></a>';
             })
             ->setRowId('id');
     }
@@ -43,20 +43,20 @@ class BlogCategoryDataTable extends DataTable
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('blogcategory-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    //->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->selectStyleSingle()
-                    ->buttons([
-                        Button::make('excel'),
-                        Button::make('csv'),
-                        Button::make('pdf'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    ]);
+            ->setTableId('blogcategory-table')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            //->dom('Bfrtip')
+            ->orderBy(1)
+            ->selectStyleSingle()
+            ->buttons([
+                Button::make('excel'),
+                Button::make('csv'),
+                Button::make('pdf'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            ]);
     }
 
     /**
@@ -69,10 +69,10 @@ class BlogCategoryDataTable extends DataTable
             Column::make('name'),
             Column::make('slug'),
             Column::computed('action')
-            ->exportable(false)
-            ->printable(false)
-            ->width(200)
-            ->addClass('text-center'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(200)
+                ->addClass('text-center'),
         ];
     }
 

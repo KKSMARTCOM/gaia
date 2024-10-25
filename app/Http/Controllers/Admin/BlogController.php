@@ -23,8 +23,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        $categories = BlogCategory::all();
-        return view('admin.blog.create', compact('categories'));
+        /*  $categories = BlogCategory::all(); */
+        return view('admin.blog.create'/* , compact('categories') */);
     }
 
     /**

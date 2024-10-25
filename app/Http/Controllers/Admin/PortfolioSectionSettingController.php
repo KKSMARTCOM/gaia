@@ -13,8 +13,8 @@ class PortfolioSectionSettingController extends Controller
      */
     public function index()
     {
-        $portfolio = PortfolioSectionSetting::first();
-        return view('admin.portfolio-setting.index', compact('portfolio'));
+        /* $portfolio = PortfolioSectionSetting::first(); */
+        return view('admin.portfolio-setting.index'/* , compact('portfolio') */);
     }
 
     /**

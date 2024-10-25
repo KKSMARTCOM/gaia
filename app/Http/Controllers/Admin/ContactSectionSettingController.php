@@ -13,8 +13,8 @@ class ContactSectionSettingController extends Controller
      */
     public function index()
     {
-        $contactTitle = ContactSectionSetting::first();
-        return view('admin.contact-setting.index', compact('contactTitle'));
+        /* $contactTitle = ContactSectionSetting::first(); */
+        return view('admin.contact-setting.index'/* , compact('contactTitle') */);
     }
 
     /**

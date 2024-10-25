@@ -13,8 +13,8 @@ class SkillSectionSettingController extends Controller
      */
     public function index()
     {
-        $skillSetting = SkillSectionSetting::first();
-        return view('admin.skill-setting.index', compact('skillSetting'));
+        /* $skillSetting = SkillSectionSetting::first(); */
+        return view('admin.skill-setting.index'/* , compact('skillSetting') */);
     }
 
     /**
@@ -61,7 +61,7 @@ class SkillSectionSettingController extends Controller
         ]);
 
         $skill = SkillSectionSetting::first();
-        $imagePath = handleUpload('image',$skill);
+        $imagePath = handleUpload('image', $skill);
 
         SkillSectionSetting::updateOrCreate(
             ['id' => $id],

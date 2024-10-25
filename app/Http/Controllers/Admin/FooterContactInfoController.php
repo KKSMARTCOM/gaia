@@ -13,8 +13,8 @@ class FooterContactInfoController extends Controller
      */
     public function index()
     {
-        $contact = FooterContactInfo::first();
-        return view('admin.footer-contact-info.index', compact('contact'));
+        /* $contact = FooterContactInfo::first(); */
+        return view('admin.footer-contact-info.index'/* , compact('contact') */);
     }
 
     /**
@@ -58,9 +58,9 @@ class FooterContactInfoController extends Controller
             'address' => ['max:500'],
             'phone' => ['max:50'],
             'email' => ['email', 'max:200']
-       ]);
+        ]);
 
-       FooterContactInfo::updateOrCreate(
+        FooterContactInfo::updateOrCreate(
             ['id' => $id],
             [
                 'address' => $request->address,
