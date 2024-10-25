@@ -6,3 +6,20 @@
  */
 
 "use strict";
+
+$(function () {
+    $('.menu-toggle-open').on('click', function () {
+        $('.main-sidebar').css({
+            'left': '0'
+        });
+        $('.menu-toggle-close').css({
+            'display': 'block'
+        });
+    })
+
+    $('.menu-toggle-close').on('click', function () {
+        $('.main-sidebar').css({
+            'left': '-250px'
+        });
+    })
+})

@@ -1,6 +1,8 @@
 <div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
-    <div class="form-inline mr-auto"></div>
+    <div class="form-inline mr-auto">
+        <i class="fas fa-bars menu-toggle-open"></i>
+    </div>
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -31,6 +33,9 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
+
+            <i class="fas fa-arrow-left menu-toggle-close"></i>
+
             <a href="{{ route('dashboard') }}">System Admin</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">

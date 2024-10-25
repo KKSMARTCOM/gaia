@@ -6,3 +6,21 @@
  */
 
 /*# sourceMappingURL=custom.css.map */
+
+ .menu-toggle-open {
+     font-size: 40px;
+     color: white;
+     display: none;
+ }
+
+ .menu-toggle-close{
+    font-size: 40px;
+    color: black;
+    display: none;
+ }
+
+ @media (max-width:1024px) {
+    .menu-toggle-open {
+        display: block;
+    }
+ }
