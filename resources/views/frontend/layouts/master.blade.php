@@ -20,49 +20,42 @@
     </div>
 
     <!-- include Navbar -->
-    @if (Request::is('/'))
-        <nav class="navbar navbar-expand-lg main_menu" id="main_menu_area">
-            <div class="container">
-                <a class="navbar-brand" href="/">
-                    <img src="{{ asset('frontend/assets/images/logo-b.png') }}" alt="logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="far fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#home-page">Acceuil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about-page">Services</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#portfolio-page">Réalisations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#skills-page">Recrutement</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact-page">Contact</a>
-                        </li>
-                        <li class="">
-                            <a class="nav-button" href="">Demander
-                                un
-                                essai</a>
-                        </li>
-                    </ul>
-                </div>
-
+    <nav class="navbar navbar-expand-lg main_menu" id="main_menu_area">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="{{ asset('frontend/assets/images/logo-b.png') }}" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="far fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home-page">Acceuil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-page">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio-page">Réalisations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills-page">Recrutement</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-page">Contact</a>
+                    </li>
+                    <li class="">
+                        <a class="nav-button" href="">Demander
+                            un
+                            essai</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    @else
-        @include('frontend.layouts.inc.navbar')
-    @endif
 
-
-
+        </div>
+    </nav>
 
 
     <div class="main_wrapper" data-bs-spy="scroll" data-bs-target="#main_menu_area" data-bs-root-margin="0px 0px -40%"

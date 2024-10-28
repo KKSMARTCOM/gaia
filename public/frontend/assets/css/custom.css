@@ -1,0 +1,28 @@
+.button-blue {
+    display: inline-block;
+    color: #ffffff;
+    background-color: #190844;
+    padding: 18px 40px;
+    border: 1px solid #190844;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.button-blue:hover {
+    color: #ffffff;
+}
+
+.load-more-blue,
+.button-blue-trans {
+    display: inline-block;
+    color: #190844;
+    padding: 15px 40px;
+    border: 1px solid #190844;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.load-more-blue:hover,
+.button-blue-trans:hover {
+    color: #ffffff;
+}

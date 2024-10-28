@@ -68,4 +68,9 @@ class HomeController extends Controller
 
         return response(['status' => 'success', 'message' => 'Mail Sended Successfully!']);
     }
+
+    public function about()
+    {
+        return view('frontend.pages.about');
+    }
 }

@@ -46,6 +46,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
 
 Route::get('blogs', [HomeController::class, 'blog'])->name('blog');
+Route::get('about', [HomeController::class, 'about'])->name('about');
 
 Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
 
