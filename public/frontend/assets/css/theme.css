@@ -3,8 +3,8 @@ body {
 }
 
 .section-padding {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .section-padding-top {
@@ -62,7 +62,7 @@ Button-Styles
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: #ff885e;
+    background: #190844;
     -webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
     transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
@@ -743,6 +743,10 @@ blockquote {
 /* ----------------------
 09. Testimonial-Area
 ----------------------- */
+.testimonial-area{
+    padding-bottom: 20px;
+}
+
 .testimonial-area .title{
     margin-bottom: 40px;
 }
