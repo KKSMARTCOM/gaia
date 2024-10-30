@@ -54,7 +54,6 @@ class HomeController extends Controller
         return view('frontend.pages.portfolio');
     }
 
-
     public function contact(Request $request)
     {
         $request->validate([
@@ -66,11 +65,37 @@ class HomeController extends Controller
 
         Mail::send(new ContactMail($request->all()));
 
-        return response(['status' => 'success', 'message' => 'Mail Sended Successfully!']);
+        return response(['status' => 'success', 'message' => 'Mail envoyé avec succès !']);
     }
 
     public function about()
     {
         return view('frontend.pages.about');
     }
+
+    public function realisations()
+    {
+        return view('frontend.pages.realisations');
+    }
+
+    public function showContactForm()
+    {
+        return view('frontend.pages.contact');
+    }
+
+    public function choixcategorie()
+    {
+        return view('frontend.pages.choixcategorie');
+    }
+
+    public function devis()
+    {
+        return view('frontend.pages.devis');
+    }
+
+    public function essai()
+    {
+        return view('frontend.pages.essai');
+    }
+    
 }

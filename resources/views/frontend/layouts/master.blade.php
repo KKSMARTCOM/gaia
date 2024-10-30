@@ -38,18 +38,16 @@
                         <a class="nav-link" href="#about-page">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#portfolio-page">Réalisations</a>
+                        <a class="nav-link" href="{{ route('realisations') }}">Réalisations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#skills-page">Recrutement</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact-page">Contact</a>
+                        <a class="nav-link" href="{{ route('contact') }}">Contact</a>
                     </li>
                     <li class="">
-                        <a class="nav-button" href="">Demander
-                            un
-                            essai</a>
+                        <a class="nav-button" href="{{ route('choixcategorie') }}">Demander un essai</a>
                     </li>
                 </ul>
             </div>
