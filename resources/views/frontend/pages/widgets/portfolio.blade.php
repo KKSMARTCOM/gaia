@@ -15,9 +15,10 @@
             <div class="row">
                 <div data-wow-delay="0.3s" class="col-md-12 col-lg-6 wow fadeInLeft filter-item">
                     <div class="single-portfolio achievement-text">
-                        <h4>Titre de la réalisation</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quibusdam nostrum.
-                            Aliquid impedit minima deleniti in libero, eligendi tenetur quasi?..</p>
+                        <h4>EIFFAGE GC MARINE BENIN</h4>
+                        <p>Évaluation Géotechnique pré-compactage du remblai
+                            dans le cadre du projet de réhabilitation de
+                            l'ancien quai du Port Autonome de Cotonou...</p>
                         <a href="{{ route('show.achievement') }}" class="button-blue-trans mouse-dir">En savoir plus
                             <span class="dir-part"></span></a>
                     </div>
@@ -25,16 +26,16 @@
 
                 <div data-wow-delay="0.3s" class="col-md-12 col-lg-6 wow fadeInRight filter-item">
                     <div class="single-portfolio achievement-image">
-                        <figure class="portfolio-image">
-                            <img src="{{ asset('frontend/assets/images/portfolio-block.jpg') }}" alt="">
+                        <figure class="about-image image-container">
+                            <img src="{{ asset('frontend/assets/images/realisation1.png') }}" alt="">
                         </figure>
                     </div>
                 </div>
 
                 <div data-wow-delay="0.5s" class="col-md-12 col-lg-6 wow fadeInLeft filter-item">
                     <div class="single-portfolio archievement-image">
-                        <figure class="portfolio-image">
-                            <img src="{{ asset('frontend/assets/images/portfolio-block.jpg') }}" alt="">
+                        <figure class="about-image image-container">
+                            <img src="{{ asset('frontend/assets/images/realisation2.png') }}" alt="">
                         </figure>
 
                     </div>
@@ -42,9 +43,9 @@
 
                 <div data-wow-delay="0.5s" class="col-md-12 col-lg-6 wow fadeInRight filter-item">
                     <div class="single-portfolio achievement-text">
-                        <h4>Titre de la réalisation</h4>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quibusdam nostrum.
-                            Aliquid impedit minima deleniti in libero, eligendi tenetur quasi?..</p>
+                        <h4>ARYA</h4>
+                        <p>Mission d'ingénierie géotechnique G2 AVP dans le cadre
+                            du projet de rénovation du temple des Pythons à Ouidah...</p>
                         <a href="{{ route('show.achievement') }}" class="button-blue-trans mouse-dir">En savoir plus
                             <span class="dir-part"></span></a>
                     </div>
@@ -53,9 +54,9 @@
             </div>
             <div class="row">
                 <div class="text-center">
-                    <button class="button-blue-trans mouse-dir">Afficher toutes les réalisations <span
-                            class="dir-part"></span>
-                    </button>
+                    <a href="{{ route('realisations') }}" class="button-blue-trans mouse-dir">Afficher toutes les
+                        réalisations <span class="dir-part"></span>
+                    </a>
                 </div>
 
             </div>

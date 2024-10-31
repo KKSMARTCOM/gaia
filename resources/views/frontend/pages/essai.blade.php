@@ -6,7 +6,7 @@
     {{-- Hero section --}}
 
     <!-- Essai-Area-Start -->
-    <section class="section-padding">
+    <section class="section-padding-gaia">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3 text-center">
@@ -15,9 +15,11 @@
                     </div>
                 </div>
                 <div class="col-sm-12">
-                    <p>{{ $devisTitle->sub_title ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fermentum eu mi nec tristique. Aenean vel nulla
-                    tempus, tincidunt massa et, congue enim. Fusce tincidunt tincidunt velit in feugiat. Vestibuenim. Morbi viverra
-                    luctus. In rhoncus viverra ligula vel aliquam. Phasellus vestibulum maximus arcu a sollicitudin. ' }}</p>
+                    <p>{{ $devisTitle->sub_title ??
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fermentum eu mi nec tristique. Aenean vel nulla
+                                                                                                    tempus, tincidunt massa et, congue enim. Fusce tincidunt tincidunt velit in feugiat. Vestibuenim. Morbi viverra
+                                                                                                    luctus. In rhoncus viverra ligula vel aliquam. Phasellus vestibulum maximus arcu a sollicitudin. ' }}
+                    </p>
                 </div>
             </div><br>
             <div class="row">
@@ -28,49 +30,54 @@
                         <div class="row">
 
                             <!-- Nom -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-3">
+                                <label for="form-nom" class="form-label">Nom *</label>
                                 <div class="form-box">
-                                    <label for="form-nom" class="form-label">Nom *</label>
-                                    <input type="text" name="nom" id="form-nom" class="input-box" placeholder="Ex : Jae" required>
+                                    <input type="text" name="nom" id="form-nom" class="input-box"
+                                        placeholder="Ex : Jae" required>
                                 </div>
                             </div>
 
                             <!-- Prénoms -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-3">
+                                <label for="form-prenoms" class="form-label">Prénoms *</label>
                                 <div class="form-box">
-                                    <label for="form-prenoms" class="form-label">Prénoms *</label>
-                                    <input type="text" name="prenoms" id="form-prenoms" class="input-box" placeholder="Ex : John" required>
+                                    <input type="text" name="prenoms" id="form-prenoms" class="input-box"
+                                        placeholder="Ex : John" required>
                                 </div>
                             </div>
 
                             <!-- Téléphone -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-3">
+                                <label for="form-telephone" class="form-label">Téléphone</label>
                                 <div class="form-box">
-                                    <label for="form-telephone" class="form-label">Téléphone</label>
-                                    <input type="text" name="telephone" id="form-telephone" class="input-box" placeholder="Ex : +229 75102365">
+                                    <input type="text" name="telephone" id="form-telephone" class="input-box"
+                                        placeholder="Ex : +229 75102365">
                                 </div>
                             </div>
 
                             <!-- Email -->
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-3">
+                                <label for="form-email" class="form-label">Email *</label>
                                 <div class="form-box">
-                                    <label for="form-email" class="form-label">Email *</label>
-                                    <input type="email" name="email" id="form-email" class="input-box" placeholder="Ex : john@gmail.com" required>
+                                    <input type="email" name="email" id="form-email" class="input-box"
+                                        placeholder="Ex : john@gmail.com" required>
                                 </div>
                             </div>
 
                             <!-- Adresse -->
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 mb-3">
+                                <label for="form-adresse" class="form-label">Adresse</label>
                                 <div class="form-box">
-                                    <label for="form-adresse" class="form-label">Adresse</label>
-                                    <input type="text" name="adresse" id="form-adresse" class="input-box" placeholder="Ex : Pavillon bleu Rue 190">
+                                    <input type="text" name="adresse" id="form-adresse" class="input-box"
+                                        placeholder="Ex : Pavillon bleu Rue 190">
                                 </div>
                             </div>
 
                             <!-- Type de bâtiments  -->
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 mb-3">
+                                <label for="form-adresse" class="form-label">Type de bâtiments *</label>
                                 <div class="form-box">
-                                    <label for="form-adresse" class="form-label">Type de bâtiments  *</label>
                                     <select name="batiments" id="form-batiments" class="input-box" required>
                                         <option value="" disabled selected>Ex : R+3</option>
                                         <option value="Banikoara">R + 2</option>
@@ -80,9 +87,9 @@
                             </div>
 
                             <!-- Commune -->
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 mb-3">
+                                <label for="form-adresse" class="form-label">Commune *</label>
                                 <div class="form-box">
-                                    <label for="form-adresse" class="form-label">Commune *</label>
                                     <select name="commune" id="form-commune" class="input-box" required>
                                         <option value="" disabled selected>Choisissez une commune</option>
                                         <option value="Banikoara">Banikoara</option>
@@ -167,24 +174,25 @@
                             </div>
 
                             <!-- Levé topographique du site -->
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 mb-3">
+                                <label for="form-plan" class="form-label">Levé topographique du site</label>
                                 <div class="form-box" style="position: relative;">
-                                    <label for="form-plan" class="form-label">Levé topographique du site</label>
-                                    <input type="file" name="plan_topographique" id="form-plan" accept=".pdf,.dwg" required 
-                                        onchange="updatePlaceholder(this)" style="opacity: 0; position: absolute; z-index: -1;">
-                                    <input type="text" class="input-box" id="custom-file-input" 
-                                        placeholder="Ex : levé topographique .pdf" 
+                                    <input type="file" name="plan_topographique" id="form-plan" accept=".pdf,.dwg"
+                                        required onchange="updatePlaceholder(this)"
+                                        style="opacity: 0; position: absolute; z-index: -1;">
+                                    <input type="text" class="input-box" id="custom-file-input"
+                                        placeholder="Ex : levé topographique .pdf"
                                         onclick="document.getElementById('form-plan').click();" readonly>
-                                    <i class="fa fa-download" aria-hidden="true" 
-                                    style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;" 
-                                    onclick="document.getElementById('form-plan').click();"></i>
+                                    <i class="fa fa-download" aria-hidden="true"
+                                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"
+                                        onclick="document.getElementById('form-plan').click();"></i>
                                 </div>
                             </div>
 
                             <!-- Bouton de soumission aligné à droite -->
                             <div class="col-sm-12 text-right">
-                                <button class="button-blue-trans mouse-dir wow fadeInUp"
-                                    data-wow-delay="0.5s" type="submit" id="submit_btn">
+                                <button class="button-blue-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s"
+                                    type="submit" id="submit_btn">
                                     <span class="text">Procéder au paiement</span>
                                     <span class="dir-part"></span>
                                 </button>
@@ -203,5 +211,3 @@
     <!-- Testimonial-Area-End -->
 
 @endsection
-
-

@@ -24,8 +24,8 @@
             </div>
             <div class="col-lg-6">
                 <figure class="about-image">
-                    <img src="{{ asset('frontend/assets/images/about-image.png') }}" alt="" class="wow fadeInUp"
-                        data-wow-delay="0.3s">
+                    <img src="{{ asset('frontend/assets/images/realisation15.png') }}" alt=""
+                        class="wow fadeInUp" data-wow-delay="0.3s">
                 </figure>
             </div>
         </div>

@@ -38,7 +38,7 @@
                         <a class="nav-link" href="/#services-page">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('realisations') }}">Réalisations</a>
+                        <a class="nav-link" href="/#achievements-page">Réalisations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('jobs') }}">Recrutement</a>

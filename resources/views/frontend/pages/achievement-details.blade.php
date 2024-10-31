@@ -19,7 +19,8 @@
                     </div>
                     <div class="achievement-image">
                         <figure class="image-block">
-                            <img class="img-fix" src="{{ asset('uploads/836320862668555.jpg') }}" alt="">
+                            <img class="img-fix" src="{{ asset('frontend/assets/images/realisation39.png') }}"
+                                alt="">
                         </figure>
                     </div>
                     <div class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam similique nemo
