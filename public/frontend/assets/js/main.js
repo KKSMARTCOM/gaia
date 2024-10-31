@@ -5,13 +5,26 @@
     //======menu fix js======
     if ($('.main_menu').offset() != undefined) {
         var navoff = $('.main_menu').offset().top;
+
+        const logoAltPath = "{{ asset('frontend/assets/images/logo-b.png') }}";
+
+        const logoOriginalPath = "{{ asset('frontend/assets/images/logo-w.png') }}";
+
+        console.log(logoAltPath, logoOriginalPath);
+
         $(window).scroll(function () {
             var scrolling = $(this).scrollTop();
 
             if (scrolling > 100) {
                 $('.main_menu').addClass('menu_fix');
+
+                // Changer l'image pour le logo après 100px de défilement
+                //$('.change-logo').attr('src', logoAltPath);
             } else {
                 $('.main_menu').removeClass('menu_fix');
+
+                // Changer l'image pour le logo après 100px de défilement
+                //$('.change-logo').attr('src', logoOriginalPath);
             }
         });
     }

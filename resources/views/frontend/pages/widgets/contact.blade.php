@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">
                 <div class="section-title">
-                    <h3 class="title">{{ $contactTitle->title ?? 'Contact' }}</h3>
+                    <h3 class="title">Contact</h3>
                     <div class="desc">
-                        <p>{{ $contactTitle->sub_title ?? 'Remplissez le formulaire pour nous contacter' }}</p>
+                        <p>Remplissez le formulaire pour nous contacter</p>
                     </div>
                 </div>
             </div>
@@ -15,38 +15,97 @@
                 <!-- Contact-Form -->
                 <form class="contact-form" id="contact-form">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
+                            <label for="form-name" class="icon lb-name">Nom <span class="text-danger"> *</span> </label>
                             <div class="form-box">
                                 <input type="text" name="name" id="form-name" class="input-box"
-                                    placeholder="Name">
+                                    placeholder="Ex: Doe">
                                 <label for="form-name" class="icon lb-name"><i class="fal fa-user"></i></label>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
+                            <label for="form-name" class="icon lb-name">Prénom <span class="text-danger">
+                                    *</span></label>
                             <div class="form-box">
                                 <input type="text" name="email" id="form-email" class="input-box"
-                                    placeholder="Email">
-                                <label for="form-email" class="icon lb-email"><i class="fal fa-envelope"></i></label>
+                                    placeholder="Ex: John">
+                                <label for="form-name" class="icon lb-name"><i class="fal fa-user"></i></label>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
+                            <label for="form-name" class="icon lb-name">Société</label>
                             <div class="form-box">
                                 <input type="text" name="subject" id="form-subject" class="input-box"
-                                    placeholder="Subject">
+                                    placeholder="Ex: Doe SA">
                                 <label for="form-subject" class="icon lb-subject"><i
                                         class="fal fa-check-square"></i></label>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-md-6">
+                            <label for="form-name" class="icon lb-name">Fonction</label>
                             <div class="form-box">
-                                <textarea class="input-box" id="form-message" placeholder="Message" cols="30" rows="4" name="message"></textarea>
+                                <input type="text" name="subject" id="form-subject" class="input-box"
+                                    placeholder="Ex: PDG">
+                                <label for="form-subject" class="icon lb-subject"><i
+                                        class="fal fa-check-square"></i></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="form-name" class="icon lb-name">Téléphone</label>
+                            <div class="form-box">
+                                <input type="text" name="subject" id="form-subject" class="input-box"
+                                    placeholder="Ex: 00000000">
+                                <label for="form-subject" class="icon lb-subject"><i class="fal fa-phone"></i></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="form-name" class="icon lb-name">Email <span class="text-danger">
+                                    *</span></label>
+                            <div class="form-box">
+                                <input type="text" name="subject" id="form-subject" class="input-box"
+                                    placeholder="Ex: john@example.com">
+                                <label for="form-subject" class="icon lb-subject"><i
+                                        class="fal fa-envelope"></i></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="form-name" class="icon lb-name">Adresse</label>
+                            <div class="form-box">
+                                <input type="text" name="subject" id="form-subject" class="input-box"
+                                    placeholder="Ex: Agla, Cotonou, Bénin">
+                                <label for="form-message" class="icon lb-message"><i class="fal fa-map"></i></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="form-name" class="icon lb-name">Code postal</label>
+                            <div class="form-box">
+                                <input type="text" name="subject" id="form-subject" class="input-box"
+                                    placeholder="Ex: 00229">
+                                <label for="form-subject" class="icon lb-subject"><i
+                                        class="fal fa-check-square"></i></label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="form-name" class="icon lb-name">Ville</label>
+                            <div class="form-box">
+                                <input type="text" name="subject" id="form-subject" class="input-box"
+                                    placeholder="Ex: Cotonou">
+                                <label for="form-subject" class="icon lb-subject"><i class="fal fa-map"></i></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="form-name" class="icon lb-name">Message <span class="text-danger">
+                                    *</span></label>
+                            <div class="form-box">
+                                <textarea class="input-box" id="form-message" placeholder="Donnez-nous plus de détails..." cols="30"
+                                    rows="4" name="message"></textarea>
                                 <label for="form-message" class="icon lb-message"><i class="fal fa-edit"></i></label>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-box">
-                                <button class="button-primary mouse-dir" type="submit" id="submit_btn">Send Now <span
-                                        class="dir-part"></span></button>
+                                <button class="button-blue-trans mouse-dir" type="submit" id="submit_btn">Envoyer
+                                    <span class="dir-part"></span></button>
                             </div>
                         </div>
                     </div>

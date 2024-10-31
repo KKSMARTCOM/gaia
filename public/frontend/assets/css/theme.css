@@ -463,9 +463,6 @@ Button-Styles
     color: #fff;
 }
 
-.portfolio-wrapper {
-    margin-bottom: -30px;
-}
 
 .single-portfolio {
     position: relative;
@@ -778,7 +775,7 @@ blockquote {
 }
 
 .input-box {
-    padding: 24px 30px;
+    padding: 10px 20px;
     width: 100%;
     background-color: #ffffff;
     -webkit-transition: 0.3s;
@@ -794,7 +791,7 @@ blockquote {
 .input-box:focus {
     -webkit-box-shadow: 16px 16px 32px 0 rgba(0, 0, 0, 0.05);
     box-shadow: 16px 16px 32px 0 rgba(0, 0, 0, 0.05);
-    border: 1px solid #ff885e;
+    border: 1px solid #282828;
 }
 
 .contact-form .input-box {
@@ -832,7 +829,7 @@ blockquote {
 .form-box .icon {
     position: absolute;
     right: 15px;
-    top: 15px;
+    bottom: 50%;
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -848,22 +845,22 @@ blockquote {
 
 .contact-form ::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
-    color: #282828;
+    color: #cdd1d4;
 }
 
 .contact-form ::-moz-placeholder {
     /* Firefox 19+ */
-    color: #282828;
+    color: #cdd1d4;
 }
 
 .contact-form :-ms-input-placeholder {
     /* IE 10+ */
-    color: #282828;
+    color: #cdd1d4;
 }
 
 .contact-form :-moz-placeholder {
     /* Firefox 18- */
-    color: #282828;
+    color: #cdd1d4;
 }
 
 /* ----------------------
@@ -1033,8 +1030,8 @@ blockquote {
 Footer-Area
 --------------------- */
 .footer-area {
-    padding-top: 90px;
-    /* padding-bottom: 30px; */
+    padding-top: 60px;
+    padding-bottom: 60px;
     background-color: #190844;
 }
 
@@ -1417,8 +1414,9 @@ Footer-Area
 }
 
 .single-service {
-    padding: 25px;
-    background: #f3f7ff;
+    position: relative;
+    padding: 20px;
+    border: 2px solid #f3f7ff;
     border-radius: 10px;
 }
 

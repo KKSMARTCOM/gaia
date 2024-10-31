@@ -2,21 +2,24 @@
     display: inline-block;
     color: #ffffff;
     background-color: #190844;
-    padding: 18px 40px;
+    padding: 8px 15px;
+    border-radius: 20px;
     border: 1px solid #190844;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
+    transition: all ease-in-out .3s;
 }
 
 .button-blue:hover {
-    color: #ffffff;
+    color: #190844;
+    background-color: #ffffff;
 }
 
 .load-more-blue,
 .button-blue-trans {
     display: inline-block;
     color: #190844;
-    padding: 15px 40px;
+    padding: 10px 30px;
     border: 1px solid #190844;
     font-size: 16px;
     font-weight: 600;
@@ -25,4 +28,111 @@
 .load-more-blue:hover,
 .button-blue-trans:hover {
     color: #ffffff;
+}
+
+.section-padding-gaia{
+    padding-top: 80px;
+}
+
+.single-service-icon{
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    border: 2px solid #f3f7ff;
+    background-color: #ffffff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -45px;
+
+}
+
+.single-service-container {
+    padding: 20px;
+}
+
+.service-more{
+    display: none;
+}
+
+.footer-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu li a{
+    color: #ffffff;
+}
+
+.footer-icon {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-icon a i{
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.footer-contact{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+}
+
+.footer-contact i{
+    font-size: 20px;
+}
+
+.footer-contact i, .footer-contact p{
+    margin: 0;
+    color: #ffffff;
+}
+
+.contact-gaia{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.job-container{
+    margin-top: 60px;
+    padding: 20px;
+    border: 2px solid #f3f7ff;
+    border-radius: 20px;
+}
+
+.job-container button{
+    border: none;
+    padding: 8px 20px;
+    border-radius: 10px;
+    background-color: #190844;
+    border: 1px solid #190844;
+    color: #ffffff;
+    transition: all ease-in-out .3s;
+}
+
+.job-container button:hover{
+    background-color: #f3f7ff;
+    color: #190844;
+}
+
+.achievement-image{
+    height: 300px;
+    margin-bottom: 50px;  
+}
+
+.achievement-image figure {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width:768px) {
+    
 }

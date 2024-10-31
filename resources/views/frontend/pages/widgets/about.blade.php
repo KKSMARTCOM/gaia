@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="row d-flex align-items-center">
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-5 mb-lg-0">
                 <div class="about-text">
                     {{-- <h3 class="title wow fadeInUp" data-wow-delay="0.3s">
                         {{ 'De la construction à la finition' }}</h3> --}}

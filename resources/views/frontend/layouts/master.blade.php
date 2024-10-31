@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg main_menu" id="main_menu_area">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('frontend/assets/images/logo-b.png') }}" alt="logo">
+                <img src="{{ asset('frontend/assets/images/logo-b.png') }}" alt="logo" class="change-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,19 +32,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#home-page">Acceuil</a>
+                        <a class="nav-link active" aria-current="page" href="/#home-page">Acceuil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#about-page">Services</a>
+                        <a class="nav-link" href="/#services-page">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#portfolio-page">Réalisations</a>
+                        <a class="nav-link" href="/#achievements-page">Réalisations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills-page">Recrutement</a>
+                        <a class="nav-link" href="{{ route('jobs') }}">Recrutement</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact-page">Contact</a>
+                        <a class="nav-link" href="/#contact-page">Contact</a>
                     </li>
                     <li class="">
                         <a class="nav-button" href="">Demander

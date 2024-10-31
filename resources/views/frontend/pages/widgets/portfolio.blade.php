@@ -1,4 +1,4 @@
-<section class="portfolio-area section-padding-top" id="portfolio-page">
+<section class="portfolio-area section-padding-top" id="achievements-page">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">
@@ -11,74 +11,51 @@
             </div>
         </div>
 
-        <div class="portfolio-wrapper">
-            <div class="row portfolios">
-                <div data-wow-delay="0.3s" class="col-md-6 col-lg-4 filter-item {{ 'batiment' }}">
-                    <div class="single-portfolio">
-                        <figure class="portfolio-image">
-                            <img src="{{ asset('frontend/assets/images/portfolio-block.jpg') }}" alt="">
-                        </figure>
-                        <div class="portfolio-content">
-                            <a href="{{ asset('frontend/assets/images/portfolio-1.jpg') }}" data-lity class="icon"><i
-                                    class="fas fa-plus"></i></a>
-                            <h4 class="title"><a href="{{ route('show.portfolio', 1) }}">{{ 'Batiment' }}</a>
-                            </h4>
-                            <div class="desc">
-                                <p>{!! Str::limit(strip_tags('Lorem ipsum dolor sit amet consectetur adipisicing elit.'), 100) !!}</p>
-                            </div>
-                        </div>
+        <div class="">
+            <div class="row">
+                <div data-wow-delay="0.3s" class="col-md-12 col-lg-6 wow fadeInLeft filter-item">
+                    <div class="single-portfolio achievement-text">
+                        <h4>Titre de la réalisation</h4>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quibusdam nostrum.
+                            Aliquid impedit minima deleniti in libero, eligendi tenetur quasi?..</p>
+                        <a href="{{ route('show.achievement') }}" class="button-blue-trans mouse-dir">En savoir plus
+                            <span class="dir-part"></span></a>
                     </div>
                 </div>
 
-                <div data-wow-delay="0.3s" class="col-md-6 col-lg-4 filter-item {{ 'batiment' }}">
-                    <div class="single-portfolio">
+                <div data-wow-delay="0.3s" class="col-md-12 col-lg-6 wow fadeInRight filter-item">
+                    <div class="single-portfolio achievement-image">
                         <figure class="portfolio-image">
                             <img src="{{ asset('frontend/assets/images/portfolio-block.jpg') }}" alt="">
                         </figure>
-                        <div class="portfolio-content">
-                            <a href="{{ asset('frontend/assets/images/portfolio-1.jpg') }}" data-lity class="icon"><i
-                                    class="fas fa-plus"></i></a>
-                            <h4 class="title"><a href="{{ route('show.portfolio', 1) }}">{{ 'Batiment' }}</a>
-                            </h4>
-                            <div class="desc">
-                                <p>{!! Str::limit(strip_tags('Lorem ipsum dolor sit amet consectetur adipisicing elit.'), 100) !!}</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <div data-wow-delay="0.3s" class="col-md-6 col-lg-4 filter-item {{ 'batiment' }}">
-                    <div class="single-portfolio">
+                <div data-wow-delay="0.5s" class="col-md-12 col-lg-6 wow fadeInLeft filter-item">
+                    <div class="single-portfolio archievement-image">
                         <figure class="portfolio-image">
                             <img src="{{ asset('frontend/assets/images/portfolio-block.jpg') }}" alt="">
                         </figure>
-                        <div class="portfolio-content">
-                            <a href="{{ asset('frontend/assets/images/portfolio-1.jpg') }}" data-lity class="icon"><i
-                                    class="fas fa-plus"></i></a>
-                            <h4 class="title"><a href="{{ route('show.portfolio', 1) }}">{{ 'Batiment' }}</a>
-                            </h4>
-                            <div class="desc">
-                                <p>{!! Str::limit(strip_tags('Lorem ipsum dolor sit amet consectetur adipisicing elit.'), 100) !!}</p>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
 
-                <div data-wow-delay="0.3s" class="col-md-6 col-lg-4 filter-item {{ 'batiment' }}">
-                    <div class="single-portfolio">
-                        <figure class="portfolio-image">
-                            <img src="{{ asset('frontend/assets/images/portfolio-block.jpg') }}" alt="">
-                        </figure>
-                        <div class="portfolio-content">
-                            <a href="{{ asset('frontend/assets/images/portfolio-1.jpg') }}" data-lity class="icon"><i
-                                    class="fas fa-plus"></i></a>
-                            <h4 class="title"><a href="{{ route('show.portfolio', 1) }}">{{ 'Batiment' }}</a>
-                            </h4>
-                            <div class="desc">
-                                <p>{!! Str::limit(strip_tags('Lorem ipsum dolor sit amet consectetur adipisicing elit.'), 100) !!}</p>
-                            </div>
-                        </div>
+                <div data-wow-delay="0.5s" class="col-md-12 col-lg-6 wow fadeInRight filter-item">
+                    <div class="single-portfolio achievement-text">
+                        <h4>Titre de la réalisation</h4>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto, quibusdam nostrum.
+                            Aliquid impedit minima deleniti in libero, eligendi tenetur quasi?..</p>
+                        <a href="{{ route('show.achievement') }}" class="button-blue-trans mouse-dir">En savoir plus
+                            <span class="dir-part"></span></a>
                     </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <button class="button-blue-trans mouse-dir">Afficher toutes les réalisations <span
+                            class="dir-part"></span>
+                    </button>
                 </div>
 
             </div>

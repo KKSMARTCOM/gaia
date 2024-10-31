@@ -49,6 +49,9 @@ Route::get('blogs', [HomeController::class, 'blog'])->name('blog');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 
 Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
+Route::get('service-details', [HomeController::class, 'showService'])->name('show.service');
+Route::get('achievement-details', [HomeController::class, 'showAchievement'])->name('show.achievement');
+Route::get('jobs', [HomeController::class, 'jobs'])->name('jobs');
 
 Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 Route::post('contact', [HomeController::class, 'contact'])->name('contact');
