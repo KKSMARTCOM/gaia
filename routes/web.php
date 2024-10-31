@@ -47,6 +47,18 @@ Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->
 
 Route::get('blogs', [HomeController::class, 'blog'])->name('blog');
 Route::get('about', [HomeController::class, 'about'])->name('about');
+// Route pour afficher les réalisations
+Route::get('realisations', [HomeController::class, 'realisations'])->name('realisations');
+// Route pour afficher le formulaire de contact
+Route::get('contact', [HomeController::class, 'showContactForm'])->name('contact');
+// Route pour soumettre le formulaire de contact
+Route::post('contact', [HomeController::class, 'contact'])->name('contact.submit');
+// Route pour afficher le formulaire de choix de categorie client
+Route::get('choixcategorie', [HomeController::class, 'choixcategorie'])->name('choixcategorie');
+// Route pour afficher le formulaire de devis
+Route::get('devis', [HomeController::class, 'devis'])->name('devis');
+// Route pour afficher le formulaire d'essai
+Route::get('essai', [HomeController::class, 'essai'])->name('essai');
 
 Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
 Route::get('service-details', [HomeController::class, 'showService'])->name('show.service');
@@ -54,7 +66,7 @@ Route::get('achievement-details', [HomeController::class, 'showAchievement'])->n
 Route::get('jobs', [HomeController::class, 'jobs'])->name('jobs');
 
 Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
-Route::post('contact', [HomeController::class, 'contact'])->name('contact');
+Route::post('contact', [HomeController::class, 'contact'])->name('contact.submit');
 
 
 /** Admin Routes */
