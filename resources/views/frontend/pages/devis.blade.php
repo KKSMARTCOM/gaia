@@ -36,11 +36,11 @@
                                     placeholder="Ex : Jae & fils">
                             </div>
 
-                            <!-- Fonction -->
+                            <!-- Email -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-fonction" class="form-label">Fonction *</label>
-                                <input type="text" name="fonction" id="form-fonction" class="input-box"
-                                    placeholder="Ex : DG" required>
+                                <label for="form-email" class="form-label">Email *</label>
+                                <input type="email" name="email" id="form-email" class="input-box"
+                                    placeholder="Ex : john@gmail.com" required>
                             </div>
 
                             <!-- Nom -->
@@ -57,124 +57,11 @@
                                     placeholder="Ex : John" required>
                             </div>
 
-                            <!-- Téléphone -->
-                            <div class="col-md-6 mb-3">
-                                <label for="form-telephone" class="form-label">Téléphone</label>
-                                <input type="text" name="telephone" id="form-telephone" class="input-box"
-                                    placeholder="Ex : +229 75102365">
-                            </div>
-
-                            <!-- Email -->
-                            <div class="col-md-6 mb-3">
-                                <label for="form-email" class="form-label">Email *</label>
-                                <input type="email" name="email" id="form-email" class="input-box"
-                                    placeholder="Ex : john@gmail.com" required>
-                            </div>
-
-                            <!-- Adresse -->
-                            <div class="col-sm-12 mb-3">
-                                <label for="form-adresse" class="form-label">Adresse *</label>
-                                <input type="text" name="adresse" id="form-adresse" class="input-box"
-                                    placeholder="Ex : Pavillon bleu Rue 190" required>
-                            </div>
-
-                            <!-- Ville -->
-                            <div class="col-sm-12 mb-3">
-                                <label for="form-ville" class="form-label">Ville *</label>
-                                <input type="text" name="ville" id="form-ville" class="input-box"
-                                    placeholder="Ex : Cotonou" required>
-                            </div>
-
                             <!-- Adresse d'intervention -->
                             <div class="col-sm-12 mb-3">
                                 <label for="form-adresse" class="form-label">Adresse d'intervention *</label>
                                 <input type="text" name="adresseintervention" id="form-adresse" class="input-box"
                                     placeholder="Ex : Von panthère Rue 387" required>
-                            </div>
-
-                            <!-- Commune d'intervention -->
-                            <div class="col-sm-12 mb-3">
-                                <label for="form-adresse" class="form-label">Commune d'intervention *</label>
-                                <select name="communeintervention" id="form-adresse" class="input-box" required>
-                                    <option value="" disabled selected>Choisissez une commune</option>
-                                    <option value="Banikoara">Banikoara</option>
-                                    <option value="Gogounou">Gogounou</option>
-                                    <option value="Kandi (chef-lieu)">Kandi (chef-lieu)</option>
-                                    <option value="Karimama">Karimama</option>
-                                    <option value="Malanville">Malanville</option>
-                                    <option value="Segbana">Segbana</option>
-                                    <option value="Boukoumbé">Boukoumbé</option>
-                                    <option value="Cobly">Cobly</option>
-                                    <option value="Kérou">Kérou</option>
-                                    <option value="Kouandé">Kouandé</option>
-                                    <option value="Matéri">Matéri</option>
-                                    <option value="Natitingou (chef-lieu)">Natitingou (chef-lieu)</option>
-                                    <option value="Péhunco">Péhunco</option>
-                                    <option value="Tanguiéta">Tanguiéta</option>
-                                    <option value="Toucountouna">Toucountouna</option>
-                                    <option value="Abomey-Calavi">Abomey-Calavi</option>
-                                    <option value="Allada (chef-lieu)">Allada (chef-lieu)</option>
-                                    <option value="Kpomassè">Kpomassè</option>
-                                    <option value="Ouidah">Ouidah</option>
-                                    <option value="Sô-Ava">Sô-Ava</option>
-                                    <option value="Toffo">Toffo</option>
-                                    <option value="Tori-Bossito">Tori-Bossito</option>
-                                    <option value="Zè">Zè</option>
-                                    <option value="Bembéréké">Bembéréké</option>
-                                    <option value="Kalalé">Kalalé</option>
-                                    <option value="N'Dali">N'Dali</option>
-                                    <option value="Nikki">Nikki</option>
-                                    <option value="Parakou (chef-lieu)">Parakou (chef-lieu)</option>
-                                    <option value="Pèrèrè">Pèrèrè</option>
-                                    <option value="Sinendé">Sinendé</option>
-                                    <option value="Tchaourou">Tchaourou</option>
-                                    <option value="Bantè">Bantè</option>
-                                    <option value="Dassa-Zoumé (chef-lieu)">Dassa-Zoumé (chef-lieu)</option>
-                                    <option value="Glazoué">Glazoué</option>
-                                    <option value="Ouèssè">Ouèssè</option>
-                                    <option value="Savalou">Savalou</option>
-                                    <option value="Savè">Savè</option>
-                                    <option value="Aplahoué (chef-lieu)">Aplahoué (chef-lieu)</option>
-                                    <option value="Djakotomey">Djakotomey</option>
-                                    <option value="Dogbo">Dogbo</option>
-                                    <option value="Klouékanmè">Klouékanmè</option>
-                                    <option value="Lalo">Lalo</option>
-                                    <option value="Toviklin">Toviklin</option>
-                                    <option value="Bassila">Bassila</option>
-                                    <option value="Copargo">Copargo</option>
-                                    <option value="Djougou (chef-lieu)">Djougou (chef-lieu)</option>
-                                    <option value="Ouaké">Ouaké</option>
-                                    <option value="Cotonou (chef-lieu)">Cotonou (chef-lieu)</option>
-                                    <option value="Athiémé">Athiémé</option>
-                                    <option value="Bopa">Bopa</option>
-                                    <option value="Comè">Comè</option>
-                                    <option value="Grand-Popo">Grand-Popo</option>
-                                    <option value="Houéyogbé">Houéyogbé</option>
-                                    <option value="Lokossa (chef-lieu)">Lokossa (chef-lieu)</option>
-                                    <option value="Adjarra">Adjarra</option>
-                                    <option value="Adjohoun">Adjohoun</option>
-                                    <option value="Aguégués">Aguégués</option>
-                                    <option value="Akpro-Missérété">Akpro-Missérété</option>
-                                    <option value="Avrankou">Avrankou</option>
-                                    <option value="Bonou">Bonou</option>
-                                    <option value="Dangbo">Dangbo</option>
-                                    <option value="Porto-Novo (chef-lieu)">Porto-Novo (chef-lieu)</option>
-                                    <option value="Sèmè-Kpodji">Sèmè-Kpodji</option>
-                                    <option value="Adja-Ouèrè">Adja-Ouèrè</option>
-                                    <option value="Ifangni">Ifangni</option>
-                                    <option value="Kétou">Kétou</option>
-                                    <option value="Pobè (chef-lieu)">Pobè (chef-lieu)</option>
-                                    <option value="Sakété">Sakété</option>
-                                    <option value="Abomey (chef-lieu)">Abomey (chef-lieu)</option>
-                                    <option value="Agbangnizoun">Agbangnizoun</option>
-                                    <option value="Bohicon">Bohicon</option>
-                                    <option value="Covè">Covè</option>
-                                    <option value="Djidja">Djidja</option>
-                                    <option value="Ouinhi">Ouinhi</option>
-                                    <option value="Za-Kpota">Za-Kpota</option>
-                                    <option value="Zagnanado">Zagnanado</option>
-                                    <option value="Zogbodomey">Zogbodomey</option>
-                                </select>
                             </div>
 
                             <!-- Description du projet -->

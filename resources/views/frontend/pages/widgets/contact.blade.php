@@ -33,32 +33,6 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="form-name" class="icon lb-name">Société</label>
-                            <div class="form-box">
-                                <input type="text" name="subject" id="form-subject" class="input-box"
-                                    placeholder="Ex: Doe SA">
-                                <label for="form-subject" class="icon lb-subject"><i
-                                        class="fal fa-check-square"></i></label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="form-name" class="icon lb-name">Fonction</label>
-                            <div class="form-box">
-                                <input type="text" name="subject" id="form-subject" class="input-box"
-                                    placeholder="Ex: PDG">
-                                <label for="form-subject" class="icon lb-subject"><i
-                                        class="fal fa-check-square"></i></label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="form-name" class="icon lb-name">Téléphone</label>
-                            <div class="form-box">
-                                <input type="text" name="subject" id="form-subject" class="input-box"
-                                    placeholder="Ex: 00000000">
-                                <label for="form-subject" class="icon lb-subject"><i class="fal fa-phone"></i></label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
                             <label for="form-name" class="icon lb-name">Email <span class="text-danger">
                                     *</span></label>
                             <div class="form-box">
@@ -66,31 +40,6 @@
                                     placeholder="Ex: john@example.com">
                                 <label for="form-subject" class="icon lb-subject"><i
                                         class="fal fa-envelope"></i></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="form-name" class="icon lb-name">Adresse</label>
-                            <div class="form-box">
-                                <input type="text" name="subject" id="form-subject" class="input-box"
-                                    placeholder="Ex: Agla, Cotonou, Bénin">
-                                <label for="form-message" class="icon lb-message"><i class="fal fa-map"></i></label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="form-name" class="icon lb-name">Code postal</label>
-                            <div class="form-box">
-                                <input type="text" name="subject" id="form-subject" class="input-box"
-                                    placeholder="Ex: 00229">
-                                <label for="form-subject" class="icon lb-subject"><i
-                                        class="fal fa-check-square"></i></label>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="form-name" class="icon lb-name">Ville</label>
-                            <div class="form-box">
-                                <input type="text" name="subject" id="form-subject" class="input-box"
-                                    placeholder="Ex: Cotonou">
-                                <label for="form-subject" class="icon lb-subject"><i class="fal fa-map"></i></label>
                             </div>
                         </div>
                         <div class="col-sm-12">
