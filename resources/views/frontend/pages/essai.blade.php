@@ -189,6 +189,32 @@
                                 </div>
                             </div>
 
+                            <!-- Tableau de services -->
+                            <div class="col-sm-12 mt-4">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Libellé du service</th>
+                                                <th>Description</th>
+                                                <th>Prix</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Étude de sol pour les bâtiments RDC à RDC+ 2 étages</td>
+                                                <td><ul>
+                                                    <li>4 Sondages pénétromètres dynamiques a 10 m de profondeur </li>
+                                                    <li>1 sondage pénétromètre statique à pointe mécanique à 10 m ou au refus</li>
+                                                    <li>1 sondage à la tarière de 3 à 5 m et essais de laboratoire sur les matériaux prélevés</li>
+                                                </ul></td>
+                                                <td style="white-space: nowrap; text-align: center;">250 000 FCFA HT</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
                             <!-- Bouton de soumission aligné à droite -->
                             <div class="col-sm-12 text-right">
                                 <button class="button-blue-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s"
@@ -205,6 +231,168 @@
         </div>
     </section>
     <!-- Essai-Area-End -->
+
+    <!-- Autre service-Area-End -->
+    <section class="section-padding" id="services-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 text-center">
+                    <div class="section-title">
+                        <h3 class="title">{{ 'Autres services' }}</h3>
+                    </div><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mt-4">
+                    <div class="single-service">
+                        <div class="single-service-icon">
+                            <img src="{{ asset('frontend/assets/images/png/etude.png') }}" alt="">
+                        </div>
+                        <div class="single-service-container">
+                            {{-- <div class="mb-4">
+                                <img src="{{ asset('uploads/6544546791135603.jpg') }}" alt="service-image">
+                            </div> --}}
+                            <h4 class="mb-2 wow fadeInRight" data-wow-delay="0.3s">
+                                {{ 'Étude de sol pour les bâtiments RDC à RDC+ 2 étages ' }}</h4>
+                            <div class="desc wow fadeInRight mb-4" data-wow-delay="0.4s">
+                                <p>{!! '4 Sondages pénétromètres dynamiques a 10 m de profondeur,<br/> 1 sondage pénétromètre statique à pointe mécanique à 10 m ou...' !!}
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="button-blue">Ajouter</button>
+                                <a href="{{ route('show.service') }}" class="button-blue text-nowrap">En savoir plus </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-4 mt-4">
+                    <div class="single-service">
+                        <div class="single-service-icon">
+                            <img src="{{ asset('frontend/assets/images/png/etude.png') }}" alt="">
+                        </div>
+                        <div class="single-service-container">
+                            {{-- <div class="mb-4">
+                                <img src="{{ asset('uploads/6544546791135603.jpg') }}" alt="service-image">
+                            </div> --}}
+                            <h4 class="mb-2 wow fadeInRight" data-wow-delay="0.3s">
+                                {{ 'Lorem ipsum dolor sit amet consectetur consectetur' }}</h4>
+                            <div class="desc wow fadeInRight mb-4" data-wow-delay="0.4s">
+                                <p>{!! '3 Lorem ipsum dolor sit amet consectetur adipisicing!,<br/> 2 lorem ipsum dolor sit amet consectetur adipisicing...' !!}
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="button-blue">Ajouter</button>
+                                <button class="button-blue text-nowrap">En savoir plus </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-4 mt-4">
+                    <div class="single-service">
+                        <div class="single-service-icon">
+                            <img src="{{ asset('frontend/assets/images/png/etude.png') }}" alt="">
+                        </div>
+                        <div class="single-service-container">
+                            {{-- <div class="mb-4">
+                                <img src="{{ asset('uploads/6544546791135603.jpg') }}" alt="service-image">
+                            </div> --}}
+                            <h4 class="mb-2 wow fadeInRight" data-wow-delay="0.3s">
+                                {{ 'Lorem ipsum dolor sit amet consectetur consectetur' }}</h4>
+                            <div class="desc wow fadeInRight mb-4" data-wow-delay="0.4s">
+                                <p>{!! '3 Lorem ipsum dolor sit amet consectetur adipisicing!,<br/> 2 lorem ipsum dolor sit amet consectetur adipisicing...' !!}
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="button-blue">Ajouter</button>
+                                <button class="button-blue text-nowrap">En savoir plus </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="service-more">
+                <div class="row mt-5">
+                    <div class="col-lg-4 mt-4">
+                        <div class="single-service">
+                            <div class="single-service-icon">
+                                <img src="{{ asset('frontend/assets/images/png/etude.png') }}" alt="">
+                            </div>
+                            <div class="single-service-container">
+                                {{-- <div class="mb-4">
+                                    <img src="{{ asset('uploads/6544546791135603.jpg') }}" alt="service-image">
+                                </div> --}}
+                                <h4 class="mb-2 wow fadeInRight" data-wow-delay="0.3s">
+                                    {{ 'Étude de sol pour les bâtiments RDC à RDC+ 2 étages ' }}</h4>
+                                <div class="desc wow fadeInRight mb-4" data-wow-delay="0.4s">
+                                    <p>{!! '4 Sondages pénétromètres dynamiques a 10 m de profondeur,<br/> 1 sondage pénétromètre statique à pointe mécanique à 10 m ou...' !!}
+                                    </p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button class="button-blue">Ajouter</button>
+                                    <button class="button-blue text-nowrap">En savoir plus </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-4 mt-4">
+                        <div class="single-service">
+                            <div class="single-service-icon">
+                                <img src="{{ asset('frontend/assets/images/png/etude.png') }}" alt="">
+                            </div>
+                            <div class="single-service-container">
+                                {{-- <div class="mb-4">
+                                    <img src="{{ asset('uploads/6544546791135603.jpg') }}" alt="service-image">
+                                </div> --}}
+                                <h4 class="mb-2 wow fadeInRight" data-wow-delay="0.3s">
+                                    {{ 'Lorem ipsum dolor sit amet consectetur consectetur' }}</h4>
+                                <div class="desc wow fadeInRight mb-4" data-wow-delay="0.4s">
+                                    <p>{!! '3 Lorem ipsum dolor sit amet consectetur adipisicing!,<br/> 2 lorem ipsum dolor sit amet consectetur adipisicing...' !!}
+                                    </p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button class="button-blue">Ajouter</button>
+                                    <button class="button-blue text-nowrap">En savoir plus </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-4 mt-4">
+                        <div class="single-service">
+                            <div class="single-service-icon">
+                                <img src="{{ asset('frontend/assets/images/png/etude.png') }}" alt="">
+                            </div>
+                            <div class="single-service-container">
+                                {{-- <div class="mb-4">
+                                    <img src="{{ asset('uploads/6544546791135603.jpg') }}" alt="service-image">
+                                </div> --}}
+                                <h4 class="mb-2 wow fadeInRight" data-wow-delay="0.3s">
+                                    {{ 'Lorem ipsum dolor sit amet consectetur consectetur' }}</h4>
+                                <div class="desc wow fadeInRight mb-4" data-wow-delay="0.4s">
+                                    <p>{!! '3 Lorem ipsum dolor sit amet consectetur adipisicing!,<br/> 2 lorem ipsum dolor sit amet consectetur adipisicing...' !!}
+                                    </p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <button class="button-blue">Ajouter</button>
+                                    <button class="button-blue text-nowrap">En savoir plus </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-sm-12 text-center">
+                    <button class="button-blue-trans mouse-dir" id="load-more">Voir plus <span class="dir-part"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Autre service-Area-Begin -->
 
     <!-- Testimonial-Area-Start -->
     @include('frontend.pages.widgets.testimonial')
