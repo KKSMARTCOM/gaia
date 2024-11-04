@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
@@ -82,6 +83,10 @@ Route::/* middleware('auth')-> */group([], function () {
 require __DIR__ . '/auth.php';
 
 Route::group([/* 'middleware' => ['auth', 'verified'], */'prefix' => 'admin', 'as' => 'admin.'], function () {
+
+  // ** Banner Route */
+  Route::resource('banner', BannerController::class);
+
   /** Hero Route */
   Route::resource('hero', HeroController::class);
   Route::resource('typer-title', TyperTitleController::class);

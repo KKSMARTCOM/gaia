@@ -1,9 +1,6 @@
 <footer class="main-footer">
-  <div class="footer-left">
-    Copyright &copy; 2023 <div class="bullet"></div> Developed By <a href="https://mokammeltanvir.com/">Mokammel Tanvir
-    </a>
-  </div>
-  <div class="footer-right">
-    2.3.0
-  </div>
+    <div class="footer-left">
+        Copyright &copy; 2024 <div class="bullet"></div><a href="https://kksmartcom.com" target="_blank">KKSMARTCOM
+        </a>
+    </div>
 </footer>

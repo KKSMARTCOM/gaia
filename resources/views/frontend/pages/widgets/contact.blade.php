@@ -32,7 +32,7 @@
                                 <label for="form-name" class="icon lb-name"><i class="fal fa-user"></i></label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-sm-12">
                             <label for="form-name" class="icon lb-name">Email <span class="text-danger">
                                     *</span></label>
                             <div class="form-box">
@@ -46,8 +46,8 @@
                             <label for="form-name" class="icon lb-name">Message <span class="text-danger">
                                     *</span></label>
                             <div class="form-box">
-                                <textarea class="input-box" id="form-message" placeholder="Donnez-nous plus de détails..." cols="30"
-                                    rows="4" name="message"></textarea>
+                                <textarea class="input-box" id="form-message" placeholder="Donnez-nous plus de détails..." cols="30" rows="4"
+                                    name="message"></textarea>
                                 <label for="form-message" class="icon lb-message"><i class="fal fa-edit"></i></label>
                             </div>
                         </div>

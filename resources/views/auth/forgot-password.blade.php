@@ -24,14 +24,14 @@
 
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h4>Forget Password?</h4> 
+                                <h4>Mot de passe oublié ?</h4>
                             </div>
 
                             <div class="card-body">
-                                @if(session('status'))
-                                <div class="alert alert-success">
-                                    {{ session('status') }}
-                                </div>
+                                @if (session('status'))
+                                    <div class="alert alert-success">
+                                        {{ session('status') }}
+                                    </div>
                                 @endif
                                 <form method="POST" action="{{ route('password.email') }}" class="needs-validation"
                                     novalidate="">
@@ -42,17 +42,17 @@
                                             value="{{ old('email') }}" autocomplete="username" tabindex="1" required
                                             autofocus>
                                         @if ($errors->has('email'))
-                                        <code>
-                                        {{ $errors->first('email') }}
-                                        </code>
+                                            <code>
+                                                {{ $errors->first('email') }}
+                                            </code>
                                         @endif
-                                    </div>                                    
+                                    </div>
 
-                                    
+
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                                            Email Password Reset Link
+                                            Envoyer
                                         </button>
                                     </div>
                                 </form>
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="simple-footer">
-                            Copyright &copy; System Admin
+                            Copyright &copy; <a href="www.kksmartcom.com" target="_blank">KKSMARTCOM</a>
                         </div>
                     </div>
                 </div>

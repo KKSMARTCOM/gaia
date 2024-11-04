@@ -7,15 +7,15 @@
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">Hi, Brice {{-- {{ Auth::user()->name }} --}}</div>
+                <div class="d-sm-none d-lg-inline-block">Brice {{-- {{ Auth::user()->name }} --}}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">Logged in 5 min ago </div>
+                <div class="dropdown-title">en ligne il y a 5 min </div>
                 <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon">
-                    <i class="far fa-user"></i> Profile
+                    <i class="far fa-user"></i> Profil
                 </a>
                 <a href="#" class="dropdown-item has-icon">
-                    <i class="fas fa-cog"></i> Settings
+                    <i class="fas fa-cog"></i> Paramètre
                 </a>
                 <div class="dropdown-divider"></div>
                 <!-- Authentication -->
@@ -23,7 +23,7 @@
                     @csrf
                     <a href="#" onclick="event.preventDefault(); this.closest('form').submit();"
                         class="dropdown-item has-icon text-danger">
-                        <i class="fas fa-sign-out-alt"></i> Logout
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
                     </a>
                 </form>
             </div>
@@ -42,36 +42,43 @@
             <a href="{{ route('dashboard') }}">St</a>
         </div>
         <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
-            <li class="nav-item active">
-                <a href="{{ route('dashboard') }}" class="nav-link"><i
-                        class="fas fa-fire"></i><span>Dashboard</span></a>
+            <li class="menu-header">Tableau de bord</li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Tableau de
+                        bord</span></a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Dropdown</span></a>
-                <ul class="dropdown-menu" style="display: none;">
-                    <li><a class="nav-link" href="">test</a></li>
-
-                </ul>
+            <li class="nav-item">
+                <a href="{{ route('dashboard') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Commandes</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Paiement</span></a>
             </li>
             <li class="menu-header">Sections</li>
 
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                    <span>Hero</span></a>
-                <ul class="dropdown-menu" style="display: none;">
-                    <li><a class="nav-link" href="{{ route('admin.hero.index') }}">Hero Banner Title</a></li>
-                    <li><a class="nav-link" href="{{ route('admin.typer-title.index') }}">Typing Title</a></li>
-
-                </ul>
+                <a href="{{ route('admin.banner.index') }}" class="nav-link"><i class="fas fa-columns"></i>
+                    <span>Bannière</span></a>
+                {{-- <ul class="dropdown-menu" style="display: none;">
+                        <li><a class="nav-link" href="{{ route('admin.hero.index') }}">Hero Banner Title</a></li>
+                        <li><a class="nav-link" href="{{ route('admin.typer-title.index') }}">Typing Title</a></li>
+                        
+                    </ul> --}}
             </li>
+
+            <li><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i>
+                    <span>A propos</span></a></li>
+
+            <li><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i>
+                    <span>Recrutements</span></a></li>
+
+            <li><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i>
+                    <span>Réalisations</span></a></li>
 
             <li><a class="nav-link" href="{{ route('admin.service.index') }}"><i class="far fa-square"></i>
                     <span>Services</span></a></li>
 
-            <li><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i>
-                    <span>About</span></a></li>
+
 
             <li
                 class="nav-item dropdown {{ setSidebarActive(['admin.category.*', 'admin.portfolio-item.*', 'admin.portfolio-section-setting.*']) }}">
@@ -106,7 +113,8 @@
             <li
                 class="nav-item dropdown {{ setSidebarActive(['admin.feedback.*', 'admin.feedback-section-setting.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
-                        class="fas fa-columns"></i> <span>Feedback</span></a>
+                        class="fas fa-columns"></i>
+                    <span>Feedback</span></a>
                 <ul class="dropdown-menu" style="display: none;">
                     <li class="{{ setSidebarActive(['admin.feedback.*']) }}"><a class="nav-link"
                             href="{{ route('admin.feedback.index') }}">Feedbacks</a></li>
