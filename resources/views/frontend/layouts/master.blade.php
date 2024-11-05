@@ -23,7 +23,8 @@
     <nav class="navbar navbar-expand-lg main_menu" id="main_menu_area">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img src="{{ asset('frontend/assets/images/logo-b.png') }}" alt="logo" class="change-logo">
+                <img src="{{ asset('frontend/assets/images/logo-w.png') }}" alt="logo" class="logo1">
+                <img src="{{ asset('frontend/assets/images/logo-b.png') }}" alt="logo" class="logo2">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,22 +33,29 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/#home-page">Acceuil</a>
+                        <a class="nav-link {{ request()->routeIs('/') ? 'active' : '' }}" aria-current="page"
+                            href="/">Acceuil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/#services-page">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#achievements-page">Réalisations</a>
+                        <a class="nav-link {{ request()->routeIs('realisations') ? 'active' : '' }}"
+                            href="{{ route('realisations') }}">Réalisations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('jobs') }}">Recrutement</a>
+                        <a class="nav-link {{ request()->routeIs('jobs') ? 'active' : '' }}"
+                            href="{{ route('jobs') }}">Recrutement</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contact') }}">Contact</a>
+                        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}"
+                            href="{{ route('contact') }}">Contact</a>
                     </li>
                     <li class="">
-                        <a class="nav-button" href="{{ route('choixcategorie') }}">Demander un essai</a>
+                        <a class="nav-button {{ request()->routeIs('choixcategorie') || request()->routeIs('essai') || request()->routeIs('devis')
+                            ? 'active'
+                            : '' }}"
+                            href="{{ route('choixcategorie') }}">Demander un essai</a>
                     </li>
                 </ul>
             </div>
@@ -60,6 +68,11 @@
         data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary" tabindex="0">
 
         @yield('content')
+
+        {{-- Whatsapp assistance --}}
+        <a class="whatsappButton"
+            href="https://wa.me/22960504656?text=Bonjour!%20Je%20souhaite%20plus%20d'informations."><i
+                class="fab fa-whatsapp"></i></a>
 
         <!-- Include Footer -->
         @include('frontend.layouts.inc.footer')

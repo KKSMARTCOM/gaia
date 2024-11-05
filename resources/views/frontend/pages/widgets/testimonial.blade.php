@@ -18,7 +18,7 @@
 
                     <div class="single-testimonial">
                         <div class="single-testimonial-image">
-                            <img src="{{ asset('frontend/assets/images/partner2.png') }}" alt="">
+                            <img src="{{ asset('frontend/assets/images/partner2.jpg') }}" alt="">
                         </div>
                     </div>
 
@@ -30,7 +30,7 @@
 
                     <div class="single-testimonial">
                         <div class="single-testimonial-image">
-                            <img src="{{ asset('frontend/assets/images/partner4.png') }}" alt="">
+                            <img src="{{ asset('frontend/assets/images/partner4.jpg') }}" alt="">
                         </div>
                     </div>
                     <div class="single-testimonial">
@@ -45,9 +45,10 @@
                     </div>
                     <div class="single-testimonial">
                         <div class="single-testimonial-image">
-                            <img src="{{ asset('frontend/assets/images/partner1.png') }}" alt="">
+                            <img src="{{ asset('frontend/assets/images/partner7.jpg') }}" alt="">
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

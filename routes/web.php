@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\BlogSectionSettingController;
 use App\Http\Controllers\Admin\SkillSectionSettingController;
 use App\Http\Controllers\Admin\ContactSectionSettingController;
 use App\Http\Controllers\Admin\FeedbackSectionSettingController;
+use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 
 /*
@@ -42,32 +43,35 @@ use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 */
 
 /** Frontend Routes */
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::middleware('sitesetting')->group(function () {
+  Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
+  Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
 
-Route::get('blogs', [HomeController::class, 'blog'])->name('blog');
-Route::get('about', [HomeController::class, 'about'])->name('about');
-// Route pour afficher les réalisations
-Route::get('realisations', [HomeController::class, 'realisations'])->name('realisations');
-// Route pour afficher le formulaire de contact
-Route::get('contact', [HomeController::class, 'showContactForm'])->name('contact');
-// Route pour soumettre le formulaire de contact
-Route::post('contact', [HomeController::class, 'contact'])->name('contact.submit');
-// Route pour afficher le formulaire de choix de categorie client
-Route::get('choixcategorie', [HomeController::class, 'choixcategorie'])->name('choixcategorie');
-// Route pour afficher le formulaire de devis
-Route::get('devis', [HomeController::class, 'devis'])->name('devis');
-// Route pour afficher le formulaire d'essai
-Route::get('essai', [HomeController::class, 'essai'])->name('essai');
+  Route::get('blogs', [HomeController::class, 'blog'])->name('blog');
+  Route::get('about/{id}', [HomeController::class, 'about'])->name('show.about');
 
-Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
-Route::get('service-details', [HomeController::class, 'showService'])->name('show.service');
-Route::get('achievement-details', [HomeController::class, 'showAchievement'])->name('show.achievement');
-Route::get('jobs', [HomeController::class, 'jobs'])->name('jobs');
+  // Route pour afficher les réalisations
+  Route::get('realisations', [HomeController::class, 'realisations'])->name('realisations');
+  // Route pour afficher le formulaire de contact
+  Route::get('contact', [HomeController::class, 'showContactForm'])->name('contact');
+  // Route pour soumettre le formulaire de contact
+  Route::post('contact', [HomeController::class, 'contact'])->name('contact.submit');
+  // Route pour afficher le formulaire de choix de categorie client
+  Route::get('choixcategorie', [HomeController::class, 'choixcategorie'])->name('choixcategorie');
+  // Route pour afficher le formulaire de devis
+  Route::get('devis', [HomeController::class, 'devis'])->name('devis');
+  // Route pour afficher le formulaire d'essai
+  Route::get('essai', [HomeController::class, 'essai'])->name('essai');
 
-Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
-Route::post('contact', [HomeController::class, 'contact'])->name('contact.submit');
+  Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
+  Route::get('service-details', [HomeController::class, 'showService'])->name('show.service');
+  Route::get('achievement-details', [HomeController::class, 'showAchievement'])->name('show.achievement');
+  Route::get('jobs', [HomeController::class, 'jobs'])->name('jobs');
+
+  Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+  Route::post('contact', [HomeController::class, 'contact'])->name('contact.submit');
+});
 
 
 /** Admin Routes */
@@ -86,6 +90,9 @@ Route::group([/* 'middleware' => ['auth', 'verified'], */'prefix' => 'admin', 'a
 
   // ** Banner Route */
   Route::resource('banner', BannerController::class);
+
+  /** Jobs Route */
+  Route::resource('job', JobController::class);
 
   /** Hero Route */
   Route::resource('hero', HeroController::class);

@@ -1,7 +1,6 @@
-<!-- Header-Area-Start -->
-<header class="header-slider">
+<header class="site-head">
     @foreach ($slides as $item)
-        <div class="header-area parallax-bg"
+        <div class="head-area parallax-bg"
             style="background: url('{{ asset($item->image) }}') no-repeat scroll top center/cover">
             <div class="container">
                 <div class="row">
@@ -13,7 +12,7 @@
             </div>
         </div>
     @endforeach
-    {{-- <div class="header-area parallax-bg"
+    {{-- <div class="head-area parallax-bg"
         style="background: url('{{ asset('frontend/assets/images/header1.jpg') }}') no-repeat scroll top center/cover">
         <div class="container">
             <div class="row">
@@ -26,7 +25,7 @@
             </div>
         </div>
     </div>
-    <div class="header-area parallax-bg"
+    <div class="head-area parallax-bg"
         style="background: url('{{ asset('frontend/assets/images/header2.jpg') }}') no-repeat scroll top center/cover">
         <div class="container">
             <div class="row">
@@ -38,6 +37,4 @@
             </div>
         </div>
     </div> --}}
-
 </header>
-<!-- Header-Area-End -->

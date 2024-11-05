@@ -2,7 +2,7 @@
 @section('title', 'Essai')
 @section('content')
     {{-- Hero section --}}
-    @include('frontend.pages.widgets.hero')
+    @include('frontend.pages.widgets.destination-header')
     {{-- Hero section --}}
 
     <!-- Essai-Area-Start -->
@@ -16,9 +16,7 @@
                 </div>
                 <div class="col-sm-12">
                     <p>{{ $devisTitle->sub_title ??
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fermentum eu mi nec tristique. Aenean vel nulla
-                                                                                                    tempus, tincidunt massa et, congue enim. Fusce tincidunt tincidunt velit in feugiat. Vestibuenim. Morbi viverra
-                                                                                                    luctus. In rhoncus viverra ligula vel aliquam. Phasellus vestibulum maximus arcu a sollicitudin. ' }}
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fermentum eu mi nec tristique. Aenean vel nulla tempus, tincidunt massa et, congue enim. Fusce tincidunt tincidunt velit in feugiat. Vestibuenim. Morbi viverra luctus. In rhoncus viverra ligula vel aliquam. Phasellus vestibulum maximus arcu a sollicitudin. ' }}
                     </p>
                 </div>
             </div><br>
@@ -31,7 +29,7 @@
 
                             <!-- Nom -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-nom" class="form-label">Nom *</label>
+                                <label for="form-nom" class="form-label">Nom <span class="text-danger"> *</span></label>
                                 <div class="form-box">
                                     <input type="text" name="nom" id="form-nom" class="input-box"
                                         placeholder="Ex : Jae" required>
@@ -40,7 +38,8 @@
 
                             <!-- Prénoms -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-prenoms" class="form-label">Prénoms *</label>
+                                <label for="form-prenoms" class="form-label">Prénoms <span class="text-danger">
+                                        *</span></label>
                                 <div class="form-box">
                                     <input type="text" name="prenoms" id="form-prenoms" class="input-box"
                                         placeholder="Ex : John" required>
@@ -58,7 +57,7 @@
 
                             <!-- Email -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-email" class="form-label">Email *</label>
+                                <label for="form-email" class="form-label">Email <span class="text-danger"> *</span></label>
                                 <div class="form-box">
                                     <input type="email" name="email" id="form-email" class="input-box"
                                         placeholder="Ex : john@gmail.com" required>
@@ -74,21 +73,39 @@
                                 </div>
                             </div>
 
+                            <!-- Service -->
+                            <div class="col-sm-12 mb-3">
+                                <label for="form-adresse" class="form-label">Service <span class="text-danger">
+                                        *</span></label>
+                                <div class="form-box">
+                                    <select name="batiments" id="form-batiments" class="input-box select2" required>
+                                        <option value="">Étude de sol pour les bâtiments RDC à RDC+ 2 étages
+                                        </option>
+                                        <option value="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                        </option>
+                                        <option value="">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <!-- Type de bâtiments  -->
                             <div class="col-sm-12 mb-3">
-                                <label for="form-adresse" class="form-label">Type de bâtiments *</label>
+                                <label for="form-adresse" class="form-label">Type de bâtiments <span class="text-danger">
+                                        *</span></label>
                                 <div class="form-box">
                                     <select name="batiments" id="form-batiments" class="input-box" required>
-                                        <option value="" disabled selected>Ex : R+3</option>
-                                        <option value="Banikoara">R + 2</option>
-                                        <option value="Gogounou">R + 3</option>
+                                        <option value="" selected>Veuillez choisir le type de votre bâtiment</option>
+                                        <option value="">R + 2</option>
+                                        <option value="">R + 3</option>
                                     </select>
                                 </div>
                             </div>
 
                             <!-- Commune -->
                             <div class="col-sm-12 mb-3">
-                                <label for="form-adresse" class="form-label">Commune *</label>
+                                <label for="form-adresse" class="form-label">Commune <span class="text-danger">
+                                        *</span></label>
                                 <div class="form-box">
                                     <select name="commune" id="form-commune" class="input-box" required>
                                         <option value="" disabled selected>Choisissez une commune</option>
@@ -203,11 +220,15 @@
                                         <tbody>
                                             <tr>
                                                 <td>Étude de sol pour les bâtiments RDC à RDC+ 2 étages</td>
-                                                <td><ul>
-                                                    <li>4 Sondages pénétromètres dynamiques a 10 m de profondeur </li>
-                                                    <li>1 sondage pénétromètre statique à pointe mécanique à 10 m ou au refus</li>
-                                                    <li>1 sondage à la tarière de 3 à 5 m et essais de laboratoire sur les matériaux prélevés</li>
-                                                </ul></td>
+                                                <td>
+                                                    <ul>
+                                                        <li>4 Sondages pénétromètres dynamiques a 10 m de profondeur </li>
+                                                        <li>1 sondage pénétromètre statique à pointe mécanique à 10 m ou au
+                                                            refus</li>
+                                                        <li>1 sondage à la tarière de 3 à 5 m et essais de laboratoire sur
+                                                            les matériaux prélevés</li>
+                                                    </ul>
+                                                </td>
                                                 <td style="white-space: nowrap; text-align: center;">250 000 FCFA HT</td>
                                             </tr>
                                         </tbody>
@@ -216,7 +237,7 @@
                             </div>
 
                             <!-- Bouton de soumission aligné à droite -->
-                            <div class="col-sm-12 text-right">
+                            <div class="col-sm-12 text-center">
                                 <button class="button-blue-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s"
                                     type="submit" id="submit_btn">
                                     <span class="text">Procéder au paiement</span>
@@ -233,7 +254,7 @@
     <!-- Essai-Area-End -->
 
     <!-- Autre service-Area-End -->
-    <section class="section-padding" id="services-page">
+    <section class="section-padding-gaia">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3 text-center">
@@ -259,13 +280,13 @@
                                 </p>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <button class="button-blue">Ajouter</button>
+                                <button class="button-blue">Commander</button>
                                 <a href="{{ route('show.service') }}" class="button-blue text-nowrap">En savoir plus </a>
                             </div>
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="col-lg-4 mt-4">
                     <div class="single-service">
                         <div class="single-service-icon">
@@ -282,13 +303,13 @@
                                 </p>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <button class="button-blue">Ajouter</button>
+                                <button class="button-blue">Commander</button>
                                 <button class="button-blue text-nowrap">En savoir plus </button>
                             </div>
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="col-lg-4 mt-4">
                     <div class="single-service">
                         <div class="single-service-icon">
@@ -305,7 +326,7 @@
                                 </p>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <button class="button-blue">Ajouter</button>
+                                <button class="button-blue">Commander</button>
                                 <button class="button-blue text-nowrap">En savoir plus </button>
                             </div>
                         </div>
@@ -330,13 +351,13 @@
                                     </p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <button class="button-blue">Ajouter</button>
+                                    <button class="button-blue">Commander</button>
                                     <button class="button-blue text-nowrap">En savoir plus </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-lg-4 mt-4">
                         <div class="single-service">
                             <div class="single-service-icon">
@@ -353,13 +374,13 @@
                                     </p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <button class="button-blue">Ajouter</button>
+                                    <button class="button-blue">Commander</button>
                                     <button class="button-blue text-nowrap">En savoir plus </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-lg-4 mt-4">
                         <div class="single-service">
                             <div class="single-service-icon">
@@ -376,7 +397,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <button class="button-blue">Ajouter</button>
+                                    <button class="button-blue">Commander</button>
                                     <button class="button-blue text-nowrap">En savoir plus </button>
                                 </div>
                             </div>

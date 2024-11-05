@@ -2,7 +2,7 @@
 @section('title', 'Blog')
 @section('content')
     {{-- Hero section --}}
-    @include('frontend.pages.widgets.hero');
+    @include('frontend.pages.widgets.destination-header')
     {{-- Hero section --}}
 
     <!-- Service-Details-Area-Start -->

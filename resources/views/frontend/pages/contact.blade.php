@@ -2,7 +2,7 @@
 @section('title', 'Contact')
 @section('content')
     {{-- Hero section --}}
-    @include('frontend.pages.widgets.hero')
+    @include('frontend.pages.widgets.destination-header')
     {{-- Hero section --}}
 
     <!-- Contact-Area-Start -->
@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                <div class="form-box">
+                                <div class="form-box text-center">
                                     <button class="button-blue-trans mouse-dir" type="submit" id="submit_btn">Envoyer
                                         <span class="dir-part"></span></button>
                                 </div>

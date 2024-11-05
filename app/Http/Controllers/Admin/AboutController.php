@@ -13,8 +13,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-        /* $about = About::first(); */
-        return view('admin.about.index');
+        $about = About::first();
+        return view('admin.about.index', compact('about'));
     }
 
     /**
@@ -54,28 +54,21 @@ class AboutController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        //dd($request->all());
         $request->validate([
             'title' => ['required', 'max:200'],
-            'description' => ['required', 'max:5000'],
-            'image' => ['image', 'max:5000'],
-            'resume' => ['mimes:pdf,csv,txt', 'max:10240']
+            'description' => ['required']
         ]);
-
-        $about = About::first();
-        $imagePath = handleUpload('image', $about);
-        $resumePath = handleUpload('resume', $about);
 
         About::updateOrCreate(
             ['id' => $id],
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'image' => (!empty($imagePath) ? $imagePath : $about->image),
-                'resume' => (!empty($resumePath) ? $resumePath : $about->resume)
             ]
         );
 
-        toastr()->success('Updated Successfully', 'Congrats');
+        toastr()->success('Mise à jour éffectuée avec succès', 'Félicitations !');
 
         return redirect()->back();
     }

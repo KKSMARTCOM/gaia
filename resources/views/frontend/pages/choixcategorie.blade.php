@@ -2,7 +2,7 @@
 @section('title', 'Choix de catégorie client')
 @section('content')
     {{-- Hero section --}}
-    @include('frontend.pages.widgets.hero')
+    @include('frontend.pages.widgets.destination-header')
     {{-- Hero section --}}
 
     <!-- Choix de catégorie client-Area-Start -->
@@ -22,7 +22,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-sm-12 text-center">
-                    <div class="form-group d-flex justify-content-center">
+                    <div class="form-group d-flex justify-content-center mb-2">
                         <label class="mr-4 d-flex align-items-center" style="margin-right: 60px;">
                             <input type="radio" name="client_category" value="entreprise" required class="radio-custom">
                             <span class="radio-label">Entreprise</span>
@@ -31,8 +31,9 @@
                             <input type="radio" name="client_category" value="particulier" required class="radio-custom">
                             <span class="radio-label">Particulier</span>
                         </label>
-                    </div><br>
-                    <div class="col-sm-12 text-center">
+                    </div>
+                    <small class="text-danger alert-text"></small>
+                    <div class="col-sm-12 text-center mt-2">
                         <button class="button-blue-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s" type="submit"
                             id="submit_btn" onclick="redirectToRoute()" data-route-devis="{{ route('devis') }}"
                             data-route-essai="{{ route('essai') }}">

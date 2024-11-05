@@ -61,13 +61,14 @@
             let deleteUrl = $(this).attr('href');
 
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Etes-vous sûr ?',
+                text: "Vous ne pourrez pas revenir en arrière !",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Supprimer',
+                cancelButtonText: 'Annuler',
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
@@ -76,14 +77,14 @@
                         success: function(data) {
                             if (data.status == 'error') {
                                 Swal.fire(
-                                    'You can not delete!',
-                                    'This category contain items cant be deleted!',
+                                    'Vous ne pouvez pas supprimer!',
+                                    'Cet élément contient des options qui ne peuvent pas être supprimés!',
                                     'error'
                                 )
                             } else {
                                 Swal.fire(
-                                    'Deleted!',
-                                    'Your file has been deleted.',
+                                    'Supprimé!',
+                                    'L\'élément a été supprimé.',
                                     'success'
                                 )
                                 window.location.reload();

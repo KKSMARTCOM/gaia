@@ -12,7 +12,7 @@
         </div>
 
         <div class="">
-            <div class="row">
+            <div class="row align-items-center">
                 <div data-wow-delay="0.3s" class="col-md-12 col-lg-6 wow fadeInLeft filter-item">
                     <div class="single-portfolio achievement-text">
                         <h4>EIFFAGE GC MARINE BENIN</h4>
@@ -33,11 +33,10 @@
                 </div>
 
                 <div data-wow-delay="0.5s" class="col-md-12 col-lg-6 wow fadeInLeft filter-item">
-                    <div class="single-portfolio archievement-image">
+                    <div class="single-portfolio achievement-image">
                         <figure class="about-image image-container">
                             <img src="{{ asset('frontend/assets/images/realisation2.png') }}" alt="">
                         </figure>
-
                     </div>
                 </div>
 
@@ -54,7 +53,8 @@
             </div>
             <div class="row">
                 <div class="text-center">
-                    <a href="{{ route('realisations') }}" class="button-blue-trans mouse-dir">Afficher toutes les
+                    <a href="{{ route('realisations') }}" class="button-blue-trans mouse-dir text-nowrap">Afficher
+                        toutes les
                         réalisations <span class="dir-part"></span>
                     </a>
                 </div>

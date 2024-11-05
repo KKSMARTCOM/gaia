@@ -1,26 +1,26 @@
 .button-blue {
     display: inline-block;
     color: #ffffff;
-    background-color: #190844;
+    background-color: #003399;
     padding: 8px 15px;
     border-radius: 20px;
-    border: 1px solid #190844;
+    border: 1px solid #003399;
     font-size: 14px;
     font-weight: 600;
     transition: all ease-in-out .3s;
 }
 
 .button-blue:hover {
-    color: #190844;
+    color: #003399;
     background-color: #ffffff;
 }
 
 .load-more-blue,
 .button-blue-trans {
     display: inline-block;
-    color: #190844;
+    color: #003399;
     padding: 10px 30px;
-    border: 1px solid #190844;
+    border: 1px solid #003399;
     font-size: 16px;
     font-weight: 600;
 }
@@ -65,11 +65,12 @@
 
 .footer-menu li a{
     color: #ffffff;
+    font-weight: 800;
 }
 
 .footer-icon {
     display: flex;
-    justify-content: space-between;
+    gap: 30px;
 }
 
 .footer-icon a i{
@@ -106,34 +107,63 @@
     border-radius: 20px;
 }
 
-.job-container button{
+.job-container a{
     border: none;
     padding: 8px 20px;
     border-radius: 10px;
-    background-color: #190844;
-    border: 1px solid #190844;
+    background-color: #003399;
+    border: 1px solid #003399;
     color: #ffffff;
     transition: all ease-in-out .3s;
 }
 
-.job-container button:hover{
+.job-container a:hover{
     background-color: #f3f7ff;
-    color: #190844;
+    color: #003399;
 }
 
 .achievement-image{
-    height: 300px;
-    margin-bottom: 50px;  
-}
-
-.achievement-image figure {
-    height: 100%;
-    width: 100%;
     display: flex;
     justify-content: center;
+    height: 300px;
+    margin-bottom: 50px;
+    overflow: hidden;
 }
 
-@media (max-width:768px) {}
+.whatsappButton{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 82%;
+    right: 8%;
+    width: 60px;
+    height: 60px;
+    line-height: 50px;
+    font-size: 30px;
+    border: 2px solid #25D366;
+    color: #25D366;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 100%;
+    z-index: 999;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+}
+
+.whatsappButton:hover{
+    background-color: #25D366;
+    color: #ffffff;
+}
+
+@media (max-width:468px) {
+    .whatsappButton{
+        right: 12%;
+    }
+}
     
 /* Debut CSS de réalisations */
 .image-container {
@@ -163,4 +193,30 @@
 }
 .radio-label {
     font-size: 18px; /* Taille de police pour les labels */
+}
+
+.head-area {
+    padding-top: 200px;
+    padding-bottom: 100px;
+    background: url('../images/home-slider-2.jpg') no-repeat scroll top center/cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    min-height: calc(150px + 40px);
+    display: flex;
+    align-items: center;
+}
+
+.logo2{
+    display: none;
+}
+
+.logo1, .logo2{
+    transition: opacity 0.2s ease;
+}
+
+.about-description p img{
+    padding-left: 10px;
+    padding-right: 10px;
+    object-fit: cover;
 }

@@ -69,7 +69,7 @@
             <li><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i>
                     <span>A propos</span></a></li>
 
-            <li><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i>
+            <li><a class="nav-link" href="{{ route('admin.job.index') }}"><i class="far fa-square"></i>
                     <span>Recrutements</span></a></li>
 
             <li><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i>

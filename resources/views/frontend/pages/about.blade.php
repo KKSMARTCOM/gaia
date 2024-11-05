@@ -2,7 +2,7 @@
 @section('title', 'Blog')
 @section('content')
     {{-- Hero section --}}
-    @include('frontend.pages.widgets.hero');
+    @include('frontend.pages.widgets.destination-header')
     {{-- Hero section --}}
 
     <!-- About-Area-Start -->
@@ -10,11 +10,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1 class="mb-4">A propos de GAIA</h1>
+                    <h1 class="mb-4">{{ $about->title ?? 'A propos de GAIA' }}</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="row about-description">
+                {!! $about->description !!}
+                {{-- <div class="col-lg-6 mb-4 mb-lg-0">
                     <p>Fondé en 2022, le Laboratoire GAIA est un établissement géotechnique novateur basé au Bénin, dédié à
                         l’analyse approfondie des sols et des matériaux de construction. Notre mission est de fournir des
                         services de qualité qui garantissent la sécurité et la durabilité des projets d'infrastructure dans
@@ -34,7 +35,7 @@
                     <div>
                         <img src="{{ asset('frontend/assets/images/realisation15.png') }}" alt="about-gaia">
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

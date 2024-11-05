@@ -4,10 +4,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <div class="section-header-back">
-                <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
-            </div>
-            <h1>Bannières</h1>
+            <h1>Recrutement</h1>
         </div>
 
         <div class="section-body">
@@ -15,9 +12,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Toutes les bannières</h4>
+                            <h4>Toutes les offres</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin.blog.create') }}" class="btn btn-success">Ajouter<i
+                                <a href="{{ route('admin.job.create') }}" class="btn btn-success">Ajouter <i
                                         class="fas fa-plus"></i></a>
                             </div>
                         </div>
@@ -27,33 +24,33 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Image</th>
+                                            <th>Poste</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (!empty($banners) && $banners->count() > 0)
-                                            @foreach ($banners as $item)
+                                        @if (!empty($jobs) && $jobs->count() > 0)
+                                            @foreach ($jobs as $item)
                                                 <tr class="item" item-id="{{ $item->id }}">
                                                     <td>{{ $item->id }}</td>
-                                                    <td class="">
-                                                        <div style="height: 50px; width:50px;">
-
-                                                            <img style="height: 100%;width:100%; object-fit:cover;"
-                                                                src="{{ asset($item->image) }}" alt="banner-image" />
-                                                        </div>
-                                                    </td>
-                                                    <td class="">
+                                                    <td>{{ $item->title }}</td>
+                                                    <td class="d-flex align-items-center">
+                                                        <!-- Lien pour modifier avec une icône de crayon -->
+                                                        <a href="{{ route('admin.job.edit', $item->id) }}"
+                                                            class="btn btn-primary btn-icon mr-2">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
                                                         <!-- Bouton pour supprimer avec une icône de corbeille -->
-                                                        <button type="submit" class="btn btn-danger btn-icon deleteBtn">
-                                                            <span class="fas fa-trash-alt"></span>
-                                                        </button>
+                                                        <a href="{{ route('admin.job.destroy', $item->id) }}"
+                                                            class="btn btn-danger btn-icon delete-item">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach
                                         @else
                                             <tr>
-                                                <td colspan="3" class="text-center">Pas de bannière disponible</td>
+                                                <td colspan="3" class="text-center">Pas d'offres disponibles</td>
                                             </tr>
                                         @endif
                                     </tbody>

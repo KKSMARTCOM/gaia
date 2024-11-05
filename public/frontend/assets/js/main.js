@@ -6,25 +6,21 @@
     if ($('.main_menu').offset() != undefined) {
         var navoff = $('.main_menu').offset().top;
 
-        const logoAltPath = "{{ asset('frontend/assets/images/logo-b.png') }}";
-
-        const logoOriginalPath = "{{ asset('frontend/assets/images/logo-w.png') }}";
-
-        console.log(logoAltPath, logoOriginalPath);
-
         $(window).scroll(function () {
             var scrolling = $(this).scrollTop();
 
             if (scrolling > 100) {
                 $('.main_menu').addClass('menu_fix');
 
-                // Changer l'image pour le logo après 100px de défilement
-                //$('.change-logo').attr('src', logoAltPath);
+                // Changer le logo après 100px de défilement
+                $('.logo1').fadeOut();
+                $('.logo2').fadeIn();
             } else {
                 $('.main_menu').removeClass('menu_fix');
 
-                // Changer l'image pour le logo après 100px de défilement
-                //$('.change-logo').attr('src', logoOriginalPath);
+                // Changer le logo après 100px de défilement
+                $('.logo2').fadeOut();
+                $('.logo1').fadeIn();
             }
         });
     }
@@ -94,7 +90,6 @@
             speed: 1000,
             slidesToShow: 1,
             slidesToScroll: 1,
-
         });
 
         $('.blog-slider').slick({

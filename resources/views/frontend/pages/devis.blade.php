@@ -2,7 +2,7 @@
 @section('title', 'Devis')
 @section('content')
     {{-- Hero section --}}
-    @include('frontend.pages.widgets.hero')
+    @include('frontend.pages.widgets.destination-header')
     {{-- Hero section --}}
 
     <!-- Devis-Area-Start -->
@@ -38,35 +38,38 @@
 
                             <!-- Email -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-email" class="form-label">Email *</label>
+                                <label for="form-email" class="form-label">Email <span class="text-danger"> *</span></label>
                                 <input type="email" name="email" id="form-email" class="input-box"
                                     placeholder="Ex : john@gmail.com" required>
                             </div>
 
                             <!-- Nom -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-nom" class="form-label">Nom *</label>
+                                <label for="form-nom" class="form-label">Nom <span class="text-danger"> *</span></label>
                                 <input type="text" name="nom" id="form-nom" class="input-box" placeholder="Ex : Jae"
                                     required>
                             </div>
 
                             <!-- Prénoms -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-prenoms" class="form-label">Prénoms *</label>
+                                <label for="form-prenoms" class="form-label">Prénoms <span class="text-danger">
+                                        *</span></label>
                                 <input type="text" name="prenoms" id="form-prenoms" class="input-box"
                                     placeholder="Ex : John" required>
                             </div>
 
                             <!-- Adresse d'intervention -->
                             <div class="col-sm-12 mb-3">
-                                <label for="form-adresse" class="form-label">Adresse d'intervention *</label>
+                                <label for="form-adresse" class="form-label">Adresse d'intervention <span
+                                        class="text-danger"> *</span></label>
                                 <input type="text" name="adresseintervention" id="form-adresse" class="input-box"
                                     placeholder="Ex : Von panthère Rue 387" required>
                             </div>
 
                             <!-- Description du projet -->
                             <div class="col-sm-12 mb-2">
-                                <label for="form-message" class="form-label">Description du projet *</label>
+                                <label for="form-message" class="form-label">Description du projet <span
+                                        class="text-danger"> *</span></label>
                                 <textarea class="input-box" id="form-description"
                                     placeholder="Donnez-nous plus de précision, Ex: Type de prestation souhaitée, superficie de projet, etc ..."
                                     rows="4" name="message" required></textarea>
@@ -106,7 +109,7 @@
                             </div>
 
                             <!-- Bouton de soumission aligné à droite -->
-                            <div class="col-sm-12 text-right">
+                            <div class="col-sm-12 text-center">
                                 <button class="button-blue-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s"
                                     type="submit" id="submit_btn">
                                     <span class="text">Envoyer</span>

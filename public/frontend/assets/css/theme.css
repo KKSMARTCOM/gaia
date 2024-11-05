@@ -62,7 +62,7 @@ Button-Styles
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: #190844;
+    background: #003399;
     -webkit-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
     -o-transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
     transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
@@ -220,11 +220,11 @@ Button-Styles
 
 .main_menu .navbar-nav li .active,
 .main_menu .navbar-nav li:hover>a {
-    color: #0000ff;
+    color: #003399;
 }
 
 .menu_fix .navbar-nav li a {
-    color: #190844;
+    color: #333333;
 }
 
 .main_menu .menu_icon {
@@ -333,7 +333,8 @@ Button-Styles
 
 .slide-inner:after,
 .site-header:after,
-.header-area:after {
+.header-area:after,
+.head-area::after {
     content: "";
     position: absolute;
     left: 0px;
@@ -937,7 +938,6 @@ blockquote {
     margin-bottom: 50px;
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
-    background-color: #fff0eb;
     padding: 25px 40px 5px 40px;
     border-radius: 10px;
 }
@@ -1032,7 +1032,7 @@ Footer-Area
 .footer-area {
     padding-top: 60px;
     padding-bottom: 60px;
-    background-color: #190844;
+    background-color: #003399;
 }
 
 .footer-widgets {
@@ -1117,8 +1117,8 @@ Footer-Area
     height: 60px;
     line-height: 60px;
     font-size: 16px;
-    border: 2px solid #000a2d;
-    color: #000a2d;
+    border: 2px solid #003399;
+    color: #003399;
     text-align: center;
     background-color: #ffffff;
     border-radius: 100px;
@@ -1131,7 +1131,7 @@ Footer-Area
 }
 
 #scrollUp:hover {
-    background-color: #000a2d;
+    background-color: #003399;
     color: #ffffff;
 }
 
@@ -1170,16 +1170,7 @@ Footer-Area
 13. Portfolio-Page
 -------------------------- */
 .site-header {
-    background-image: url('../images/site-header.jpg');
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center center;
-    background-size: cover;
-    position: relative;
-    z-index: 1;
-    padding-top: 220px;
-    padding-bottom: 120px;
-    overflow: hidden;
+    height: 300px;
 }
 
 .site-header .title {
@@ -1401,7 +1392,7 @@ Footer-Area
 }
 
 .main_menu.menu_fix .nav li a {
-    color: #3a3a3a;
+    color: #333333;
 }
 
 .main_menu.menu_fix ul li>a i.plus:before,
@@ -1429,7 +1420,7 @@ Footer-Area
 }
 
 .slick-dots li button {
-    background-color: #0000ff;
+    background-color: #003399;
     border-radius: 50%;
     margin: 5px 2px 0 2px;
 }

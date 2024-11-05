@@ -2,7 +2,7 @@
 @section('title', 'Blog')
 @section('content')
     {{-- Hero section --}}
-    @include('frontend.pages.widgets.hero');
+    @include('frontend.pages.widgets.destination-header')
     {{-- Hero section --}}
 
     <!-- Achievement-Details-Area-Start -->
@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="head-title">Titre de la réalisation</h2>
+                    <h2 class="head-title">EIFFAGE GC MARINE BENIN</h2>
                     <div class="blog-meta">
                         <div class="single-meta">
                             <div class="meta-title">Réalisé le</div>
@@ -18,10 +18,12 @@
                         </div>
                     </div>
                     <div class="achievement-image">
-                        <figure class="image-block">
-                            <img class="img-fix" src="{{ asset('frontend/assets/images/realisation39.png') }}"
-                                alt="">
-                        </figure>
+                        <div style="width: 600px">
+                            <figure class="image-container">
+                                <img class="" style="height: 100%;width:100%;object-fit:cover;border-radius:10px"
+                                    src="{{ asset('frontend/assets/images/realisation39.png') }}" alt="">
+                            </figure>
+                        </div>
                     </div>
                     <div class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam similique nemo
                         delectus. Recusandae odio atque rerum porro dicta! Impedit illo quo ab praesentium tempore debitis

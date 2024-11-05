@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <div class="form-box">
+                            <div class="form-box text-center">
                                 <button class="button-blue-trans mouse-dir" type="submit" id="submit_btn">Envoyer
                                     <span class="dir-part"></span></button>
                             </div>

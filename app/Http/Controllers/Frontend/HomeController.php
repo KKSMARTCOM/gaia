@@ -17,17 +17,19 @@ use App\Models\PortfolioItem;
 use App\Models\BlogSectionSetting;
 use App\Models\SkillSectionSetting;
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use Illuminate\Support\Facades\Mail;
 use App\Models\ContactSectionSetting;
 use App\Models\FeedbackSectionSetting;
+use App\Models\Job;
 use App\Models\PortfolioSectionSetting;
 
 class HomeController extends Controller
 {
     public function index()
     {
-
-        return view('frontend.pages.home');
+        $about = About::first();
+        return view('frontend.pages.home', compact('about'));
     }
 
 
@@ -68,14 +70,16 @@ class HomeController extends Controller
         return response(['status' => 'success', 'message' => 'Mail envoyé avec succès !']);
     }
 
-    public function about()
+    public function about(string $id)
     {
-        return view('frontend.pages.about');
+        $about = About::where('id', $id)->firstOrFail();
+        return view('frontend.pages.about', compact('about'));
     }
 
     public function jobs()
     {
-        return view('frontend.pages.job');
+        $jobs = Job::all();
+        return view('frontend.pages.job', compact('jobs'));
     }
 
     public function showService()

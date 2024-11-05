@@ -7,16 +7,30 @@
 
 "use strict";
 
+$(document).on('ready', function () {
+    $('.site-head').slick({
+        dots: true,
+        arrows: false,
+        infinite: true,
+        centerMode: false,
+        autoplay: true,
+        vertical: false,
+        verticalSwiping: false,
+        speed: 1000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+    });
+})
+
 $(function () {
     $('#load-more').on('click', function () {
-        console.log('ok');
-
         $('.service-more').css({
             'display': 'block'
         });
     })
 
-})
+});
+
 function redirectToRoute() {
     // Récupère les routes à partir des attributs data du bouton "Continuer"
     const button = document.querySelector('button[onclick="redirectToRoute()"]');
@@ -33,6 +47,6 @@ function redirectToRoute() {
     } else if (particulierChecked) {
         window.location.href = routeEssai;  // Redirection vers la route 'essai'
     } else {
-        alert("Veuillez sélectionner une catégorie client avant de continuer.");
+        $('.alert-text').text('Vous devez choisir une catégorie avant de continuer');
     }
 }
