@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
                 BannerSeeder::class,
             ]
         );
+
+        $this->call(UsersSeeder::class); // Appel du seeder Users
     }
 }
