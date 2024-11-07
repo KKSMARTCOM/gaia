@@ -7,10 +7,13 @@
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                 <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-                <div class="d-sm-none d-lg-inline-block">Brice {{-- {{ Auth::user()->name }} --}}</div>
+                <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <div class="dropdown-title">en ligne il y a 5 min </div>
+                <div class="dropdown-title">
+                    <!-- Affiche depuis combien de temps l'utilisateur est en ligne -->
+                    en ligne il y a {{ now()->diffForHumans(session('login_time')) }}
+                </div>
                 <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profil
                 </a>
@@ -29,6 +32,8 @@
             </div>
         </li>
     </ul>
+    
+    
 </nav>
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
@@ -171,6 +176,10 @@
                             href="{{ route('admin.footer-help-links.index') }}">Footer Help Links</a></li>
                 </ul>
             </li>
+
+            <li class="{{ setSidebarActive(['admin.users.*']) }}"><a class="nav-link"
+                href="{{ route('admin.users.index') }}"><i class="far fa-user"></i>
+                <span>Utilisateurs</span></a></li>
 
             <li class="menu-header">Settings</li>
             <li class="{{ setSidebarActive(['admin.settings.*']) }}"><a class="nav-link"

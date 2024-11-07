@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\ContactSectionSettingController;
 use App\Http\Controllers\Admin\FeedbackSectionSettingController;
 use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -172,4 +173,7 @@ Route::group([/* 'middleware' => ['auth', 'verified'], */'prefix' => 'admin', 'a
 
   /** Seo setting Route */
   Route::resource('seo-setting', SeoSettingController::class);
+
+  // Routes pour la gestion des utilisateurs
+  Route::resource('users', UserController::class)->except(['show']);
 });

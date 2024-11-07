@@ -18,7 +18,7 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="{{ asset('frontend/assets/images/logo-b.png') }}" alt="logo" width="100"
+                            <img src="{{ asset('.../frontend/assets/images/logo-b.png') }}" alt="logo" width="100"
                                 class="shadow-light rounded-circle mx-auto d-block">
                         </div>
 
@@ -41,10 +41,15 @@
                                         <input id="email" type="email" class="form-control" name="email"
                                             value="{{ old('email') }}" autocomplete="username" tabindex="1" required
                                             autofocus>
-                                        @if ($errors->has('email'))
+                                        {{-- @if ($errors->has('email'))
                                             <code>
                                                 {{ $errors->first('email') }}
                                             </code>
+                                        @endif --}}
+                                        @if ($errors->has('email'))
+                                            <div class="alert alert-danger">
+                                                {{ $errors->first('email') }}
+                                            </div>
                                         @endif
                                     </div>
 

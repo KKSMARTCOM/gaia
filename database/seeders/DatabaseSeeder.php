@@ -29,5 +29,7 @@ class DatabaseSeeder extends Seeder
                 ServiceSeeder::class,
             ]
         );
+
+        $this->call(UsersSeeder::class); // Appel du seeder Users
     }
 }
