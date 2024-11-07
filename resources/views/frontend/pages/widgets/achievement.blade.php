@@ -63,17 +63,17 @@
                             </div>
                         @endif
                 @endforeach
+                <div class="row">
+                    <div class="text-center">
+                        <a href="{{ route('realisations') }}" class="button-blue-trans mouse-dir text-nowrap">Afficher
+                            toutes les
+                            réalisations <span class="dir-part"></span>
+                        </a>
+                    </div>
+
+                </div>
             @endif
 
-            <div class="row">
-                <div class="text-center">
-                    <a href="{{ route('realisations') }}" class="button-blue-trans mouse-dir text-nowrap">Afficher
-                        toutes les
-                        réalisations <span class="dir-part"></span>
-                    </a>
-                </div>
-
-            </div>
         </div>
     </div>
 </section>

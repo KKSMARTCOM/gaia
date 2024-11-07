@@ -71,8 +71,8 @@
     </section>
     <!-- Contact-Area-End -->
 
-    <!-- Testimonial-Area-Start -->
-    @include('frontend.pages.widgets.testimonial')
-    <!-- Testimonial-Area-End -->
+    <!-- Partner-Area-Start -->
+    @include('frontend.pages.widgets.partner')
+    <!-- Partner-Area-End -->
 
 @endsection

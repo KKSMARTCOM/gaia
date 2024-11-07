@@ -27,9 +27,8 @@ class DatabaseSeeder extends Seeder
                 AboutSeeder::class,
                 CommuneSeeder::class,
                 ServiceSeeder::class,
+                UsersSeeder::class,
             ]
         );
-
-        $this->call(UsersSeeder::class); // Appel du seeder Users
     }
 }

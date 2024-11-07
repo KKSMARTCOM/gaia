@@ -15,13 +15,13 @@
     <!-- Service-Area-End -->
 
 
-    <!-- Portfolio-Area-Start -->
-    @include('frontend.pages.widgets.portfolio')
-    <!-- Portfolio-Area-End -->
+    <!-- Achievement-Area-Start -->
+    @include('frontend.pages.widgets.achievement')
+    <!-- Achievement-Area-End -->
 
-    <!-- Testimonial-Area-Start -->
-    @include('frontend.pages.widgets.testimonial')
-    <!-- Testimonial-Area-End -->
+    <!-- Partner-Area-Start -->
+    @include('frontend.pages.widgets.partner')
+    <!-- Partner-Area-End -->
 
     <!-- Contact-Area-Start -->
     @include('frontend.pages.widgets.contact')

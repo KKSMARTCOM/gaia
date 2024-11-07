@@ -52,30 +52,6 @@ class HomeController extends Controller
         return view('frontend.pages.home', compact('about', 'achievements', 'services', 'remaining'));
     }
 
-
-    public function showPortfolio($id)
-    {
-        return view('frontend.pages.portfolio-details');
-    }
-
-    public function showBlog($id)
-    {
-
-        return view('frontend.pages.blog-details');
-    }
-
-    public function blog()
-    {
-
-        return view('frontend.pages.blog');
-    }
-
-    public function portfolio()
-    {
-
-        return view('frontend.pages.portfolio');
-    }
-
     public function contact(Request $request)
     {
         $request->validate([
@@ -135,8 +111,24 @@ class HomeController extends Controller
         return view('frontend.pages.devis');
     }
 
-    public function essai()
+    public function essai(Request $request)
     {
-        return view('frontend.pages.essai');
+        $limit = 3;
+        $offset = $request->input('offset', 0);
+
+        // Récupère les services avec une pagination personnalisée
+        $services = Service::skip($offset)->take($limit)->get();
+
+        // Vérifie s'il reste d'autres services à charger
+        $remaining = Service::count() > ($offset + $limit);
+
+        if ($request->ajax()) {
+            return response()->json([
+                'service' => view('frontend.ajax.serviceList', compact('services'))->render(),
+                'remaining' => $remaining
+            ]);
+        }
+
+        return view('frontend.pages.essai', compact('services', 'remaining'));
     }
 }

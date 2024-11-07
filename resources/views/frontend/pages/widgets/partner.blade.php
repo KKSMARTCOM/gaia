@@ -48,7 +48,6 @@
                             <img src="{{ asset('frontend/assets/images/partner7.jpg') }}" alt="">
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
