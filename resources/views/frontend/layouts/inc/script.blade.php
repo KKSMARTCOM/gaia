@@ -66,6 +66,42 @@
                 }
             })
         })
+
+        let offset = 3;
+        $('#load-more').on('click', function(e) {
+            e.preventDefault();
+
+            let moreUrl = $(this).attr('href');
+
+            $.ajax({
+                url: moreUrl,
+                type: 'GET',
+                data: {
+                    offset: offset,
+                },
+                beforeSend: function() {
+                    $('#load-more').prop('disabled', true).text('Chargement...');
+                },
+                success: function(response) {
+                    $('#serviceList').append(response.service)
+
+                    offset += 3;
+
+                    // Cacher le bouton "Voir plus" s'il n'y a plus de coffrets à charger
+                    if (!response.remaining) {
+                        $('#load-more').hide();
+                    } else {
+                        // Réactiver le bouton et remettre le texte par défaut
+                        $('#load-more').prop('disabled', false).text('Voir plus');
+                    }
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText);
+                    // Réactiver le bouton en cas d'erreur
+                    $('#load-more').prop('disabled', false).text('Voir plus');
+                }
+            })
+        })
     })
 </script>
 

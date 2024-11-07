@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Blog')
+@section('title', 'Services')
 @section('content')
     {{-- Hero section --}}
     @include('frontend.pages.widgets.destination-header')
@@ -10,17 +10,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 text-center mb-4">
-                    <h1>Étude de sol pour les bâtiments RDC à RDC+ 2 étages</h1>
+                    <h1>{{ $service->title }}</h1>
                 </div>
             </div>
             <div class="row">
+                <h6>Prix : {{ $service->base_price }} FCFA (HT)</h6>
                 <h6>A réaliser :</h6>
-                <ul>
-                    <li>4 Sondages pénétromètres dynamiques a 10 m de profondeur </li>
-                    <li>1 sondage pénétromètre statique à pointe mécanique à 10 m ou au refus</li>
-                    <li>1 sondage à la tarière de 3 à 5 m et essais de laboratoire sur les matériaux prélevés</li>
-                </ul>
-                <h6>Prix : 250 000 FCFA (HT)</h6>
+                <div>
+                    {!! $service->description !!}
+                </div>
                 <div>
                     <button class="button-blue">Commander maintenant</button>
                 </div>

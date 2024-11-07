@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Blog')
+@section('title', 'Recrutement')
 @section('content')
     {{-- Hero section --}}
     @include('frontend.pages.widgets.destination-header')

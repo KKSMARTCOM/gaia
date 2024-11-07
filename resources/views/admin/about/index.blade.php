@@ -4,11 +4,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <div class="section-header-back">
-                <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
-            </div>
             <h1>Section A propos</h1>
-
         </div>
 
         <div class="section-body">
@@ -19,8 +15,7 @@
                             <h4>Mise à jour</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.about.update', 1) }}" method="POST"
-                                enctype="multipart/form-data">
+                            <form action="{{ route('admin.about.update', 1) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
 

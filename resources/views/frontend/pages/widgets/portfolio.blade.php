@@ -12,45 +12,59 @@
         </div>
 
         <div class="">
-            <div class="row align-items-center">
-                <div data-wow-delay="0.3s" class="col-md-12 col-lg-6 wow fadeInLeft filter-item">
-                    <div class="single-portfolio achievement-text">
-                        <h4>EIFFAGE GC MARINE BENIN</h4>
-                        <p>Évaluation Géotechnique pré-compactage du remblai
-                            dans le cadre du projet de réhabilitation de
-                            l'ancien quai du Port Autonome de Cotonou...</p>
-                        <a href="{{ route('show.achievement') }}" class="button-blue-trans mouse-dir">En savoir plus
-                            <span class="dir-part"></span></a>
-                    </div>
-                </div>
+            @if ($achievements && $achievements->count() > 0)
+                @foreach ($achievements as $index => $item)
+                    <div class="row align-items-center">
+                        @if ($index % 2 == 0)
+                            <div class="col-lg-6 mb-4">
+                                <div class="single-portfolio achievement-image">
+                                    <figure class="about-image image-container">
+                                        <img src="{{ asset($item->image) }}" alt="{{ $item->title }}"
+                                            class="wow fadeInUp image-responsive" data-wow-delay="0.3s">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="about-text">
+                                    <h4 class="title wow fadeInUp" data-wow-delay="0.2s">
+                                        {{ $item->title }}</h4>
+                                    <div class="desc wow fadeInUp" data-wow-delay="0.4s">
+                                        {!! Str::limit($item->description, 100, '...') !!}
+                                    </div>
+                                    <a href="{{ route('show.achievement', $item->id) }}"
+                                        class="button-blue-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s">
+                                        <span class="text">En savoir plus</span>
+                                        <span class="dir-part"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        @else
+                            <div class="col-lg-6 mb-4">
+                                <div class="about-text">
+                                    <h4 class="title wow fadeInUp" data-wow-delay="0.2s">
+                                        {{ $item->title }}</h4>
+                                    <div class="desc wow fadeInUp" data-wow-delay="0.4s">
+                                        {!! Str::limit($item->description, 100, '...') !!}
+                                    </div>
+                                    <a href="{{ route('show.achievement', $item->id) }}"
+                                        class="button-blue-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s">
+                                        <span class="text">En savoir plus</span>
+                                        <span class="dir-part"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="single-portfolio achievement-image">
+                                    <figure class="about-image image-container">
+                                        <img src="{{ asset($item->image) }}" alt="{{ $item->title }}"
+                                            class="wow fadeInUp image-responsive" data-wow-delay="0.3s">
+                                    </figure>
+                                </div>
+                            </div>
+                        @endif
+                @endforeach
+            @endif
 
-                <div data-wow-delay="0.3s" class="col-md-12 col-lg-6 wow fadeInRight filter-item">
-                    <div class="single-portfolio achievement-image">
-                        <figure class="about-image image-container">
-                            <img src="{{ asset('frontend/assets/images/realisation1.png') }}" alt="">
-                        </figure>
-                    </div>
-                </div>
-
-                <div data-wow-delay="0.5s" class="col-md-12 col-lg-6 wow fadeInLeft filter-item">
-                    <div class="single-portfolio achievement-image">
-                        <figure class="about-image image-container">
-                            <img src="{{ asset('frontend/assets/images/realisation2.png') }}" alt="">
-                        </figure>
-                    </div>
-                </div>
-
-                <div data-wow-delay="0.5s" class="col-md-12 col-lg-6 wow fadeInRight filter-item">
-                    <div class="single-portfolio achievement-text">
-                        <h4>ARYA</h4>
-                        <p>Mission d'ingénierie géotechnique G2 AVP dans le cadre
-                            du projet de rénovation du temple des Pythons à Ouidah...</p>
-                        <a href="{{ route('show.achievement') }}" class="button-blue-trans mouse-dir">En savoir plus
-                            <span class="dir-part"></span></a>
-                    </div>
-                </div>
-
-            </div>
             <div class="row">
                 <div class="text-center">
                     <a href="{{ route('realisations') }}" class="button-blue-trans mouse-dir text-nowrap">Afficher

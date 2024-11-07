@@ -17,6 +17,7 @@ use App\Models\PortfolioItem;
 use App\Models\BlogSectionSetting;
 use App\Models\SkillSectionSetting;
 use App\Http\Controllers\Controller;
+use App\Models\Achievement;
 use App\Models\Banner;
 use Illuminate\Support\Facades\Mail;
 use App\Models\ContactSectionSetting;
@@ -26,10 +27,29 @@ use App\Models\PortfolioSectionSetting;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $limit = 3;
+        $offset = $request->input('offset', 0);
+
+        // Récupère les services avec une pagination personnalisée
+        $services = Service::skip($offset)->take($limit)->get();
+
+        // Vérifie s'il reste d'autres services à charger
+        $remaining = Service::count() > ($offset + $limit);
+
+        if ($request->ajax()) {
+            return response()->json([
+                'service' => view('frontend.ajax.serviceList', compact('services'))->render(),
+                'remaining' => $remaining
+            ]);
+        }
+
         $about = About::first();
-        return view('frontend.pages.home', compact('about'));
+
+        $achievements = Achievement::inRandomOrder()->limit(2)->get();
+
+        return view('frontend.pages.home', compact('about', 'achievements', 'services', 'remaining'));
     }
 
 
@@ -82,19 +102,22 @@ class HomeController extends Controller
         return view('frontend.pages.job', compact('jobs'));
     }
 
-    public function showService()
+    public function showService($id)
     {
-        return view('frontend.pages.service-details');
+        $service = Service::where('id', $id)->firstOrFail();
+        return view('frontend.pages.service-details', compact('service'));
     }
 
-    public function showAchievement()
+    public function showAchievement(string $id)
     {
-        return view('frontend.pages.achievement-details');
+        $achievement = Achievement::where('id', $id)->firstOrFail();
+        return view('frontend.pages.achievement-details', compact('achievement'));
     }
 
     public function realisations()
     {
-        return view('frontend.pages.realisations');
+        $achievements = Achievement::all();
+        return view('frontend.pages.realisations', compact('achievements'));
     }
 
     public function showContactForm()

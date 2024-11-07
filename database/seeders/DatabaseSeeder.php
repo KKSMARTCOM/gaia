@@ -25,6 +25,8 @@ class DatabaseSeeder extends Seeder
             [
                 BannerSeeder::class,
                 AboutSeeder::class,
+                CommuneSeeder::class,
+                ServiceSeeder::class,
             ]
         );
     }

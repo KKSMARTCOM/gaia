@@ -14,8 +14,15 @@ class JobController extends Controller
     public function index()
     {
         //
-        $jobs = Job::all();
-        return view('admin.job.index', compact('jobs'));
+        try {
+            //code...
+            $jobs = Job::all();
+            return view('admin.job.index', compact('jobs'));
+        } catch (\Exception $e) {
+            //throw $th;
+            toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     /**
@@ -76,8 +83,15 @@ class JobController extends Controller
     public function edit(string $id)
     {
         //
-        $job = Job::where('id', $id)->firstOrFail();
-        return view('admin.job.edit', compact('job'));
+        try {
+            //code...
+            $job = Job::where('id', $id)->firstOrFail();
+            return view('admin.job.edit', compact('job'));
+        } catch (\Exception $e) {
+            //throw $th;
+            toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     /**

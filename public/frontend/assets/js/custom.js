@@ -20,16 +20,17 @@ $(document).on('ready', function () {
         slidesToShow: 1,
         slidesToScroll: 1,
     });
+
 })
 
-$(function () {
+/* $(function () {
     $('#load-more').on('click', function () {
         $('.service-more').css({
             'display': 'block'
         });
     })
 
-});
+}); */
 
 function redirectToRoute() {
     // Récupère les routes à partir des attributs data du bouton "Continuer"

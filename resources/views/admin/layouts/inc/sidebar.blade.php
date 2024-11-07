@@ -43,27 +43,26 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Tableau de bord</li>
+
             <li class="nav-item">
                 <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Tableau de
                         bord</span></a>
             </li>
+
             <li class="nav-item">
                 <a href="{{ route('dashboard') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Commandes</span></a>
             </li>
+
             <li class="nav-item">
                 <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Paiement</span></a>
             </li>
+
             <li class="menu-header">Sections</li>
 
             <li class="nav-item dropdown">
                 <a href="{{ route('admin.banner.index') }}" class="nav-link"><i class="fas fa-columns"></i>
                     <span>Bannière</span></a>
-                {{-- <ul class="dropdown-menu" style="display: none;">
-                        <li><a class="nav-link" href="{{ route('admin.hero.index') }}">Hero Banner Title</a></li>
-                        <li><a class="nav-link" href="{{ route('admin.typer-title.index') }}">Typing Title</a></li>
-                        
-                    </ul> --}}
             </li>
 
             <li><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i>
@@ -72,11 +71,14 @@
             <li><a class="nav-link" href="{{ route('admin.job.index') }}"><i class="far fa-square"></i>
                     <span>Recrutements</span></a></li>
 
-            <li><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i>
+            <li><a class="nav-link" href="{{ route('admin.achievement.index') }}"><i class="far fa-square"></i>
                     <span>Réalisations</span></a></li>
 
             <li><a class="nav-link" href="{{ route('admin.service.index') }}"><i class="far fa-square"></i>
                     <span>Services</span></a></li>
+
+            <li><a class="nav-link" href="{{ route('admin.service.index') }}"><i class="far fa-square"></i>
+                    <span>Partenaires</span></a></li>
 
 
 

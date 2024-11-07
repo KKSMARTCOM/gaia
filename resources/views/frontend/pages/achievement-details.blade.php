@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Blog')
+@section('title', 'Réalisations')
 @section('content')
     {{-- Hero section --}}
     @include('frontend.pages.widgets.destination-header')
@@ -10,31 +10,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 class="head-title">EIFFAGE GC MARINE BENIN</h2>
+                    <h2 class="head-title">{{ $achievement->title }}</h2>
                     <div class="blog-meta">
                         <div class="single-meta">
                             <div class="meta-title">Réalisé le</div>
-                            <h4 class="meta-value"><a href="javascript:void(0)">11/02/2024</a></h4>
+                            <h4 class="meta-value"><a href="javascript:void(0)">{{ $achievement->created_at }}</a></h4>
                         </div>
                     </div>
                     <div class="achievement-image">
                         <div style="width: 600px">
                             <figure class="image-container">
                                 <img class="" style="height: 100%;width:100%;object-fit:cover;border-radius:10px"
-                                    src="{{ asset('frontend/assets/images/realisation39.png') }}" alt="">
+                                    src="{{ asset($achievement->image) }}" alt="">
                             </figure>
                         </div>
                     </div>
-                    <div class="description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam similique nemo
-                        delectus. Recusandae odio atque rerum porro dicta! Impedit illo quo ab praesentium tempore debitis
-                        obcaecati enim molestiae beatae temporibus? Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Quos reprehenderit praesentium error esse, ipsa accusantium maxime eaque rerum. Eius laborum
-                        asperiores ipsam consectetur enim. Quasi cupiditate perspiciatis et beatae aliquid? Lorem ipsum
-                        dolor sit amet consectetur adipisicing elit. Eligendi repudiandae natus voluptatibus harum officia
-                        placeat aut ea ipsam quos, quidem aliquid eius doloribus maiores impedit quis sapiente autem debitis
-                        explicabo. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi doloremque, earum
-                        quibusdam nobis maiores quidem optio expedita! Vel molestias eos sint dignissimos tenetur labore
-                        eligendi, cupiditate magnam temporibus, maxime enim.
+                    <div class="description">{!! $achievement->description !!}
                     </div>
                 </div>
             </div>

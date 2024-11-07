@@ -24,6 +24,7 @@ class BannerController extends Controller
     public function create()
     {
         //
+        return view('admin.banner.create');
     }
 
     /**
@@ -31,7 +32,38 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => ['required', 'max:5000', 'image'],
+        ], [
+            'image.required' => 'L\'image est requise',
+            'image.max' => 'L\'image doit avoir une taille maximale de 5Mo',
+            'image.image' => 'Vous devez ajoutez une image',
+        ]);
+
+        //dd($request->all());
+
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $folderName = $request->name;
+            $uploadFolder = 'assets/img/banners/';
+            folderOpen($uploadFolder);
+            $imgurl = uploadImage($img, $folderName, $uploadFolder);
+        }
         //
+        try {
+            //code...
+            Banner::create([
+                'image' => $imgurl
+            ]);
+
+            toastr()->success('Image de la bannière ajoutée avec succès.', 'Félicitations !');
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            //throw $th;
+            toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     /**
@@ -64,5 +96,14 @@ class BannerController extends Controller
     public function destroy(string $id)
     {
         //
+        try {
+            //code...
+            $banner = Banner::where('id', $id)->firstOrFail();
+            $banner->delete();
+            return response()->json(['status' => 'success'], 200);
+        } catch (\Exception $e) {
+            //throw $th;
+            return response()->json(['status' => 'error']);
+        }
     }
 }

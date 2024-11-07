@@ -4,9 +4,6 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <div class="section-header-back">
-                <a href="features-posts.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
-            </div>
             <h1>Bannières</h1>
         </div>
 
@@ -17,7 +14,7 @@
                         <div class="card-header">
                             <h4>Toutes les bannières</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin.blog.create') }}" class="btn btn-success">Ajouter<i
+                                <a href="{{ route('admin.banner.create') }}" class="btn btn-success">Ajouter <i
                                         class="fas fa-plus"></i></a>
                             </div>
                         </div>
@@ -45,9 +42,10 @@
                                                     </td>
                                                     <td class="">
                                                         <!-- Bouton pour supprimer avec une icône de corbeille -->
-                                                        <button type="submit" class="btn btn-danger btn-icon deleteBtn">
-                                                            <span class="fas fa-trash-alt"></span>
-                                                        </button>
+                                                        <a href="{{ route('admin.banner.destroy', $item->id) }}"
+                                                            class="btn btn-danger btn-icon delete-item">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach

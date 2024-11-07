@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\AchievementController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -65,11 +66,15 @@ Route::middleware('sitesetting')->group(function () {
   Route::get('essai', [HomeController::class, 'essai'])->name('essai');
 
   Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
-  Route::get('service-details', [HomeController::class, 'showService'])->name('show.service');
-  Route::get('achievement-details', [HomeController::class, 'showAchievement'])->name('show.achievement');
+
+  Route::get('service-details/{id}', [HomeController::class, 'showService'])->name('show.service');
+
+  Route::get('achievement-details/{id}', [HomeController::class, 'showAchievement'])->name('show.achievement');
+
   Route::get('jobs', [HomeController::class, 'jobs'])->name('jobs');
 
   Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+
   Route::post('contact', [HomeController::class, 'contact'])->name('contact.submit');
 });
 
@@ -88,11 +93,14 @@ require __DIR__ . '/auth.php';
 
 Route::group([/* 'middleware' => ['auth', 'verified'], */'prefix' => 'admin', 'as' => 'admin.'], function () {
 
-  // ** Banner Route */
+  // ** Banners Route */
   Route::resource('banner', BannerController::class);
 
   /** Jobs Route */
   Route::resource('job', JobController::class);
+
+  /** Achievements Route */
+  Route::resource('achievement', AchievementController::class);
 
   /** Hero Route */
   Route::resource('hero', HeroController::class);
