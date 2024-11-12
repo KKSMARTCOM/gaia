@@ -51,3 +51,5 @@ function redirectToRoute() {
         $('.alert-text').text('Vous devez choisir une catégorie avant de continuer');
     }
 }
+
+

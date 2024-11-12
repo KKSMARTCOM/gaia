@@ -32,6 +32,9 @@ use App\Http\Controllers\Admin\FeedbackSectionSettingController;
 use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\PartnerController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewUserPasswordMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -121,4 +124,7 @@ Route::group([/* 'middleware' => ['auth', 'verified'], */'prefix' => 'admin', 'a
 
   // Routes pour la gestion des utilisateurs
   Route::resource('users', UserController::class)->except(['show']);
+
+  // ** Banners Route */
+  Route::resource('partner', PartnerController::class);
 });

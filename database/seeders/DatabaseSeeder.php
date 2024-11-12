@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
                 CommuneSeeder::class,
                 ServiceSeeder::class,
                 UsersSeeder::class,
+                PartnerSeeder::class,
             ]
         );
     }

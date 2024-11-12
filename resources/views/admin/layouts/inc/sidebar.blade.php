@@ -82,7 +82,7 @@
             <li><a class="nav-link" href="{{ route('admin.service.index') }}"><i class="far fa-square"></i>
                     <span>Services</span></a></li>
 
-            <li><a class="nav-link" href="{{ route('admin.service.index') }}"><i class="far fa-square"></i>
+            <li><a class="nav-link" href="{{ route('admin.partner.index') }}"><i class="far fa-square"></i>
                     <span>Partenaires</span></a></li>
 
             <li class="{{ setSidebarActive(['admin.users.*']) }}"><a class="nav-link"
