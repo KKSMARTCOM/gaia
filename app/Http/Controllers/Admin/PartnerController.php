@@ -33,7 +33,7 @@ class PartnerController extends Controller
         'image.max' => 'L\'image doit avoir une taille maximale de 5Mo',
         'image.image' => 'Vous devez ajouter une image',
     ]);
-
+    $imgurl = null;
     if ($request->hasFile('image')) {
         $img = $request->file('image');
         $folderName = $request->nom;
@@ -80,7 +80,6 @@ class PartnerController extends Controller
     {
         
         try {
-            
             $partner = Partner::where('id', $id)->firstOrFail();
             $partner->delete();
             return response()->json(['status' => 'success'], 200);

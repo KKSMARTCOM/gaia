@@ -33,7 +33,7 @@
                                             @foreach ($partners as $item)
                                                 <tr class="item" item-id="{{ $item->id }}">
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->nom }}</td> <!-- Correction ici -->
                                                     <td class="">
                                                         <div style="height: 50px; width:50px;">
                                                             <img style="height: 100%;width:100%; object-fit:cover;"
@@ -44,11 +44,12 @@
                                                         <form action="{{ route('admin.partner.destroy', $item->id) }}" method="POST" style="display:inline;">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger btn-icon delete-item" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce partenaire ?')">
+                                                            <button type="button" class="btn btn-danger btn-icon delete-item" data-id="{{ $item->id }}" onclick="confirmDelete({{ $item->id }})">
                                                                 <i class="fas fa-trash-alt"></i>
                                                             </button>
                                                         </form>
                                                     </td>
+                                                    
                                                 </tr>
                                             @endforeach
                                         @else
@@ -57,6 +58,7 @@
                                             </tr>
                                         @endif
                                     </tbody>
+                                    
                                 </table>
                             </div>
                         </div>
@@ -67,5 +69,33 @@
     </section>
 @endsection
 
+
 @push('scripts')
+<script>
+    function confirmDelete(id) {
+        if(confirm('Êtes-vous sûr de vouloir supprimer ce partenaire ?')) {
+            $.ajax({
+                url: '/admin/partner/' + id,
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    _method: 'DELETE'
+                },
+                success: function(response) {
+                    if(response.status === 'success') {
+                        alert('Partenaire supprimé avec succès.');
+                        location.reload(); // Rafraîchir la page pour voir les changements
+                    } else {
+                        alert('Une erreur est survenue lors de la suppression.');
+                    }
+                },
+                error: function() {
+                    alert('Erreur serveur. Veuillez réessayer.');
+                }
+            });
+        }
+    }
+</script>
 @endpush
+
+
