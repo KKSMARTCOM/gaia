@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Devis-Form -->
-                    <form class="devis-form" id="devis-form" action="{{ route('devis') }}" method="POST">
+                    <form action="{{ route('devis') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <!-- Société -->
@@ -75,38 +75,37 @@
                                     rows="4" name="message" required></textarea>
                             </div>
 
-                            <!-- Plan topographique -->
-                            <div class="col-sm-12 mb-3">
-                                <label for="form-plan" class="form-label">Plan topographique</label>
-                                <div class="form-box">
-                                    <input type="file" name="plan_topographique" id="form-plan" accept=".pdf,.dwg"
-                                        required onchange="updatePlaceholder(this)"
-                                        style="opacity: 0; position: absolute; z-index: -1;">
-                                    <input type="text" class="input-box" id="custom-file-input"
-                                        placeholder="Ex : ancienne étude de sol, diagnostic etc."
-                                        onclick="document.getElementById('form-plan').click();" readonly>
-                                    <i class="fa fa-download" aria-hidden="true"
-                                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                        onclick="document.getElementById('form-plan').click();"></i>
-                                </div>
-                            </div>
+                           <!-- Plan topographique -->
+<div class="col-sm-12 mb-3">
+    <label for="form-plan-topographique" class="form-label">Plan topographique</label>
+    <div class="form-box">
+        <input type="file" name="plan_topographique" id="form-plan-topographique" accept=".pdf,.dwg"
+            onchange="updatePlaceholder(this, 'custom-file-input-topographique')"
+            style="opacity: 0; position: absolute; z-index: -1;">
+        <input type="text" class="input-box" id="custom-file-input-topographique"
+            placeholder="Ex : ancienne étude de sol, diagnostic etc."
+            onclick="document.getElementById('form-plan-topographique').click();" readonly>
+        <i class="fa fa-download" aria-hidden="true"
+            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"
+            onclick="document.getElementById('form-plan-topographique').click();"></i>
+    </div>
+</div>
 
-                            <!-- Tout autre document technique à votre disposition -->
-                            <div class="col-sm-12 mb-3">
-                                <label for="form-plan" class="form-label">Tout autre document technique à votre
-                                    disposition</label>
-                                <div class="form-box">
-                                    <input type="file" name="plan_topographique" id="form-plan" accept=".pdf,.dwg"
-                                        required onchange="updatePlaceholder(this)"
-                                        style="opacity: 0; position: absolute; z-index: -1;">
-                                    <input type="text" class="input-box" id="custom-file-input"
-                                        placeholder="Ex : Plan topographique .pdf"
-                                        onclick="document.getElementById('form-plan').click();" readonly>
-                                    <i class="fa fa-download" aria-hidden="true"
-                                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                        onclick="document.getElementById('form-plan').click();"></i>
-                                </div>
-                            </div>
+<!-- Tout autre document technique à votre disposition -->
+<div class="col-sm-12 mb-3">
+    <label for="form-autre-document" class="form-label">Tout autre document technique à votre disposition</label>
+    <div class="form-box">
+        <input type="file" name="autre_document" id="form-autre-document" accept=".pdf,.dwg"
+            onchange="updatePlaceholder(this, 'custom-file-input-autre-document')"
+            style="opacity: 0; position: absolute; z-index: -1;">
+        <input type="text" class="input-box" id="custom-file-input-autre-document"
+            placeholder="Ex : Plan topographique .pdf"
+            onclick="document.getElementById('form-autre-document').click();" readonly>
+        <i class="fa fa-download" aria-hidden="true"
+            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"
+            onclick="document.getElementById('form-autre-document').click();"></i>
+    </div>
+</div>
 
                             <!-- Bouton de soumission aligné à droite -->
                             <div class="col-sm-12 text-center">
