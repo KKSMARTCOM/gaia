@@ -13,6 +13,14 @@
                     <h1 class="mb-4">{{ $about->title ?? 'A propos de GAIA' }}</h1>
                 </div>
             </div>
+            <div class="achievement-image">
+                <div style="width: 600px">
+                    <figure class="image-container">
+                        <img class="" style="height: 100%;width:100%;object-fit:cover;border-radius:10px"
+                            src="{{ asset($about->image) }}" alt="About Image">
+                    </figure>
+                </div>
+            </div>
             <div class="row about-description">
                 {!! $about->description !!}
             </div>

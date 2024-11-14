@@ -16,6 +16,7 @@ class AboutSeeder extends Seeder
         //
         About::create([
             'title' => 'À propos de nous',
+            'image' => 'assets/img/banners/about.jpg',
             'description' => '<p>Bienvenue dans notre organisation. Nous nous engageons à fournir des services de qualité.</p><img src="https://via.placeholder.com/150" alt="Image d\'exemple">',
         ]);
     }

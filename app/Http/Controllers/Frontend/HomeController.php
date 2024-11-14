@@ -2,28 +2,18 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Blog;
-use App\Models\Hero;
+
 use App\Models\About;
 use App\Models\Service;
-use App\Models\Category;
-use App\Models\Feedback;
 use App\Mail\ContactMail;
-use App\Models\SkillItem;
-use App\Models\Experience;
-use App\Models\TyperTitle;
 use Illuminate\Http\Request;
-use App\Models\PortfolioItem;
-use App\Models\BlogSectionSetting;
-use App\Models\SkillSectionSetting;
 use App\Http\Controllers\Controller;
 use App\Models\Achievement;
-use App\Models\Banner;
-use Illuminate\Support\Facades\Mail;
-use App\Models\ContactSectionSetting;
-use App\Models\FeedbackSectionSetting;
+use App\Models\Commune;
+use Illuminate\Support\Facades\Mail;;
+
 use App\Models\Job;
-use App\Models\PortfolioSectionSetting;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -54,14 +44,29 @@ class HomeController extends Controller
 
     public function contact(Request $request)
     {
+
         $request->validate([
-            'name' => ['required', 'max:200'],
-            'subject' => ['required', 'max:300'],
-            'email' => ['required', 'email'],
-            'message' => ['required', 'max:2000'],
+            'lastname' => 'required|string|min:2',
+            'firstname' => 'required|string|min:2',
+            'email' => 'required|email',
+            'message' => 'required|string'
+        ], [
+            'lastname.required' => 'Vous devez obligatoirement remplir le champ Nom',
+            'firstname.required' => 'Vous devez obligatoirement remplir le champ Prénom',
+            'email.required' => 'Vous devez obligatoirement remplir le champ Email',
+            'email.email' => 'Vous devez entrez un mail valide',
+            'message.required' => 'Vous devez obligatoirement remplir le champ Message'
         ]);
 
-        Mail::send(new ContactMail($request->all()));
+        $mailData = [
+            'lastname' => Str::title($request->lastname),
+            'firstname' => Str::title($request->firstname),
+            'email' => $request->email,
+            'message' => $request->message,
+            'ip' => $request->ip(),
+        ];
+
+        Mail::send(new ContactMail($mailData));
 
         return response(['status' => 'success', 'message' => 'Mail envoyé avec succès !']);
     }
@@ -111,7 +116,7 @@ class HomeController extends Controller
         return view('frontend.pages.devis');
     }
 
-    public function essai(Request $request)
+    public function essai(Request $request, string $id = null)
     {
         $limit = 3;
         $offset = $request->input('offset', 0);
@@ -129,6 +134,57 @@ class HomeController extends Controller
             ]);
         }
 
-        return view('frontend.pages.essai', compact('services', 'remaining'));
+        $allServices = Service::with('communes')->get();
+
+        if ($id) {
+
+            $service = Service::findOrFail($id);
+
+            return view('frontend.pages.essai', compact('services', 'allServices', 'remaining', 'service'));
+        }
+
+        return view('frontend.pages.essai', compact('services', 'allServices', 'remaining'));
+    }
+
+    public function getCommunes(string $serviceId)
+    {
+        try {
+            //code...
+            $service = Service::where('id', $serviceId)->with('communes')->firstOrFail();
+
+            //dd($service->communes());
+            //dd($products);
+            return response()->json($service);
+        } catch (\Exception $e) {
+            //dd($e);
+            //throw $th;
+            toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
+        }
+    }
+
+    public function showServiceWithPrice(string $serviceId, string $communeId)
+    {
+        try {
+            //code...
+
+            $service = Service::findOrFail($serviceId);
+
+            $communeRelation = $service->communes()->where('commune_id', $communeId)->first();
+
+            // Vérifiez si la relation existe
+            if (!$communeRelation) {
+                return response()->json(['error' => 'Commune non trouvée pour ce service'], 404);
+            }
+
+            $additionalPrice = $communeRelation->pivot->additional_price ?? 0;
+
+            $totalPrice = $service->base_price + $additionalPrice;
+
+            return response()->json($totalPrice);
+        } catch (\Exception $e) {
+            //dd($e);
+            toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
+            //throw $th;
+        }
     }
 }

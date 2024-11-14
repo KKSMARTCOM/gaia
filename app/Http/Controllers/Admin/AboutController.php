@@ -55,10 +55,34 @@ class AboutController extends Controller
     public function update(Request $request, string $id)
     {
         //dd($request->all());
+        $about = About::where('id', $id)->firstOrFail();
+
         $request->validate([
             'title' => ['required', 'max:200'],
+            'image' => ['max:5000', 'image'],
             'description' => ['required']
+        ], [
+            'image.max' => 'L\'image doit avoir une taille maximale de 5Mo',
+            'image.image' => 'Vous devez ajoutez une image',
         ]);
+
+        if ($request->hasFile('image')) {
+
+            if ($about->image) {
+                deleteFile($about->image);
+            }
+
+            $img = $request->file('image');
+            $folderName = $request->title;
+            $uploadFolder = 'assets/img/abouts/';
+            folderOpen($uploadFolder);
+            $imgurl = uploadImage($img, $folderName, $uploadFolder);
+
+            $about->update([
+                'image' => $imgurl,
+            ]);
+            //dd($imgurl);
+        }
 
         About::updateOrCreate(
             ['id' => $id],
@@ -71,12 +95,6 @@ class AboutController extends Controller
         toastr()->success('Mise à jour éffectuée avec succès', 'Félicitations !');
 
         return redirect()->back();
-    }
-
-    public function resumeDownload()
-    {
-        $about = About::first();
-        return response()->download(public_path($about->resume));
     }
 
     /**

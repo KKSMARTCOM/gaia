@@ -20,7 +20,7 @@
                     {!! $service->description !!}
                 </div>
                 <div>
-                    <button class="button-blue">Commander maintenant</button>
+                    <a href="{{ route('essai', $service->id) }}" class="button-blue">Commander maintenant</a>
                 </div>
             </div>
         </div>

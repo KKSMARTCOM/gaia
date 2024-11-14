@@ -29,8 +29,8 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: $this->mailData['subject'],
-            to: env('MAIL_FROM_ADDRESS'),
+            to: 'arsenegnanhoungbe@gmail.com',
+            subject: 'Message de contact GAIA Lab',
             from: $this->mailData['email']
         );
     }

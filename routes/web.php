@@ -51,8 +51,8 @@ Route::middleware('sitesetting')->group(function () {
   Route::get('portfolio-details/{id}', [HomeController::class, 'showPortfolio'])->name('show.portfolio');
 
   Route::get('blogs', [HomeController::class, 'blog'])->name('blog');
-  Route::get('about/{id}', [HomeController::class, 'about'])->name('show.about');
 
+  Route::get('about/{id}', [HomeController::class, 'about'])->name('show.about');
   // Route pour afficher les réalisations
   Route::get('realisations', [HomeController::class, 'realisations'])->name('realisations');
   // Route pour afficher le formulaire de contact
@@ -64,7 +64,7 @@ Route::middleware('sitesetting')->group(function () {
   // Route pour afficher le formulaire de devis
   Route::get('devis', [HomeController::class, 'devis'])->name('devis');
   // Route pour afficher le formulaire d'essai
-  Route::get('essai', [HomeController::class, 'essai'])->name('essai');
+  Route::get('essai/{id?}', [HomeController::class, 'essai'])->name('essai');
 
   Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
 
@@ -77,6 +77,10 @@ Route::middleware('sitesetting')->group(function () {
   Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 
   Route::post('contact', [HomeController::class, 'contact'])->name('contact.submit');
+
+  Route::get('communes/{id}', [HomeController::class, 'getCommunes'])->name('communes');
+
+  Route::get('services/{serviceId}/communes/{communeId}/price', [HomeController::class, 'showServiceWithPrice'])->name('service.commune.price');
 });
 
 

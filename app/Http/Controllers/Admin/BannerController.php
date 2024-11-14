@@ -12,7 +12,7 @@ class BannerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(BannerDataTable $dataTable)
+    public function index()
     {
         $banners = Banner::all();
         return view('admin.banner.index', compact('banners'));

@@ -194,13 +194,4 @@ class ServiceController extends Controller
             return response()->json(['status' => 'error']);
         }
     }
-
-    public function showServiceWithPrice(Service $service, $communeId)
-    {
-        $commune = Commune::findOrFail($communeId);
-        $additionalPrice = $service->communes()->where('commune_id', $communeId)->first()->pivot->additional_price ?? 0;
-        $totalPrice = $service->base_price + $additionalPrice;
-
-        return view('services.show', compact('service', 'totalPrice', 'commune'));
-    }
 }

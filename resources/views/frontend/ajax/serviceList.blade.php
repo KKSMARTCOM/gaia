@@ -15,7 +15,7 @@
                         {!! Str::limit($item->description, 50, '...') !!}
                     </div>
                     <div class="d-flex justify-content-between">
-                        <button class="button-blue">Commander</button>
+                        <a href="{{ route('essai', $item->id) }}" class="button-blue">Commander</a>
                         <a href="{{ route('show.service', $item->id) }}" class="button-blue text-nowrap">En savoir plus
                         </a>
                     </div>
