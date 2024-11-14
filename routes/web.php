@@ -32,6 +32,10 @@ use App\Http\Controllers\Admin\FeedbackSectionSettingController;
 use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\PartnerController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewUserPasswordMail;
+use App\Http\Controllers\Frontend\DevisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +67,8 @@ Route::middleware('sitesetting')->group(function () {
   Route::get('choixcategorie', [HomeController::class, 'choixcategorie'])->name('choixcategorie');
   // Route pour afficher le formulaire de devis
   Route::get('devis', [HomeController::class, 'devis'])->name('devis');
+  Route::post('/devis', [DevisController::class, 'envoyerDevis'])->name('devis');
+ 
   // Route pour afficher le formulaire d'essai
   Route::get('essai/{id?}', [HomeController::class, 'essai'])->name('essai');
 
@@ -125,4 +131,7 @@ Route::group([/* 'middleware' => ['auth', 'verified'], */'prefix' => 'admin', 'a
 
   // Routes pour la gestion des utilisateurs
   Route::resource('users', UserController::class)->except(['show']);
+
+  // ** Banners Route */
+  Route::resource('partner', PartnerController::class);
 });

@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NewUserPasswordMail;
+
 
 class UserController extends Controller
 {
@@ -34,22 +38,23 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
             'status' => 'boolean',
-            'is_admin' => 'boolean',
-            'avatar' => 'nullable|string|max:255',
         ]);
-
-        User::create([
+    
+        // Génération d'un mot de passe aléatoire
+        $generatedPassword = Str::random(8);
+    
+        // Création de l'utilisateur avec le mot de passe généré
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' => bcrypt($generatedPassword),
             'status' => $request->status ?? 1,
-            'is_admin' => $request->is_admin ?? 0,
-            'avatar' => $request->avatar,
         ]);
+        // Envoi d'un email avec le mot de passe
+        Mail::to($user->email)->send(new NewUserPasswordMail($user, $generatedPassword));
 
-        return redirect()->route('admin.users.index')->with('success', 'Utilisateur créé avec succès.');
+        return redirect()->route('admin.users.index')->with('success', 'Utilisateur créé avec succès. Le mot de passe a été envoyé par email.');
     }
 
     /**

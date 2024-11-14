@@ -123,3 +123,11 @@ function redirectToRoute() {
         $('.alert-text').text('Vous devez choisir une catégorie avant de continuer');
     }
 }
+
+function updatePlaceholder(input, textInputId) {
+    // Met à jour le placeholder avec le nom du fichier sélectionné
+    const fileName = input.files[0]?.name || "Aucun fichier sélectionné";
+    document.getElementById(textInputId).value = fileName;
+}
+
+
