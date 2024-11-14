@@ -12,11 +12,7 @@ class BannerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(BannerDataTable $dataTable)
-    {
-        $banners = Banner::all();
-        return view('admin.banner.index', compact('banners'));
-    }
+    public function index() {}
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +20,7 @@ class BannerController extends Controller
     public function create()
     {
         //
-        return view('admin.banner.create');
+        return view('admin.setting.general-setting.banner.create');
     }
 
     /**

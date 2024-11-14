@@ -7,16 +7,25 @@
                 </div>
             </div>
         </div>
-        <div class="row d-flex align-items-center">
-            {!! Str::limit($about->description, 243400, '...') !!}
-            <div class="col-sm-6 mt-4">
-                <a href="{{ route('show.about', $about->id) }}" class="button-blue-trans mouse-dir wow fadeInUp"
-                    data-wow-delay="0.5s">
-                    <span class="text">En savoir plus</span>
-                    <span class="dir-part"></span>
-                </a>
+        <div class="row ">
+            <div class="col-lg-6 mb-4">
+                <div class="about-text">
+                    <div class="desc wow fadeInUp" data-wow-delay="0.4s">
+                        {!! Str::limit($about->description, 500, '...') !!}
+                    </div>
+                    <a href="{{ route('show.about', $about->id) }}"
+                        class="button-blue-trans mt-4 mouse-dir wow fadeInUp" data-wow-delay="0.5s">
+                        <span class="text">En savoir plus</span>
+                        <span class="dir-part"></span>
+                    </a>
+                </div>
             </div>
-
+        </div>
+        <div class="col-lg-6 mb-4">
+            <figure class="about-image image-container">
+                <img src="{{ asset($about->image) }}" alt="{{ $about->title }}" class="wow fadeInUp image-responsive"
+                    data-wow-delay="0.3s">
+            </figure>
         </div>
     </div>
 </section>

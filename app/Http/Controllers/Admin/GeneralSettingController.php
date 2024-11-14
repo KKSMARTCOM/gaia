@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\GeneralSetting;
 use App\Http\Controllers\Controller;
+use App\Models\About;
+use App\Models\Banner;
 
 class GeneralSettingController extends Controller
 {
@@ -13,8 +15,10 @@ class GeneralSettingController extends Controller
      */
     public function index()
     {
-        /* $setting = GeneralSetting::first(); */
-        return view('admin.setting.general-setting.index'/* , compact('setting') */);
+        $about = About::first();
+        $banners = Banner::all();
+
+        return view('admin.setting.general-setting.index', compact('about', 'banners'));
     }
 
     /**

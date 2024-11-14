@@ -6,7 +6,8 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                <img alt="image" src="{{ Auth::user()->avatar ?? 'assets/img/avatar/avatar-1.png' }}"
+                    class="rounded-circle mr-1">
                 <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name }}</div>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
@@ -49,50 +50,50 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Tableau de bord</li>
 
-            <li class="nav-item">
+            <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
                 <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Tableau de
                         bord</span></a>
             </li>
 
-            <li class="nav-item">
+            <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
                 <a href="{{ route('dashboard') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Commandes</span></a>
             </li>
 
-            <li class="nav-item">
-                <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Paiement</span></a>
+            <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
+                <a href="{{ route('dashboard') }}" class="nav-link"><i
+                        class="fas fa-fire"></i><span>Paiement</span></a>
             </li>
-
-            <li class="menu-header">Sections</li>
-
-            <li class="nav-item dropdown">
-                <a href="{{ route('admin.banner.index') }}" class="nav-link"><i class="fas fa-columns"></i>
-                    <span>Bannière</span></a>
-            </li>
-
-            <li><a class="nav-link" href="{{ route('admin.about.index') }}"><i class="far fa-square"></i>
-                    <span>A propos</span></a></li>
-
-            <li><a class="nav-link" href="{{ route('admin.job.index') }}"><i class="far fa-square"></i>
-                    <span>Recrutements</span></a></li>
-
-            <li><a class="nav-link" href="{{ route('admin.achievement.index') }}"><i class="far fa-square"></i>
-                    <span>Réalisations</span></a></li>
-
-            <li><a class="nav-link" href="{{ route('admin.service.index') }}"><i class="far fa-square"></i>
-                    <span>Services</span></a></li>
-
-            <li><a class="nav-link" href="{{ route('admin.partner.index') }}"><i class="far fa-square"></i>
-                    <span>Partenaires</span></a></li>
 
             <li class="{{ setSidebarActive(['admin.users.*']) }}"><a class="nav-link"
                     href="{{ route('admin.users.index') }}"><i class="far fa-user"></i>
                     <span>Utilisateurs</span></a></li>
 
+            <li class="menu-header">Sections</li>
+
+            <li class="{{ setSidebarActive(['admin.job.*']) }}"><a class="nav-link"
+                    href="{{ route('admin.job.index') }}"><i class="far fa-square"></i>
+                    <span>Recrutements</span></a></li>
+
+            <li class="{{ setSidebarActive(['admin.achievement.*']) }}"><a class="nav-link"
+                    href="{{ route('admin.achievement.index') }}"><i class="far fa-square"></i>
+                    <span>Réalisations</span></a></li>
+
+            <li class="{{ setSidebarActive(['admin.service.*']) }}"><a class="nav-link"
+                    href="{{ route('admin.service.index') }}"><i class="far fa-square"></i>
+                    <span>Services</span></a></li>
+
+            <li class="{{ setSidebarActive(['admin.partner.*']) }}"><a class="nav-link"
+                    href="{{ route('admin.partner.index') }}"><i class="far fa-square"></i>
+                    <span>Partenaires</span></a></li>
+
             <li class="menu-header">Paramètres</li>
-            <li class="{{ setSidebarActive(['admin.settings.*']) }}"><a class="nav-link"
-                    href="{{ route('admin.settings.index') }}"><i class="far fa-square"></i>
-                    <span>Paramètres</span></a></li>
+
+            <li
+                class="{{ setSidebarActive(['admin.settings.*', 'admin.banner.*', 'admin.general-setting.*', 'profile.*']) }}">
+                <a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="far fa-square"></i>
+                    <span>Paramètres</span></a>
+            </li>
 
             {{-- <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li>       --}}
 

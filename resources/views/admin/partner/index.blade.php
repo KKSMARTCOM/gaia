@@ -14,7 +14,8 @@
                         <div class="card-header">
                             <h4>Tous les partenaires</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin.partner.create') }}" class="btn btn-success">Ajouter <i class="fas fa-plus"></i></a>
+                                <a href="{{ route('admin.partner.create') }}" class="btn btn-success">Ajouter <i
+                                        class="fas fa-plus"></i></a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -41,16 +42,16 @@
                                                         </div>
                                                     </td>
                                                     <td class="">
-                                                        <a href="{{ route('admin.partner.edit', $item->id) }}" class="btn btn-warning btn-icon"><span class="fas fa-edit"></span></a>
-                                                        <form action="{{ route('admin.partner.destroy', $item->id) }}" method="POST" style="display:inline;">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button type="button" class="btn btn-danger btn-icon delete-item" data-id="{{ $item->id }}" onclick="confirmDelete({{ $item->id }})">
-                                                                <i class="fas fa-trash-alt"></i>
-                                                            </button>
-                                                        </form>
+                                                        <a href="{{ route('admin.partner.edit', $item->id) }}"
+                                                            class="btn btn-warning btn-icon"><span
+                                                                class="fas fa-edit"></span></a>
+
+                                                        <a href="{{ route('admin.partner.destroy', $item->id) }}"
+                                                            class="btn btn-danger btn-icon delete-item">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
                                                     </td>
-                                                    
+
                                                 </tr>
                                             @endforeach
                                         @else
@@ -59,7 +60,7 @@
                                             </tr>
                                         @endif
                                     </tbody>
-                                    
+
                                 </table>
                             </div>
                         </div>
@@ -69,34 +70,3 @@
         </div>
     </section>
 @endsection
-
-
-@push('scripts')
-<script>
-    function confirmDelete(id) {
-        if(confirm('Êtes-vous sûr de vouloir supprimer ce partenaire ?')) {
-            $.ajax({
-                url: '/admin/partner/' + id,
-                type: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    _method: 'DELETE'
-                },
-                success: function(response) {
-                    if(response.status === 'success') {
-                        alert('Partenaire supprimé avec succès.');
-                        location.reload(); // Rafraîchir la page pour voir les changements
-                    } else {
-                        alert('Une erreur est survenue lors de la suppression.');
-                    }
-                },
-                error: function() {
-                    alert('Erreur serveur. Veuillez réessayer.');
-                }
-            });
-        }
-    }
-</script>
-@endpush
-
-

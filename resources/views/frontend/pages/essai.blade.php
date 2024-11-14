@@ -78,14 +78,16 @@
                                 <label for="form-adresse" class="form-label">Service <span class="text-danger">
                                         *</span></label>
                                 <div class="form-box">
-                                    <select name="batiments" id="form-batiments" class="input-box select2" required>
-                                        <option value="">Étude de sol pour les bâtiments RDC à RDC+ 2 étages
-                                        </option>
-                                        <option value="">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                        </option>
-                                        <option value="">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                        </option>
-                                    </select>
+                                    @if ($allServices && $allServices->count() > 0)
+                                        <select name="service_id" id="form-services" class="input-box select2" required>
+                                            @foreach ($allServices as $item)
+                                                <option
+                                                    {{ isset($service->id) && $service->id == $item->id ? 'selected' : '' }}
+                                                    value="{{ $item->id }}">{{ $item->title }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    @endif
                                 </div>
                             </div>
 
@@ -109,83 +111,15 @@
                                 <div class="form-box">
                                     <select name="commune" id="form-commune" class="input-box" required>
                                         <option value="" disabled selected>Choisissez une commune</option>
-                                        <option value="Banikoara">Banikoara</option>
-                                        <option value="Gogounou">Gogounou</option>
-                                        <option value="Kandi (chef-lieu)">Kandi (chef-lieu)</option>
-                                        <option value="Karimama">Karimama</option>
-                                        <option value="Malanville">Malanville</option>
-                                        <option value="Segbana">Segbana</option>
-                                        <option value="Boukoumbé">Boukoumbé</option>
-                                        <option value="Cobly">Cobly</option>
-                                        <option value="Kérou">Kérou</option>
-                                        <option value="Kouandé">Kouandé</option>
-                                        <option value="Matéri">Matéri</option>
-                                        <option value="Natitingou (chef-lieu)">Natitingou (chef-lieu)</option>
-                                        <option value="Péhunco">Péhunco</option>
-                                        <option value="Tanguiéta">Tanguiéta</option>
-                                        <option value="Toucountouna">Toucountouna</option>
-                                        <option value="Abomey-Calavi">Abomey-Calavi</option>
-                                        <option value="Allada (chef-lieu)">Allada (chef-lieu)</option>
-                                        <option value="Kpomassè">Kpomassè</option>
-                                        <option value="Ouidah">Ouidah</option>
-                                        <option value="Sô-Ava">Sô-Ava</option>
-                                        <option value="Toffo">Toffo</option>
-                                        <option value="Tori-Bossito">Tori-Bossito</option>
-                                        <option value="Zè">Zè</option>
-                                        <option value="Bembéréké">Bembéréké</option>
-                                        <option value="Kalalé">Kalalé</option>
-                                        <option value="N'Dali">N'Dali</option>
-                                        <option value="Nikki">Nikki</option>
-                                        <option value="Parakou (chef-lieu)">Parakou (chef-lieu)</option>
-                                        <option value="Pèrèrè">Pèrèrè</option>
-                                        <option value="Sinendé">Sinendé</option>
-                                        <option value="Tchaourou">Tchaourou</option>
-                                        <option value="Bantè">Bantè</option>
-                                        <option value="Dassa-Zoumé (chef-lieu)">Dassa-Zoumé (chef-lieu)</option>
-                                        <option value="Glazoué">Glazoué</option>
-                                        <option value="Ouèssè">Ouèssè</option>
-                                        <option value="Savalou">Savalou</option>
-                                        <option value="Savè">Savè</option>
-                                        <option value="Aplahoué (chef-lieu)">Aplahoué (chef-lieu)</option>
-                                        <option value="Djakotomey">Djakotomey</option>
-                                        <option value="Dogbo">Dogbo</option>
-                                        <option value="Klouékanmè">Klouékanmè</option>
-                                        <option value="Lalo">Lalo</option>
-                                        <option value="Toviklin">Toviklin</option>
-                                        <option value="Bassila">Bassila</option>
-                                        <option value="Copargo">Copargo</option>
-                                        <option value="Djougou (chef-lieu)">Djougou (chef-lieu)</option>
-                                        <option value="Ouaké">Ouaké</option>
-                                        <option value="Cotonou (chef-lieu)">Cotonou (chef-lieu)</option>
-                                        <option value="Athiémé">Athiémé</option>
-                                        <option value="Bopa">Bopa</option>
-                                        <option value="Comè">Comè</option>
-                                        <option value="Grand-Popo">Grand-Popo</option>
-                                        <option value="Houéyogbé">Houéyogbé</option>
-                                        <option value="Lokossa (chef-lieu)">Lokossa (chef-lieu)</option>
-                                        <option value="Adjarra">Adjarra</option>
-                                        <option value="Adjohoun">Adjohoun</option>
-                                        <option value="Aguégués">Aguégués</option>
-                                        <option value="Akpro-Missérété">Akpro-Missérété</option>
-                                        <option value="Avrankou">Avrankou</option>
-                                        <option value="Bonou">Bonou</option>
-                                        <option value="Dangbo">Dangbo</option>
-                                        <option value="Porto-Novo (chef-lieu)">Porto-Novo (chef-lieu)</option>
-                                        <option value="Sèmè-Kpodji">Sèmè-Kpodji</option>
-                                        <option value="Adja-Ouèrè">Adja-Ouèrè</option>
-                                        <option value="Ifangni">Ifangni</option>
-                                        <option value="Kétou">Kétou</option>
-                                        <option value="Pobè (chef-lieu)">Pobè (chef-lieu)</option>
-                                        <option value="Sakété">Sakété</option>
-                                        <option value="Abomey (chef-lieu)">Abomey (chef-lieu)</option>
-                                        <option value="Agbangnizoun">Agbangnizoun</option>
-                                        <option value="Bohicon">Bohicon</option>
-                                        <option value="Covè">Covè</option>
-                                        <option value="Djidja">Djidja</option>
-                                        <option value="Ouinhi">Ouinhi</option>
-                                        <option value="Za-Kpota">Za-Kpota</option>
-                                        <option value="Zagnanado">Zagnanado</option>
-                                        <option value="Zogbodomey">Zogbodomey</option>
+                                        @if (isset($service))
+                                            @foreach ($service->communes as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        @elseif ($allServices)
+                                            @foreach ($allServices[0]->communes as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
                             </div>
@@ -209,7 +143,7 @@
                             <!-- Tableau de services -->
                             <div class="col-sm-12 mt-4">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered">
+                                    <table id="service-table" class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Libellé du service</th>
@@ -219,17 +153,12 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Étude de sol pour les bâtiments RDC à RDC+ 2 étages</td>
+                                                <td>{{ $service->title ?? $allServices[0]->title }}</td>
                                                 <td>
-                                                    <ul>
-                                                        <li>4 Sondages pénétromètres dynamiques a 10 m de profondeur </li>
-                                                        <li>1 sondage pénétromètre statique à pointe mécanique à 10 m ou au
-                                                            refus</li>
-                                                        <li>1 sondage à la tarière de 3 à 5 m et essais de laboratoire sur
-                                                            les matériaux prélevés</li>
-                                                    </ul>
+                                                    {!! $service->description ?? $allServices[0]->description !!}
                                                 </td>
-                                                <td style="white-space: nowrap; text-align: center;">250 000 FCFA HT</td>
+                                                <td class="price-column" style="white-space: nowrap; text-align: center;">
+                                                    {{ $service->base_price ?? $allServices[0]->base_price }} FCFA HT</td>
                                             </tr>
                                         </tbody>
                                     </table>

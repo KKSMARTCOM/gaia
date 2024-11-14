@@ -16,34 +16,34 @@
                 <form class="contact-form" id="contact-form">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="form-name" class="icon lb-name">Nom <span class="text-danger"> *</span> </label>
+                            <label for="form-lastname" class="icon lb-name">Nom <span class="text-danger"> *</span>
+                            </label>
                             <div class="form-box">
-                                <input type="text" name="name" id="form-name" class="input-box"
+                                <input type="text" name="lastname" id="form-lastname" class="input-box"
                                     placeholder="Ex: Doe">
-                                <label for="form-name" class="icon lb-name"><i class="fal fa-user"></i></label>
+                                <label for="form-lastname" class="icon lb-name"><i class="fal fa-user"></i></label>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="form-name" class="icon lb-name">Prénom <span class="text-danger">
+                            <label for="form-firstname" class="icon lb-name">Prénom <span class="text-danger">
+                                    *</span></label>
+                            <div class="form-box">
+                                <input type="text" name="firstname" id="form-firstname" class="input-box"
+                                    placeholder="Ex: John">
+                                <label for="form-firstname" class="icon lb-name"><i class="fal fa-user"></i></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label for="form-email" class="icon lb-name">Email <span class="text-danger">
                                     *</span></label>
                             <div class="form-box">
                                 <input type="text" name="email" id="form-email" class="input-box"
-                                    placeholder="Ex: John">
-                                <label for="form-name" class="icon lb-name"><i class="fal fa-user"></i></label>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <label for="form-name" class="icon lb-name">Email <span class="text-danger">
-                                    *</span></label>
-                            <div class="form-box">
-                                <input type="text" name="subject" id="form-subject" class="input-box"
                                     placeholder="Ex: john@example.com">
-                                <label for="form-subject" class="icon lb-subject"><i
-                                        class="fal fa-envelope"></i></label>
+                                <label for="form-email" class="icon lb-subject"><i class="fal fa-envelope"></i></label>
                             </div>
                         </div>
                         <div class="col-sm-12">
-                            <label for="form-name" class="icon lb-name">Message <span class="text-danger">
+                            <label for="form-message" class="icon lb-name">Message <span class="text-danger">
                                     *</span></label>
                             <div class="form-box">
                                 <textarea class="input-box" id="form-message" placeholder="Donnez-nous plus de détails..." cols="30" rows="4"
@@ -78,20 +78,23 @@
 
             $(document).on('submit', '#contact-form', function(e) {
                 e.preventDefault();
+
+                console.log($(this).serialize());
+
                 $.ajax({
                     type: "POST",
                     url: "{{ route('contact') }}",
                     data: $(this).serialize(),
                     beforeSend: function() {
                         $('#submit_btn').prop("disabled", true);
-                        $('#submit_btn').text('Loading...');
+                        $('#submit_btn').text('Chargement...');
                     },
                     success: function(response) {
                         console.log(response);
                         if (response.status == 'success') {
                             toastr.success(response.message);
                             $('#submit_btn').prop("disabled", false);
-                            $('#submit_btn').text('Send Now');
+                            $('#submit_btn').text('Envoyer');
                             $('#contact-form').trigger('reset');
                         }
                     },
@@ -104,7 +107,7 @@
                                 toastr.error(val[0])
                             })
                             $('#submit_btn').prop("disabled", false);
-                            $('#submit_btn').text('Send Now');
+                            $('#submit_btn').text('Envoyer');
 
                         }
                     }

@@ -103,11 +103,10 @@ class PartnerController extends Controller
         try {
             $partner = Partner::findOrFail($id);
             $partner->delete();
-            toastr()->success('Partenaire supprimé avec succès.');
-            return redirect()->route('admin.partner.index');
+            return response()->json(['status' => 'success'], 200);
         } catch (\Exception $e) {
             toastr()->error('Erreur lors de la suppression du partenaire.');
-            return redirect()->route('admin.partner.index');
+            return response()->json(['status' => 'error']);
         }
     }
 }
