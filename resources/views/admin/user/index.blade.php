@@ -4,9 +4,6 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <div class="section-header-back">
-                <a href="{{ route('admin.users.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
-            </div>
             <h1>Utilisateurs</h1>
         </div>
 
@@ -41,7 +38,7 @@
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ $user->status ? 'Actif' : 'Inactif' }}</td>
                                                     <td>
-                                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-icon"><span class="fas fa-edit"></span></a>
+                                                        {{-- <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-icon"><span class="fas fa-edit"></span></a> --}}
                                                         <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;">
                                                             @csrf
                                                             @method('DELETE')
