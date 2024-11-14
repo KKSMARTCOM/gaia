@@ -11,11 +11,7 @@ class AboutController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $about = About::first();
-        return view('admin.about.index', compact('about'));
-    }
+    public function index() {}
 
     /**
      * Show the form for creating a new resource.

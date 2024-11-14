@@ -67,8 +67,9 @@ Route::middleware('sitesetting')->group(function () {
   Route::get('choixcategorie', [HomeController::class, 'choixcategorie'])->name('choixcategorie');
   // Route pour afficher le formulaire de devis
   Route::get('devis', [HomeController::class, 'devis'])->name('devis');
-  Route::post('/devis', [DevisController::class, 'envoyerDevis'])->name('devis');
- 
+
+  Route::post('/devis-store', [DevisController::class, 'envoyerDevis'])->name('devis.store');
+
   // Route pour afficher le formulaire d'essai
   Route::get('essai/{id?}', [HomeController::class, 'essai'])->name('essai');
 
@@ -92,17 +93,18 @@ Route::middleware('sitesetting')->group(function () {
 
 /** Admin Routes */
 
-Route::get('/dashboard', [DashboardController::class, 'index'])/* ->middleware(['auth', 'verified']) */->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
 Route::/* middleware('auth')-> */group([], function () {
   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+  Route::patch('/profile-informations', [ProfileController::class, 'update'])->name('profile.update');
+  Route::put('/profile-password', [ProfileController::class, 'passwordupdate'])->name('password.auth.update');
   Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__ . '/auth.php';
 
-Route::group([/* 'middleware' => ['auth', 'verified'], */'prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
   // ** Banners Route */
   Route::resource('banner', BannerController::class);
@@ -125,9 +127,6 @@ Route::group([/* 'middleware' => ['auth', 'verified'], */'prefix' => 'admin', 'a
 
   /** General setting Route */
   Route::resource('general-setting', GeneralSettingController::class);
-
-  /** Seo setting Route */
-  Route::resource('seo-setting', SeoSettingController::class);
 
   // Routes pour la gestion des utilisateurs
   Route::resource('users', UserController::class)->except(['show']);
