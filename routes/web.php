@@ -131,6 +131,6 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
   // Routes pour la gestion des utilisateurs
   Route::resource('users', UserController::class)->except(['show']);
 
-  // ** Banners Route */
+  // ** Partners Route */
   Route::resource('partner', PartnerController::class);
 });
