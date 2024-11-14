@@ -66,9 +66,9 @@ Route::middleware('sitesetting')->group(function () {
   // Route pour afficher le formulaire de choix de categorie client
   Route::get('choixcategorie', [HomeController::class, 'choixcategorie'])->name('choixcategorie');
   // Route pour afficher le formulaire de devis
-  Route::get('devis', [HomeController::class, 'devis'])->name('devis');
-  Route::post('/devis', [DevisController::class, 'envoyerDevis'])->name('devis');
- 
+  //Route::get('devis', [HomeController::class, 'devis'])->name('devis');
+  Route::post('devis', [DevisController::class, 'envoyerDevis'])->name('devis');
+
   // Route pour afficher le formulaire d'essai
   Route::get('essai', [HomeController::class, 'essai'])->name('essai');
 

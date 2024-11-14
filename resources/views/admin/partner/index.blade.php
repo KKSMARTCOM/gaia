@@ -41,6 +41,7 @@
                                                         </div>
                                                     </td>
                                                     <td class="">
+                                                        <a href="{{ route('admin.partner.edit', $item->id) }}" class="btn btn-warning btn-icon"><span class="fas fa-edit"></span></a>
                                                         <form action="{{ route('admin.partner.destroy', $item->id) }}" method="POST" style="display:inline;">
                                                             @csrf
                                                             @method('DELETE')
