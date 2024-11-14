@@ -38,7 +38,7 @@
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ $user->status ? 'Actif' : 'Inactif' }}</td>
                                                     <td>
-                                                        {{-- <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-icon"><span class="fas fa-edit"></span></a> --}}
+                                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-icon"><span class="fas fa-edit"></span></a>
                                                         <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;">
                                                             @csrf
                                                             @method('DELETE')

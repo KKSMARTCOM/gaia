@@ -83,7 +83,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
-            'password' => 'nullable|string|min:8|confirmed',
+            // 'password' => 'nullable|string|min:8|confirmed',
             'status' => 'boolean',
             'is_admin' => 'boolean',
             'avatar' => 'nullable|string|max:255',
@@ -93,7 +93,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password ? bcrypt($request->password) : $user->password,
+            // 'password' => $request->password ? bcrypt($request->password) : $user->password,
             'status' => $request->status ?? $user->status,
             'is_admin' => $request->is_admin ?? $user->is_admin,
             'avatar' => $request->avatar ?? $user->avatar,
