@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="simple-footer">
-                            Copyright &copy; System Admin
+                            Copyright &copy; GAIA LAB
                         </div>
                     </div>
                 </div>
