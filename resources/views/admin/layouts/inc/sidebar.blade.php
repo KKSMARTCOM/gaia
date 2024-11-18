@@ -42,7 +42,7 @@
 
             <i class="fas fa-arrow-left menu-toggle-close"></i>
 
-            <a href="{{ route('dashboard') }}">System Admin</a>
+            <a href="{{ route('dashboard') }}">GAIA LAB</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="{{ route('dashboard') }}">St</a>
@@ -51,18 +51,18 @@
             <li class="menu-header">Tableau de bord</li>
 
             <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
-                <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Tableau de
+                <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-chart-line"></i><span>Tableau de
                         bord</span></a>
             </li>
 
             <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
                 <a href="{{ route('dashboard') }}" class="nav-link"><i
-                        class="fas fa-fire"></i><span>Commandes</span></a>
+                        class="fas fa-shopping-cart"></i><span>Commandes</span></a>
             </li>
 
             <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
                 <a href="{{ route('dashboard') }}" class="nav-link"><i
-                        class="fas fa-fire"></i><span>Paiement</span></a>
+                        class="fas fa-hand-holding-usd"></i><span>Paiement</span></a>
             </li>
 
             <li class="{{ setSidebarActive(['admin.users.*']) }}"><a class="nav-link"
@@ -72,26 +72,26 @@
             <li class="menu-header">Sections</li>
 
             <li class="{{ setSidebarActive(['admin.job.*']) }}"><a class="nav-link"
-                    href="{{ route('admin.job.index') }}"><i class="far fa-square"></i>
+                    href="{{ route('admin.job.index') }}"><i class="fas fa-handshake"></i>
                     <span>Recrutements</span></a></li>
 
             <li class="{{ setSidebarActive(['admin.achievement.*']) }}"><a class="nav-link"
-                    href="{{ route('admin.achievement.index') }}"><i class="far fa-square"></i>
+                    href="{{ route('admin.achievement.index') }}"><i class="fas fa-trophy"></i>
                     <span>Réalisations</span></a></li>
 
             <li class="{{ setSidebarActive(['admin.service.*']) }}"><a class="nav-link"
-                    href="{{ route('admin.service.index') }}"><i class="far fa-square"></i>
+                    href="{{ route('admin.service.index') }}"><i class="fas fa-concierge-bell"></i>
                     <span>Services</span></a></li>
 
             <li class="{{ setSidebarActive(['admin.partner.*']) }}"><a class="nav-link"
-                    href="{{ route('admin.partner.index') }}"><i class="far fa-square"></i>
+                    href="{{ route('admin.partner.index') }}"><i class="fas fa-users"></i>
                     <span>Partenaires</span></a></li>
 
             <li class="menu-header">Paramètres</li>
 
             <li
                 class="{{ setSidebarActive(['admin.settings.*', 'admin.banner.*', 'admin.general-setting.*', 'profile.*']) }}">
-                <a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="far fa-square"></i>
+                <a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="fas fa-cogs"></i>
                     <span>Paramètres</span></a>
             </li>
 

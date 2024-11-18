@@ -17,7 +17,13 @@
     <p><strong>Description du projet:</strong> {{ $projetMessage }}</p> <!-- Utiliser $projetMessage ici -->
 
     @if($plan_topographique)
-        <p><strong>Plan topographique:</strong> <a href="{{ storage_path('app/' . $plan_topographique) }}">Télécharger le fichier</a></p>
+        <p><strong>Plan topographique:</strong> 
+        <a href="{{ asset('storage/' . $plan_topographique) }}" download>Télécharger le fichier</a></p>
     @endif
+    @if($autre_document)
+        <p><strong>Autre document technique:</strong> 
+        <a href="{{ asset('storage/' . $autre_document) }}" download>Télécharger le fichier</a></p>
+    @endif
+
 </body>
 </html>

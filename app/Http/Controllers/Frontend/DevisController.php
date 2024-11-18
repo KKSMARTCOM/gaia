@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller; // Import du contrôleur de base
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Mail\Message;
 
 class DevisController extends Controller
 {
@@ -20,37 +19,46 @@ class DevisController extends Controller
         'adresseintervention' => 'required|string',
         'message' => 'required|string',
         'plan_topographique' => 'nullable|file|mimes:pdf,dwg',
+        'autre_document' => 'nullable|file|mimes:pdf,dwg', // Nouveau champ
     ]);
 
-    // Si le fichier est téléchargé, on le stocke temporairement
-    $path = null;
+    $pathPlan = null;
+    $pathAutreDocument = null;
+
     if ($request->hasFile('plan_topographique')) {
-        $path = $request->file('plan_topographique')->store('plans');
+        $pathPlan = $request->file('plan_topographique')->store('public/plans');
+        $pathPlan = str_replace('public/', '', $pathPlan);
     }
 
-    // Envoi de l'e-mail
+    if ($request->hasFile('autre_document')) {
+        $pathAutreDocument = $request->file('autre_document')->store('public/plans');
+        $pathAutreDocument = str_replace('public/', '', $pathAutreDocument);
+    }
+
     Mail::send('mail.demande_devis', [
         'societe' => $validated['societe'],
         'email' => $validated['email'],
         'nom' => $validated['nom'],
         'prenoms' => $validated['prenoms'],
         'adresseintervention' => $validated['adresseintervention'],
-        'projetMessage' => $validated['message'], // Nouveau nom pour éviter conflit
-        'plan_topographique' => $path,
-    ], function ($message) use ($validated, $path) {
-        $message->to($validated['email']) // Adresse du destinataire
+        'projetMessage' => $validated['message'],
+        'plan_topographique' => $pathPlan,
+        'autre_document' => $pathAutreDocument,
+    ], function ($message) use ($validated, $pathPlan, $pathAutreDocument) {
+        $message->to($validated['email'])
                 ->subject('Demande de devis de ' . $validated['societe'])
                 ->from('dakevelyne@gmail.com', 'Gaia');
 
-        // Joindre le fichier si disponible
-        if ($path) {
-            $message->attach(storage_path('app/' . $path));
+        if ($pathPlan) {
+            $message->attach(storage_path('app/public/' . $pathPlan));
+        }
+
+        if ($pathAutreDocument) {
+            $message->attach(storage_path('app/public/' . $pathAutreDocument));
         }
     });
 
-    // Retour avec message de succès
     return redirect()->back()->with('success', 'Votre demande de devis a été envoyée avec succès.');
 }
-
 
 }

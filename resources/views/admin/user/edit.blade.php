@@ -34,13 +34,13 @@
                                     <input type="email" name="email" class="form-control" value="{{ old('email', $user->email ?? '') }}" required>
                                 </div>
 
-                                <div class="form-group">
+                               {{--  <div class="form-group">
                                     <label for="password">Mot de passe</label>
                                     <input type="password" name="password" class="form-control">
                                     @if ($user)
                                         <small>Laissez vide si vous ne souhaitez pas modifier le mot de passe.</small>
                                     @endif
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group">
                                     <label for="status">Statut</label>
