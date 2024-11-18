@@ -98,7 +98,7 @@ Route::middleware('sitesetting')->group(function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
-Route::/* middleware('auth')-> */group([], function () {
+Route::group(['middleware' => ['auth']], function () {
   Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
   Route::patch('/profile-informations', [ProfileController::class, 'update'])->name('profile.update');
   Route::put('/profile-password', [ProfileController::class, 'passwordupdate'])->name('password.auth.update');

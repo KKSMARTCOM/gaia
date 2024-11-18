@@ -50,20 +50,20 @@
         <ul class="sidebar-menu">
             <li class="menu-header">Tableau de bord</li>
 
-            <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
-                <a href="{{ route('dashboard') }}" class="nav-link"><i class="fas fa-chart-line"></i><span>Tableau de
-                        bord</span></a>
+            <li class="{{ setSidebarActive(['dashboard']) }}">
+                <a href="{{ route('dashboard') }}" class="nav-link">
+                    <i class="fas fa-chart-line"></i><span>Tableau de bord</span></a>
             </li>
 
-            <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
-                <a href="{{ route('dashboard') }}" class="nav-link"><i
+            <li class="{{ setSidebarActive(['admin.order-tests.*']) }}">
+                <a href="{{ route('admin.order-tests.index') }}" class="nav-link"><i
                         class="fas fa-shopping-cart"></i><span>Commandes</span></a>
             </li>
 
-            <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
+            {{--             <li class="{{ setSidebarActive(['admin.dashboard.*']) }}">
                 <a href="{{ route('dashboard') }}" class="nav-link"><i
                         class="fas fa-hand-holding-usd"></i><span>Paiement</span></a>
-            </li>
+            </li> --}}
 
             <li class="{{ setSidebarActive(['admin.users.*']) }}"><a class="nav-link"
                     href="{{ route('admin.users.index') }}"><i class="far fa-user"></i>

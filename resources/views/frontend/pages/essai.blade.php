@@ -67,9 +67,9 @@
 
                             <!-- Adresse -->
                             <div class="col-sm-12 mb-3">
-                                <label for="form-adress" class="form-label">Adresse</label>
+                                <label for="form-address" class="form-label">Adresse</label>
                                 <div class="form-box">
-                                    <input type="text" name="adress" id="form-adress" class="input-box"
+                                    <input type="text" name="address" id="form-address" class="input-box"
                                         placeholder="Ex : Pavillon bleu Rue 190">
                                 </div>
                             </div>

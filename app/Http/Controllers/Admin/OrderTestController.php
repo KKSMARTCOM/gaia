@@ -14,6 +14,9 @@ class OrderTestController extends Controller
     public function index()
     {
         //
+        $orders = OrderTest::latest()->get();
+
+        return view('admin.order.index', compact('orders'));
     }
 
     /**
@@ -78,6 +81,8 @@ class OrderTestController extends Controller
             'topographic_survey.max' => 'Le fichier PDF ne doit pas dépasser 2 Mo.',
         ]);
 
+        //dd($request->all());
+
         try {
             //code...
             if ($request->hasFile('topographic_survey')) {
@@ -89,13 +94,15 @@ class OrderTestController extends Controller
                 'firstname' => $request->firstname,
                 'address' => $request->address,
                 'email' => $request->email,
+                'phone' => $request->phone,
                 'service_id' => $request->service_id,
                 'commune_id' => $request->commune_id,
+                'building_type' => $request->building_type,
                 'price' => $request->price,
                 'topographic_survey' => $request->topographic_survey,
             ]);
 
-            toastr()->success('Mise à jour éffectuée avec succès', 'Félicitations !');
+            toastr()->success('Votre demande d\'essai a été bien reçu', 'Félicitations !');
 
             return redirect()->back();
         } catch (\Exception $e) {
@@ -111,6 +118,9 @@ class OrderTestController extends Controller
     public function show(string $id)
     {
         //
+        $order = OrderTest::where('id', $id)->firstOrFail();
+
+        return view('admin.order.show', compact('order'));
     }
 
     /**
@@ -135,5 +145,14 @@ class OrderTestController extends Controller
     public function destroy(string $id)
     {
         //
+        try {
+            //code...
+            $order = OrderTest::where('id', $id)->firstOrFail();
+            $order->delete();
+            return response()->json(['status' => 'success'], 200);
+        } catch (\Exception $e) {
+            //throw $th;
+            return response()->json(['status' => 'error']);
+        }
     }
 }

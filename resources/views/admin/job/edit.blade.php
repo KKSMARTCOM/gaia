@@ -8,7 +8,6 @@
                 <a href="{{ route('admin.job.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
             <h1>Recrutement</h1>
-
         </div>
 
         <div class="section-body">
