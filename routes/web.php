@@ -30,6 +30,7 @@ use App\Http\Controllers\Admin\SkillSectionSettingController;
 use App\Http\Controllers\Admin\ContactSectionSettingController;
 use App\Http\Controllers\Admin\FeedbackSectionSettingController;
 use App\Http\Controllers\Admin\JobController;
+use App\Http\Controllers\Admin\OrderTestController;
 use App\Http\Controllers\Admin\PortfolioSectionSettingController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\PartnerController;
@@ -72,6 +73,8 @@ Route::middleware('sitesetting')->group(function () {
 
   // Route pour afficher le formulaire d'essai
   Route::get('essai/{id?}', [HomeController::class, 'essai'])->name('essai');
+
+  Route::post('essai-store', [OrderTestController::class, 'store'])->name('essai.store');
 
   Route::get('blog-details/{id}', [HomeController::class, 'showBlog'])->name('show.blog');
 
@@ -133,4 +136,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
   // ** Partners Route */
   Route::resource('partner', PartnerController::class);
+
+  // ** Orders Tests Route */
+  Route::resource('order-tests', OrderTestController::class);
 });

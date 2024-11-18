@@ -50,12 +50,10 @@ $(document).on('ready', function () {
                         $('#service-table tbody').html(`
                         <tr>
                             <td>${response.title}</td>
-                            <td>
-                                    ${response.description}
-                               
-                            </td>
+                            <td>${response.description}</td>
                             <td class="price-column" style="white-space: nowrap; text-align: center;">
-                                ${response.base_price} FCFA HT
+                                <input type="text" style="border: none; width:80px;" readonly name="price" value="${response.base_price}">
+                                    FCFA HT
                             </td>
                         </tr>
                     `);
@@ -82,7 +80,7 @@ $(document).on('ready', function () {
                 success: function (response) {
                     console.log(response);
                     if (response) {
-                        $('table tbody td.price-column').text(response + ' FCFA TTC');
+                        $('table tbody td.price-column input[name="price"]').val(response);
                     }
                 },
                 error: function (xhr, status, error) {

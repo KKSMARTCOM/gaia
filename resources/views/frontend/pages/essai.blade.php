@@ -23,34 +23,35 @@
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Essai-Form -->
-                    <form class="essai-form" id="essai-form" action="{{ route('essai') }}" method="POST">
+                    <form class="essai-form" id="essai-form" action="{{ route('essai.store') }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-
                             <!-- Nom -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-nom" class="form-label">Nom <span class="text-danger"> *</span></label>
+                                <label for="form-lastname" class="form-label">Nom <span class="text-danger">
+                                        *</span></label>
                                 <div class="form-box">
-                                    <input type="text" name="nom" id="form-nom" class="input-box"
+                                    <input type="text" name="lastname" id="form-lastname" class="input-box"
                                         placeholder="Ex : Jae" required>
                                 </div>
                             </div>
 
                             <!-- Prénoms -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-prenoms" class="form-label">Prénoms <span class="text-danger">
+                                <label for="form-firstname" class="form-label">Prénoms <span class="text-danger">
                                         *</span></label>
                                 <div class="form-box">
-                                    <input type="text" name="prenoms" id="form-prenoms" class="input-box"
+                                    <input type="text" name="firstname" id="form-firstname" class="input-box"
                                         placeholder="Ex : John" required>
                                 </div>
                             </div>
 
                             <!-- Téléphone -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-telephone" class="form-label">Téléphone</label>
+                                <label for="form-phone" class="form-label">Téléphone</label>
                                 <div class="form-box">
-                                    <input type="text" name="telephone" id="form-telephone" class="input-box"
+                                    <input type="text" name="phone" id="form-phone" class="input-box"
                                         placeholder="Ex : +229 75102365">
                                 </div>
                             </div>
@@ -66,9 +67,9 @@
 
                             <!-- Adresse -->
                             <div class="col-sm-12 mb-3">
-                                <label for="form-adresse" class="form-label">Adresse</label>
+                                <label for="form-adress" class="form-label">Adresse</label>
                                 <div class="form-box">
-                                    <input type="text" name="adresse" id="form-adresse" class="input-box"
+                                    <input type="text" name="adress" id="form-adress" class="input-box"
                                         placeholder="Ex : Pavillon bleu Rue 190">
                                 </div>
                             </div>
@@ -93,13 +94,14 @@
 
                             <!-- Type de bâtiments  -->
                             <div class="col-sm-12 mb-3">
-                                <label for="form-adresse" class="form-label">Type de bâtiments <span class="text-danger">
+                                <label for="form-building_type" class="form-label">Type de bâtiments <span
+                                        class="text-danger">
                                         *</span></label>
                                 <div class="form-box">
-                                    <select name="batiments" id="form-batiments" class="input-box" required>
-                                        <option value="" selected>Veuillez choisir le type de votre bâtiment</option>
-                                        <option value="">R + 2</option>
-                                        <option value="">R + 3</option>
+                                    <select name="building_type" id="form-building_type" class="input-box" required>
+                                        <option value="">Veuillez choisir le type de votre bâtiment</option>
+                                        <option value="R+2">R + 2</option>
+                                        <option value="R+3">R + 3</option>
                                     </select>
                                 </div>
                             </div>
@@ -109,7 +111,7 @@
                                 <label for="form-adresse" class="form-label">Commune <span class="text-danger">
                                         *</span></label>
                                 <div class="form-box">
-                                    <select name="commune" id="form-commune" class="input-box" required>
+                                    <select name="commune_id" id="form-commune" class="input-box" required>
                                         <option value="" disabled selected>Choisissez une commune</option>
                                         @if (isset($service))
                                             @foreach ($service->communes as $item)
@@ -128,7 +130,7 @@
                             <div class="col-sm-12 mb-3">
                                 <label for="form-plan" class="form-label">Levé topographique du site</label>
                                 <div class="form-box" style="position: relative;">
-                                    <input type="file" name="plan_topographique" id="form-plan" accept=".pdf,.dwg"
+                                    <input type="file" name="topographic_survey" id="form-plan" accept=".pdf,.dwg"
                                         required onchange="updatePlaceholder(this)"
                                         style="opacity: 0; position: absolute; z-index: -1;">
                                     <input type="text" class="input-box" id="custom-file-input"
@@ -157,8 +159,13 @@
                                                 <td>
                                                     {!! $service->description ?? $allServices[0]->description !!}
                                                 </td>
-                                                <td class="price-column" style="white-space: nowrap; text-align: center;">
-                                                    {{ $service->base_price ?? $allServices[0]->base_price }} FCFA HT</td>
+                                                <td class="price-column d-flex align-items-center"
+                                                    style="text-align: center;">
+                                                    <input type="text" readonly name="price"
+                                                        style="border: none; width:80px;"
+                                                        value="{{ $service->base_price ?? $allServices[0]->base_price }}">
+                                                    FCFA HT
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
