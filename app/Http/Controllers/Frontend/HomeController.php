@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Achievement;
 use App\Models\Commune;
-use Illuminate\Support\Facades\Mail;;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Job;
 use Illuminate\Support\Str;
@@ -116,6 +117,61 @@ class HomeController extends Controller
         return view('frontend.pages.devis');
     }
 
+    public function envoyerDevis(Request $request)
+    {
+        // Validation des données du formulaire
+        $validated = $request->validate([
+            'societe' => 'required|string',
+            'email' => 'required|email',
+            'nom' => 'required|string',
+            'prenoms' => 'required|string',
+            'adresseintervention' => 'required|string',
+            'message' => 'required|string',
+            'plan_topographique' => 'nullable|file|mimes:pdf,dwg',
+            'autre_document' => 'nullable|file|mimes:pdf,dwg', // Nouveau champ
+        ]);
+    
+        $pathPlan = null;
+        $pathAutreDocument = null;
+    
+        if ($request->hasFile('plan_topographique')) {
+            $pathPlan = $request->file('plan_topographique')->store('public/plans');
+            $pathPlan = str_replace('public/', '', $pathPlan);
+        }
+    
+        if ($request->hasFile('autre_document')) {
+            $pathAutreDocument = $request->file('autre_document')->store('public/plans');
+            $pathAutreDocument = str_replace('public/', '', $pathAutreDocument);
+        }
+    
+        Mail::send('mail.demande_devis', [
+            'societe' => $validated['societe'],
+            'email' => $validated['email'],
+            'nom' => $validated['nom'],
+            'prenoms' => $validated['prenoms'],
+            'adresseintervention' => $validated['adresseintervention'],
+            'projetMessage' => $validated['message'],
+            'plan_topographique' => $pathPlan,
+            'autre_document' => $pathAutreDocument,
+        ], function ($message) use ($validated, $pathPlan, $pathAutreDocument) {
+            $message->to($validated['email'])
+                    ->subject('Demande de devis de ' . $validated['societe'])
+                    ->from('dakevelyne@gmail.com', 'Gaia');
+    
+            if ($pathPlan) {
+                $message->attach(storage_path('app/public/' . $pathPlan));
+            }
+    
+            if ($pathAutreDocument) {
+                $message->attach(storage_path('app/public/' . $pathAutreDocument));
+            }
+        });
+    
+        return redirect()->back()->with('success', 'Votre demande de devis a été envoyée avec succès.');
+    }
+
+    
+
     public function essai(Request $request, string $id = null)
     {
         $limit = 3;
@@ -145,6 +201,57 @@ class HomeController extends Controller
 
         return view('frontend.pages.essai', compact('services', 'allServices', 'remaining'));
     }
+
+    public function store(Request $request)
+    {
+        // Valider les données du formulaire
+        $validated = $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenoms' => 'required|string|max:255',
+            'email' => 'required|email',
+            'service_id' => 'required|integer',
+            'batiments' => 'required|string',
+            'commune' => 'required|integer',
+            'plan_topographique' => 'nullable|file|mimes:pdf,dwg',
+            'telephone' => 'nullable|string|max:20',
+            'adresse' => 'nullable|string|max:255',
+        ]);
+
+        // Récupérer le service à partir de la base de données
+        $service = DB::table('services')->where('id', $validated['service_id'])->first();
+
+        if (!$service) {
+            return redirect()->back()->withErrors(['service_id' => 'Service non trouvé']);
+        }
+
+        // Calculer le prix à partir du champ base_price
+        $price = $service->base_price; // Utiliser directement la colonne `base_price`
+
+        $filePath = null;
+        if ($request->hasFile('plan_topographique')) {
+            // Sauvegarder le fichier dans `storage/app/plans`
+            $filePath = $request->file('plan_topographique')->store('plans');
+        }
+
+        // Insérer les données dans la table
+        DB::table('order_tests')->insert([
+            'lastname' => $validated['nom'],
+            'firstname' => $validated['prenoms'],
+            'phone' => $validated['telephone'] ?? null,
+            'address' => $validated['adresse'] ?? null,
+            'email' => $validated['email'],
+            'building_type' => $validated['batiments'],
+            'service_id' => $validated['service_id'],
+            'commune_id' => $validated['commune'],
+            'price' => $price, // Assigner le prix calculé ici
+            'topographic_survey' => $filePath,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()->back()->with('success', 'Demande d\'essai envoyée avec succès !');
+    }
+
 
     public function getCommunes(string $serviceId)
     {

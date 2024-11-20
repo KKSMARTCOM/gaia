@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Devis-Form -->
-                    <form action="{{ route('devis.store') }}" method="POST" enctype="multipart/form-data">
+                    <form class="devis-form" id="devis-form" action="{{ route('devis.store') }}" method="POST" enctype="multipart/form-data">   
                         @csrf
                         <div class="row">
                             <!-- Société -->

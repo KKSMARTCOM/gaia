@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Essai-Form -->
-                    <form class="essai-form" id="essai-form" action="{{ route('essai') }}" method="POST">
+                    <form class="essai-form" id="essai-form" action="{{ route('essai.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
 
@@ -97,10 +97,10 @@
                                         *</span></label>
                                 <div class="form-box">
                                     <select name="batiments" id="form-batiments" class="input-box" required>
-                                        <option value="" selected>Veuillez choisir le type de votre bâtiment</option>
-                                        <option value="">R + 2</option>
-                                        <option value="">R + 3</option>
-                                    </select>
+                                        <option value="" selected disabled>Veuillez choisir le type de votre bâtiment</option>
+                                        <option value="R+2">R + 2</option>
+                                        <option value="R+3">R + 3</option>
+                                    </select>                                    
                                 </div>
                             </div>
 
@@ -129,7 +129,7 @@
                                 <label for="form-plan" class="form-label">Levé topographique du site</label>
                                 <div class="form-box" style="position: relative;">
                                     <input type="file" name="plan_topographique" id="form-plan" accept=".pdf,.dwg"
-                                        required onchange="updatePlaceholder(this)"
+                                        onchange="updatePlaceholder(this)"
                                         style="opacity: 0; position: absolute; z-index: -1;">
                                     <input type="text" class="input-box" id="custom-file-input"
                                         placeholder="Ex : levé topographique .pdf"

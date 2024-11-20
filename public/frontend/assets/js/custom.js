@@ -111,18 +111,21 @@ function redirectToRoute() {
     const routeEssai = button.getAttribute('data-route-essai');
 
     // Vérifie quel bouton radio est sélectionné
-    const entrepriseChecked = document.querySelector('input[name="client_category"][value="entreprise"]').checked;
-    const particulierChecked = document.querySelector('input[name="client_category"][value="particulier"]').checked;
+    const selectedOption = document.querySelector('input[name="client_category"]:checked');
 
-    // Redirige en fonction de la sélection
-    if (entrepriseChecked) {
-        window.location.href = routeDevis;  // Redirection vers la route 'devis'
-    } else if (particulierChecked) {
-        window.location.href = routeEssai;  // Redirection vers la route 'essai'
+    if (selectedOption) {
+        if (selectedOption.value === 'entreprise') {
+            window.location.href = routeDevis; // Redirection vers la route 'devis'
+        } else if (selectedOption.value === 'particulier') {
+            window.location.href = routeEssai; // Redirection vers la route 'essai'
+        }
     } else {
-        $('.alert-text').text('Vous devez choisir une catégorie avant de continuer');
+        // Affiche un message d'erreur si aucune option n'est sélectionnée
+        const alertText = document.querySelector('.alert-text');
+        alertText.textContent = 'Veuillez sélectionner une catégorie avant de continuer.';
     }
 }
+
 
 function updatePlaceholder(input, textInputId) {
     // Met à jour le placeholder avec le nom du fichier sélectionné
