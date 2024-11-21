@@ -4,7 +4,7 @@
             <div class="single-service">
                 <div class="single-service-icon d-flex justify-content-center align-items-center">
                     <div style="height: 60px;width:60px;overflow:hidden;">
-                        <img src="{{ asset($item->image) }}"
+                        <img src="{{ asset($item->image ?? 'frontend/assets/images/no-image.webp') }}"
                             style="height: 100%;width:100%;object-fit:cover;border-radius:100%" alt="{{ $item->title }}">
                     </div>
                 </div>

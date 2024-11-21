@@ -21,7 +21,8 @@
                         <div style="width: 600px">
                             <figure class="image-container">
                                 <img class="" style="height: 100%;width:100%;object-fit:cover;border-radius:10px"
-                                    src="{{ asset($achievement->image) }}" alt="">
+                                    src="{{ asset($achievement->image ?? 'frontend/assets/images/no-image.webp') }}"
+                                    alt="">
                             </figure>
                         </div>
                     </div>

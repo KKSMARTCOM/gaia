@@ -17,15 +17,15 @@ class PartnerSeeder extends Seeder
         $partners = [
             [
                 'nom' => 'Partenaire A',
-                'image' => 'assets/img/banners/header1.jpg'
+                'image' => 'frontend/assets/images/partner2.jpg'
             ],
             [
                 'nom' => 'Partenaire B',
-                'image' => 'assets/img/banners/header1.jpg'
+                'image' => 'frontend/assets/images/partner4.jpg'
             ],
             [
                 'nom' => 'Partenaire C',
-                'image' => 'assets/img/banners/header2.jpg' 
+                'image' => 'frontend/assets/images/partner6.png'
             ],
         ];
 

@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use App\Models\Banner;
+use App\Models\Partner;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,8 +18,9 @@ class SiteSettingMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         $slides = Banner::all();
+        $partners = Partner::all();
 
-        view()->share(['slides' => $slides]);
+        view()->share(['slides' => $slides, 'partners' => $partners]);
 
         return $next($request);
     }

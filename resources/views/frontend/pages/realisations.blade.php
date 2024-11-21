@@ -18,12 +18,13 @@
 
             @if ($achievements && $achievements->count() > 0)
                 @foreach ($achievements as $index => $item)
-                    <div class="row align-items-center">
+                    <div class="row">
                         @if ($index % 2 == 0)
                             <div class="col-lg-6 mb-4">
                                 <figure class="about-image image-container">
-                                    <img src="{{ asset($item->image) }}" alt="{{ $item->title }}"
-                                        class="wow fadeInUp image-responsive" data-wow-delay="0.3s">
+                                    <img src="{{ asset($item->image ?? 'frontend/assets/images/no-image.webp') }}"
+                                        alt="{{ $item->title }}" class="wow fadeInUp image-responsive"
+                                        data-wow-delay="0.3s">
                                 </figure>
                             </div>
                             <div class="col-lg-6 mb-4">
@@ -57,8 +58,9 @@
                             </div>
                             <div class="col-lg-6 mb-4">
                                 <figure class="about-image image-container">
-                                    <img src="{{ asset($item->image) }}" alt="{{ $item->title }}"
-                                        class="wow fadeInUp image-responsive" data-wow-delay="0.3s">
+                                    <img src="{{ asset($item->image ?? 'frontend/assets/images/no-image.webp') }}"
+                                        alt="{{ $item->title }}" class="wow fadeInUp image-responsive"
+                                        data-wow-delay="0.3s">
                                 </figure>
                             </div>
                         @endif

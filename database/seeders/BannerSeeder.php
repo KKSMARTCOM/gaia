@@ -21,15 +21,6 @@ class BannerSeeder extends Seeder
             [
                 'image' => 'assets/img/banners/header2.jpg',
             ],
-            [
-                'image' => 'assets/img/banners/header2.jpg',
-            ],
-            [
-                'image' => 'assets/img/banners/header2.jpg',
-            ],
-            [
-                'image' => 'assets/img/banners/header2.jpg',
-            ],
         ];
 
         foreach ($banners as $banner) {

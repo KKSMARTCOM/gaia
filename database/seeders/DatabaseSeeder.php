@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Achievement;
+use App\Models\Job;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -27,8 +30,10 @@ class DatabaseSeeder extends Seeder
                 AboutSeeder::class,
                 CommuneSeeder::class,
                 ServiceSeeder::class,
+                AchievementSeeder::class,
                 UsersSeeder::class,
                 PartnerSeeder::class,
+                JobSeeder::class,
             ]
         );
     }

@@ -10,44 +10,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="testimonial-slider">
-                    <div class="single-testimonial">
-                        <div class="single-testimonial-image">
-                            <img src="{{ asset('frontend/assets/images/partner1.png') }}" alt="">
+                    @foreach ($partners as $partner)
+                        <div class="single-testimonial">
+                            <div class="single-testimonial-image">
+                                <img src="{{ asset($partner->image ?? 'frontend/assets/images/no-image.webp') }}"
+                                    alt="">
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="single-testimonial">
-                        <div class="single-testimonial-image">
-                            <img src="{{ asset('frontend/assets/images/partner2.jpg') }}" alt="">
-                        </div>
-                    </div>
-
-                    <div class="single-testimonial">
-                        <div class="single-testimonial-image">
-                            <img src="{{ asset('frontend/assets/images/partner3.png') }}" alt="">
-                        </div>
-                    </div>
-
-                    <div class="single-testimonial">
-                        <div class="single-testimonial-image">
-                            <img src="{{ asset('frontend/assets/images/partner4.jpg') }}" alt="">
-                        </div>
-                    </div>
-                    <div class="single-testimonial">
-                        <div class="single-testimonial-image">
-                            <img src="{{ asset('frontend/assets/images/partner5.png') }}" alt="">
-                        </div>
-                    </div>
-                    <div class="single-testimonial">
-                        <div class="single-testimonial-image">
-                            <img src="{{ asset('frontend/assets/images/partner6.png') }}" alt="">
-                        </div>
-                    </div>
-                    <div class="single-testimonial">
-                        <div class="single-testimonial-image">
-                            <img src="{{ asset('frontend/assets/images/partner7.jpg') }}" alt="">
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
