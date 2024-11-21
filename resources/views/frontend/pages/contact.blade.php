@@ -80,51 +80,69 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function() {
-            // Csrf token
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        $(document).ready(function () {
+    console.log('Script AJAX chargé'); // Test
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        },
+    });
+
+    $('#contact-form').on('submit', function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: 'POST',
+            url: "{{ route('contact') }}",
+            data: $(this).serialize(),
+            beforeSend: function () {
+                $('#submit_btn').prop('disabled', true).text('Chargement...');
+            },
+            success: function (response) {
+                if (response.status === 'success') {
+                    Swal.fire({
+                        title: 'Succès !',
+                        text: response.message,
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                    }).then(() => {
+                        $('#contact-form')[0].reset();
+                        $('#submit_btn').prop('disabled', false).text('Envoyer');
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Erreur !',
+                        text: response.message,
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                    });
                 }
-            });
+            },
+            error: function (response) {
+                if (response.status === 422) {
+                    let errors = response.responseJSON.errors;
+                    let errorMessages = '';
 
-            $(document).on('submit', '#contact-form', function(e) {
-                e.preventDefault();
+                    $.each(errors, function (key, value) {
+                        errorMessages += `<p>${value[0]}</p>`;
+                    });
 
-                console.log($(this).serialize());
+                    Swal.fire({
+                        title: 'Erreur !',
+                        html: errorMessages,
+                        icon: 'error',
+                        confirmButtonText: 'OK',
+                    });
+                }
 
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route('contact') }}",
-                    data: $(this).serialize(),
-                    beforeSend: function() {
-                        $('#submit_btn').prop("disabled", true);
-                        $('#submit_btn').text('Chargement...');
-                    },
-                    success: function(response) {
-                        console.log(response);
-                        if (response.status == 'success') {
-                            toastr.success(response.message);
-                            $('#submit_btn').prop("disabled", false);
-                            $('#submit_btn').text('Envoyer');
-                            $('#contact-form').trigger('reset');
-                        }
-                    },
-                    error: function(response) {
-                        if (response.status == 422) {
-                            let errorsMessage = $.parseJSON(response.responseText);
+                $('#submit_btn').prop('disabled', false).text('Envoyer');
+            },
+        });
+    });
+});
 
-                            $.each(errorsMessage.errors, function(key, val) {
-                                console.log(val[0]);
-                                toastr.error(val[0])
-                            })
-                            $('#submit_btn').prop("disabled", false);
-                            $('#submit_btn').text('Envoyer');
-
-                        }
-                    }
-                })
-            })
-        })
     </script>
 @endpush
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
