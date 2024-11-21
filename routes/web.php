@@ -67,12 +67,12 @@ Route::middleware('sitesetting')->group(function () {
   // Route pour afficher le formulaire de choix de categorie client
   Route::get('choixcategorie', [HomeController::class, 'choixcategorie'])->name('choixcategorie');
   // Route pour afficher le formulaire de devis
-  //Route::get('devis', [HomeController::class, 'devis'])->name('devis');
-
-  Route::post('/devis-store', [DevisController::class, 'envoyerDevis'])->name('devis.store');
+  Route::get('devis', [HomeController::class, 'devis'])->name('devis');
+  Route::post('devis-store', [HomeController::class, 'envoyerDevis'])->name('devis.store');
 
   // Route pour afficher le formulaire d'essai
   Route::get('essai/{id?}', [HomeController::class, 'essai'])->name('essai');
+  Route::post('essai-store', [HomeController::class, 'store'])->name('essai.store');
 
   Route::post('essai-store', [OrderTestController::class, 'store'])->name('essai.store');
 

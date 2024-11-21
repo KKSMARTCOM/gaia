@@ -35,7 +35,8 @@
                     <small class="text-danger alert-text"></small>
                     <div class="col-sm-12 text-center mt-2">
                         <button class="button-blue-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s" type="submit"
-                            id="submit_btn" onclick="redirectToRoute()" data-route-devis="{{ route('devis') }}"
+                            id="submit_btn" onclick="redirectToRoute()" 
+                            data-route-devis="{{ route('devis') }}"
                             data-route-essai="{{ route('essai') }}">
                             <span class="text">Continuer</span>
                             <span class="dir-part"></span>
