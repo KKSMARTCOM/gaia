@@ -131,4 +131,9 @@ function updatePlaceholder(input, textInputId) {
     document.getElementById(textInputId).value = fileName;
 }
 
+function updatePlaceholderessai(input) {
+    const fileName = input.files[0]?.name || 'Aucun fichier sélectionné';
+    document.getElementById('custom-file-input').value = fileName;
+}
+
 

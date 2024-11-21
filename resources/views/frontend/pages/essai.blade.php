@@ -131,7 +131,7 @@
                                 <label for="form-plan" class="form-label">Levé topographique du site</label>
                                 <div class="form-box" style="position: relative;">
                                     <input type="file" name="topographic_survey" id="form-plan" accept=".pdf,.dwg"
-                                        required onchange="updatePlaceholder(this)"
+                                        required onchange="updatePlaceholderessai(this)"
                                         style="opacity: 0; position: absolute; z-index: -1;">
                                     <input type="text" class="input-box" id="custom-file-input"
                                         placeholder="Ex : levé topographique .pdf"
