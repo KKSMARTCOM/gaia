@@ -5,7 +5,7 @@
                 <div class="section-title">
                     <h3 class="title">{{ 'Nos réalisations' }}</h3>
                     <div class="desc">
-                        {!! 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur unde, optio omnis laboriosam aliquam numquam. Blanditiis, voluptatem voluptatibus.' !!}
+                        {!! 'Que ce soit pour des bâtiments, des routes, des ponts, le Laboratoire GAIA met à profit son savoir-faire et ses technologies avancées pour garantir la sécurité, la durabilité et la réussite des réalisations. Découvrez nos projets qui reflètent notre engagement envers l\'excellence et la fiabilité.' !!}
                     </div>
                 </div>
             </div>
