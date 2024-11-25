@@ -15,11 +15,7 @@
                     </div>
                 </div>
                 <div class="col-sm-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fermentum eu mi nec tristique.
-                        Aenean vel nulla
-                        tempus, tincidunt massa et, congue enim. Fusce tincidunt tincidunt velit in feugiat. Vestibuenim.
-                        Morbi viverra
-                        luctus. In rhoncus viverra ligula vel aliquam. Phasellus vestibulum maximus arcu a sollicitudin.
+                    <p>Pour répondre aux besoins des entreprises, GAIA propose un processus clair et structuré de demande de devis. Remplissez le formulaire de demande en indiquant les informations essentielles suivantes :
                     </p>
                 </div>
             </div><br>

@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-sm-12">
                     <p>{{ $devisTitle->sub_title ??
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur fermentum eu mi nec tristique. Aenean vel nulla tempus, tincidunt massa et, congue enim. Fusce tincidunt tincidunt velit in feugiat. Vestibuenim. Morbi viverra luctus. In rhoncus viverra ligula vel aliquam. Phasellus vestibulum maximus arcu a sollicitudin. ' }}
+                        'Chez GAIA, nous facilitons le processus de demande d\'essai pour répondre aux besoins spécifiques de nos clients particuliers. Suivez les étapes ci-dessous pour initier une demande en remplissant les champs: ' }}
                     </p>
                 </div>
             </div><br>
