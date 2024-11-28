@@ -54,7 +54,7 @@
                                             @endforeach
                                         @else
                                             <tr>
-                                                <td colspan="3" class="text-center">Pas d'offres disponibles</td>
+                                                <td colspan="5" class="text-center">Pas de commandes disponibles</td>
                                             </tr>
                                         @endif
                                     </tbody>

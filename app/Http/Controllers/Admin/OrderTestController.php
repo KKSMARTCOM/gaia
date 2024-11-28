@@ -85,9 +85,7 @@ class OrderTestController extends Controller
 
         try {
             //code...
-            if ($request->hasFile('topographic_survey')) {
-                $validatedData['topographic_survey'] = $request->file('topographic_survey')->store('pdfs', 'public');
-            }
+            $pdf = handleUpload('topographic_survey');
 
             OrderTest::create([
                 'lastname' => $request->lastname,
@@ -99,7 +97,7 @@ class OrderTestController extends Controller
                 'commune_id' => $request->commune_id,
                 'building_type' => $request->building_type,
                 'price' => $request->price,
-                'topographic_survey' => $request->topographic_survey,
+                'topographic_survey' => $pdf,
             ]);
 
             toastr()->success('Votre demande d\'essai a été bien reçu', 'Félicitations !');
@@ -154,5 +152,12 @@ class OrderTestController extends Controller
             //throw $th;
             return response()->json(['status' => 'error']);
         }
+    }
+
+    public function sheetDownload(string $id)
+    {
+        $order = OrderTest::where('id', $id)->firstOrFail();
+        //dd($order->topographic_survey);
+        return response()->download(public_path($order->topographic_survey));
     }
 }

@@ -18,19 +18,19 @@
                             <h4>Informations sur la demande</h4>
                         </div>
                         <div class="card-body">
-                            <p>Nom du client : {{ $order->lastname }}</p>
-                            <p>Prénom du client : {{ $order->firstname }}</p>
-                            <p>Adresse du client : {{ $order->address }}</p>
-                            <p>Email du client : {{ $order->email }}</p>
-                            <p>Numéro téléphonique du client : {{ $order->phone }}</p>
-                            <p>Service : {{ $order->service->title }}</p>
-                            <p>Commune : {{ $order->commune->name }}</p>
-                            <p>Type de batiment : {{ $order->building_type }}</p>
-                            <p>Prix total : {{ $order->price }} cfa</p>
+                            <p> <span style="font-weight: 700">Nom du client :</span> {{ $order->lastname }}</p>
+                            <p> <span style="font-weight: 700">Prénom du client :</span> {{ $order->firstname }}</p>
+                            <p> <span style="font-weight: 700">Adresse du client :</span> {{ $order->address }}</p>
+                            <p> <span style="font-weight: 700">Email du client :</span> {{ $order->email }}</p>
+                            <p> <span style="font-weight: 700">Numéro téléphonique du client :</span> {{ $order->phone }}
+                            </p>
+                            <p> <span style="font-weight: 700">Service :</span> {{ $order->service->title }}</p>
+                            <p> <span style="font-weight: 700">Commune :</span> {{ $order->commune->name }}</p>
+                            <p> <span style="font-weight: 700">Type de batiment :</span> {{ $order->building_type }}</p>
+                            <p> <span style="font-weight: 700">Prix total :</span> {{ $order->price }} cfa</p>
                             @if ($order->topographic_survey)
-                                <p>Cliquez <a href="{{ asset('storage/' . $order->topographic_survey) }}"
-                                        target="_blank">ici</a> pour
-                                    télécharger la levée topographique</p>
+                                <a href="{{ route('admin.sheet.download', $order->id) }}"
+                                    class="btn btn-primary">Télécharger levée topographique</a>
                             @endif
                         </div>
                     </div>
