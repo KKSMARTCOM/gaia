@@ -17,8 +17,8 @@
             </div>
 
             @if ($achievements && $achievements->count() > 0)
-                @foreach ($achievements as $index => $item)
-                    <div class="row">
+                <div class="row">
+                    @foreach ($achievements as $index => $item)
                         @if ($index % 2 == 0)
                             <div class="col-lg-6 mb-4">
                                 <figure class="about-image image-container">
@@ -64,9 +64,9 @@
                                 </figure>
                             </div>
                         @endif
-                @endforeach
+                    @endforeach
+                </div>
             @endif
-        </div>
     </section>
     <!-- Réalisations-Area-End -->
 

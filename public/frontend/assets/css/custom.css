@@ -7,7 +7,7 @@
     border: 1px solid #003399;
     font-size: 14px;
     font-weight: 600;
-    transition: all ease-in-out .3s;
+    transition: all ease-in-out 0.3s;
 }
 
 .button-blue:hover {
@@ -17,6 +17,7 @@
 
 .load-more-blue,
 .button-blue-trans {
+    background-color: transparent;
     display: inline-block;
     color: #003399;
     padding: 10px 30px;
@@ -30,11 +31,11 @@
     color: #ffffff;
 }
 
-.section-padding-gaia{
+.section-padding-gaia {
     padding-top: 80px;
 }
 
-.single-service-icon{
+.single-service-icon {
     height: 80px;
     width: 80px;
     border-radius: 100%;
@@ -44,18 +45,21 @@
     left: 50%;
     transform: translateX(-50%);
     top: -45px;
-
 }
 
 .single-service-container {
     padding: 20px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.service-more{
+.service-more {
     display: none;
 }
 
-.footer-menu{
+.footer-menu {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -63,7 +67,7 @@
     padding: 0;
 }
 
-.footer-menu li a{
+.footer-menu li a {
     color: #ffffff;
     font-weight: 800;
 }
@@ -73,56 +77,57 @@
     gap: 30px;
 }
 
-.footer-icon a i{
+.footer-icon a i {
     color: #ffffff;
     font-size: 30px;
 }
 
-.footer-contact{
+.footer-contact {
     display: flex;
     align-items: center;
     gap: 10px;
     color: #ffffff;
 }
 
-.footer-contact i{
+.footer-contact i {
     font-size: 20px;
 }
 
-.footer-contact i, .footer-contact p{
+.footer-contact i,
+.footer-contact p {
     margin: 0;
     color: #ffffff;
 }
 
-.contact-gaia{
+.contact-gaia {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.job-container{
+.job-container {
     margin-top: 60px;
     padding: 20px;
     border: 2px solid #f3f7ff;
     border-radius: 20px;
 }
 
-.job-container a{
+.job-container a {
     border: none;
     padding: 8px 20px;
     border-radius: 10px;
     background-color: #003399;
     border: 1px solid #003399;
     color: #ffffff;
-    transition: all ease-in-out .3s;
+    transition: all ease-in-out 0.3s;
 }
 
-.job-container a:hover{
+.job-container a:hover {
     background-color: #f3f7ff;
     color: #003399;
 }
 
-.achievement-image{
+.achievement-image {
     display: flex;
     justify-content: center;
     height: 300px;
@@ -130,7 +135,7 @@
     overflow: hidden;
 }
 
-.whatsappButton{
+.whatsappButton {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -141,8 +146,8 @@
     height: 60px;
     line-height: 50px;
     font-size: 30px;
-    border: 2px solid #25D366;
-    color: #25D366;
+    border: 2px solid #25d366;
+    color: #25d366;
     text-align: center;
     background-color: #ffffff;
     border-radius: 100%;
@@ -154,21 +159,21 @@
     -ms-transition: 0.5s;
 }
 
-.whatsappButton:hover{
-    background-color: #25D366;
+.whatsappButton:hover {
+    background-color: #25d366;
     color: #ffffff;
 }
 
-@media (max-width:468px) {
-    .whatsappButton{
+@media (max-width: 468px) {
+    .whatsappButton {
         right: 12%;
     }
 }
-    
+
 /* Debut CSS de réalisations */
 .image-container {
-    width: 100%;     /*donne une largeur spécifique */
-    height: 300px;   /* définit la hauteur de l’espace */
+    width: 100%; /*donne une largeur spécifique */
+    height: 300px; /* définit la hauteur de l’espace */
     overflow: hidden;
     position: relative;
 }
@@ -187,7 +192,7 @@
 
 /* Debut CSS de choix de catégorie client */
 .radio-custom {
-    width: 24px;  /* Ajuste la largeur selon vos besoins */
+    width: 24px; /* Ajuste la largeur selon vos besoins */
     height: 24px; /* Ajuste la hauteur selon vos besoins */
     margin-right: 10px; /* Espace à droite du bouton radio */
 }
@@ -198,25 +203,42 @@
 .head-area {
     padding-top: 200px;
     padding-bottom: 100px;
-    background: url('../images/home-slider-2.jpg') no-repeat scroll top center/cover;
+    background: url("../images/home-slider-2.jpg") no-repeat scroll top
+        center/cover;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    min-height: calc(150px + 40px);
+    max-height: 190px;
     display: flex;
     align-items: center;
 }
 
-.logo2{
+.logo2 {
     display: none;
 }
 
-.logo1, .logo2{
+.logo1,
+.logo2 {
     transition: opacity 0.2s ease;
 }
 
-.about-description p img{
+.about-description p img {
     padding-left: 10px;
     padding-right: 10px;
     object-fit: cover;
+}
+
+@media (max-width: 598px) {
+    .navbar-brand {
+        width: 100px;
+    }
+    .load-more-blue,
+    .button-blue-trans {
+        padding: 6px 18px;
+        font-size: 12px;
+    }
+    .button-blue {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
 }

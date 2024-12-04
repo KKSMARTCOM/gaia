@@ -101,8 +101,12 @@ class OrderTestController extends Controller
             ]);
 
             toastr()->success('Votre demande d\'essai a été bien reçu', 'Félicitations !');
-
             return redirect()->back();
+            /* if (!empty(request('transaction-status')) && request('transaction-status') == 'approved') {
+            } else {
+                toastr()->error('Demande d\'esaai non effectuée. Veuillez procéder au paiement.');
+                return redirect()->back();
+            } */
         } catch (\Exception $e) {
             //throw $th;
             toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());

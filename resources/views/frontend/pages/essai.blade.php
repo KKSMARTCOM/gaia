@@ -131,7 +131,7 @@
                                 <label for="form-plan" class="form-label">Levé topographique du site</label>
                                 <div class="form-box" style="position: relative;">
                                     <input type="file" name="topographic_survey" id="form-plan" accept=".pdf,.dwg"
-                                        required onchange="updatePlaceholderessai(this)"
+                                        onchange="updatePlaceholderessai(this)"
                                         style="opacity: 0; position: absolute; z-index: -1;">
                                     <input type="text" class="input-box" id="custom-file-input"
                                         placeholder="Ex : levé topographique .pdf"
@@ -171,6 +171,14 @@
                                     </table>
                                 </div>
                             </div>
+
+                            {{-- <div class="col-sm-12 text-center">
+                                <input type="hidden" name="field" value="test">
+                                <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7" data-public-key="{{ env('FEDAPAY_API_KEY') }}"
+                                    data-button-text="Procéder au paiement" data-button-class="button-blue-trans mouse-dir wow fadeInUp"
+                                    data-wow-delay="0.5s" data-transaction-amount="{{ 100 }}"
+                                    data-transaction-description="Description de la transaction" data-currency-iso="XOF"></script>
+                            </div> --}}
 
                             <!-- Bouton de soumission aligné à droite -->
                             <div class="col-sm-12 text-center">

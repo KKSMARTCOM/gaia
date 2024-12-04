@@ -1021,7 +1021,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 .card.card-statistic-1 .card-body,
 .card.card-statistic-2 .card-body {
-    font-size: 26px;
+    font-size: 18px;
     font-weight: 700;
     color: #34395e;
     padding-bottom: 0;
@@ -1080,18 +1080,19 @@ select.form-control:not([size]):not([multiple]) {
 .card.card-statistic-1 .card-header h4,
 .card.card-statistic-2 .card-header h4 {
     font-weight: 600;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 0.5px;
 }
 .card.card-statistic-1 .card-header h4 {
     margin-bottom: 0;
+    text-wrap: nowrap;
 }
 .card.card-statistic-2 .card-header h4 {
     text-transform: none;
     margin-bottom: 0;
 }
 .card.card-statistic-1 .card-body {
-    font-size: 20px;
+    font-size: 18px;
 }
 .card.card-statistic-2 .card-chart {
     padding-top: 20px;
@@ -3180,6 +3181,7 @@ pre {
     font-weight: 600;
     position: relative;
     margin: 30px 0 25px 0;
+    width: 100%;
 }
 .section .section-title:before {
     content: " ";

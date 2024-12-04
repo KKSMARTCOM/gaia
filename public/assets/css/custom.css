@@ -7,20 +7,28 @@
 
 /*# sourceMappingURL=custom.css.map */
 
- .menu-toggle-open {
-     font-size: 40px;
-     color: white;
-     display: none;
- }
-
- .menu-toggle-close{
+.menu-toggle-open {
     font-size: 40px;
+    color: white;
+    display: none;
+}
+
+.menu-toggle-close {
+    font-size: 20px;
     color: black;
     display: none;
- }
+    cursor: pointer;
+}
 
- @media (max-width:1024px) {
+.sidebar-brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+@media (max-width: 1024px) {
     .menu-toggle-open {
         display: block;
     }
- }
+}

@@ -16,7 +16,8 @@
                     </div>
                     <div class="d-flex justify-content-between">
                         <a href="{{ route('essai', $item->id) }}" class="button-blue">Commander</a>
-                        <a href="{{ route('show.service', $item->id) }}" class="button-blue text-nowrap">En savoir plus
+                        <a href="{{ route('show.service', $item->id) }}" class="button-blue text-nowrap">En savoir
+                            plus
                         </a>
                     </div>
                 </div>

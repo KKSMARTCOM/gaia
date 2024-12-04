@@ -1,7 +1,7 @@
 <section class="service-area section-padding-top" id="services-page">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 offset-lg-3 text-center">
+            <div class="col-12 text-center">
                 <div class="section-title">
                     <h3 class="title">{{ 'Nos services' }}</h3>
                     <div class="desc">

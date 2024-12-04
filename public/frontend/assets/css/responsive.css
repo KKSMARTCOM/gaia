@@ -102,7 +102,6 @@
     .copyright,
     .copyright.text-right {
         text-align: center !important;
-
     }
 
     .copyright.text-right {
@@ -160,8 +159,6 @@
         border-radius: 3px;
     }
 }
-
-
 
 @media (min-width: 992px) and (max-width: 1199.99px) {
     .mainmenu-area .menu-right {
@@ -231,6 +228,9 @@
         color: #000;
         padding: 0;
         border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .navbar-toggler:focus {
@@ -245,11 +245,11 @@
         padding-top: 10px;
     }
 
-    .main_menu{
+    .main_menu {
         height: auto;
     }
 
-    .main_menu .navbar-right{
+    .main_menu .navbar-right {
         display: flex;
         align-items: center;
     }
@@ -292,8 +292,6 @@
     }
 }
 
-
-
 @media only screen and (max-width: 767.99px) {
     .full-wrapper {
         margin: 0px;
@@ -302,7 +300,7 @@
     .slide-inner,
     .header-area {
         padding-top: 190px;
-        padding-bottom: 120px
+        padding-bottom: 120px;
     }
 
     .header-text .title {
@@ -345,7 +343,7 @@
     }
 
     .site-header {
-        background-image: url('../images/site-header.jpg');
+        background-image: url("../images/site-header.jpg");
         background-repeat: no-repeat;
         background-attachment: scroll;
         background-position: center center;
@@ -379,5 +377,29 @@
 
     .site-branding {
         min-width: 60px;
+    }
+
+    .section-title .title {
+        font-size: 18px;
+    }
+
+    .experience-text .title,
+    .about-text .title {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .section-title .desc {
+        font-size: 14px;
+    }
+
+    button.navbar-toggler {
+        width: 30px;
+        height: 30px;
+    }
+
+    .blog-details .head-title,
+    .portfolio-details .head-title {
+        font-size: 22px;
     }
 }
