@@ -127,13 +127,30 @@ function redirectToRoute() {
 
 function updatePlaceholder(input, textInputId) {
     // Met à jour le placeholder avec le nom du fichier sélectionné
+    const file = input.files[0];
+    const maxSize = 10 * 1024 * 1024;
     const fileName = input.files[0]?.name || "Aucun fichier sélectionné";
-    document.getElementById(textInputId).value = fileName;
+
+    if (file && file.size > maxSize) {
+        toastr.error("Le fichier dépasse la taille maximale autorisée de 10 Mo.");
+        document.getElementById(textInputId).value = "Aucun fichier sélectionné";
+    } else {
+        document.getElementById(textInputId).value = fileName;
+    }
 }
 
 function updatePlaceholderessai(input) {
+    const file = input.files[0];
+    const maxSize = 10 * 1024 * 1024;
     const fileName = input.files[0]?.name || 'Aucun fichier sélectionné';
-    document.getElementById('custom-file-input').value = fileName;
+
+    if (file && file.size > maxSize) {
+        toastr.error("Le fichier dépasse la taille maximale autorisée de 10 Mo.");
+        document.getElementById('custom-file-input').value = "Aucun fichier sélectionné";
+    } else {
+        document.getElementById('custom-file-input').value = fileName;
+    }
+
 }
 
 

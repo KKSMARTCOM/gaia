@@ -48,7 +48,7 @@
                                             class="fal fa-envelope"></i></label>
                                 </div>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 mb-5">
                                 <label for="form-name" class="icon lb-name">Message <span class="text-danger">
                                         *</span></label>
                                 <div class="form-box">
@@ -57,11 +57,11 @@
                                     <label for="form-message" class="icon lb-message"><i class="fal fa-edit"></i></label>
                                 </div>
                             </div>
-                            <div class="col-sm-12">
-                                <div class="form-box text-center">
-                                    <button class="button-blue-trans mouse-dir" type="submit" id="submit_btn">Envoyer
-                                        <span class="dir-part"></span></button>
-                                </div>
+                        </div>
+                        <div class="col-sm-12 mt-5">
+                            <div class="form-box text-center">
+                                <button class="button-blue-trans mouse-dir" type="submit" id="submit_btn">Envoyer
+                                    <span class="dir-part"></span></button>
                             </div>
                         </div>
                     </form>

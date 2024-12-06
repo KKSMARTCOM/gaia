@@ -49,7 +49,7 @@
 
                             <!-- Téléphone -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-phone" class="form-label">Téléphone</label>
+                                <label for="form-phone" class="form-label">Téléphone </label>
                                 <div class="form-box">
                                     <input type="text" name="phone" id="form-phone" class="input-box"
                                         placeholder="Ex : +229 75102365">
@@ -58,10 +58,11 @@
 
                             <!-- Email -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-email" class="form-label">Email <span class="text-danger"> *</span></label>
+                                <label for="form-email" class="form-label">Email <span class="text-danger">
+                                        *</span> </label>
                                 <div class="form-box">
                                     <input type="email" name="email" id="form-email" class="input-box"
-                                        placeholder="Ex : john@gmail.com" required>
+                                        placeholder="Ex : john@gmail.com">
                                 </div>
                             </div>
 
@@ -128,7 +129,7 @@
 
                             <!-- Levé topographique du site -->
                             <div class="col-sm-12 mb-3">
-                                <label for="form-plan" class="form-label">Levé topographique du site</label>
+                                <label for="form-plan" class="form-label">Levé topographique du site (Max: 10MB)</label>
                                 <div class="form-box" style="position: relative;">
                                     <input type="file" name="topographic_survey" id="form-plan" accept=".pdf,.dwg"
                                         onchange="updatePlaceholderessai(this)"
