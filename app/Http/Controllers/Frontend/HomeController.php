@@ -132,6 +132,15 @@ class HomeController extends Controller
             'autre_document' => 'nullable|file|mimes:pdf,dwg', // Nouveau champ
         ]);
 
+        $data = [
+            'societe' => $validated['societe'],
+            'email' => $validated['email'],
+            'nom' => $validated['nom'],
+            'prenoms' => $validated['prenoms'],
+            'adresseintervention' => $validated['adresseintervention'],
+            'projetMessage' => $validated['message'],
+        ];
+
         $pathPlan = null;
         $pathAutreDocument = null;
 

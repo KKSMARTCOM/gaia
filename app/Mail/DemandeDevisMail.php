@@ -16,16 +16,27 @@ class DemandeDevisMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(array $data)
     {
         $this->data = $data;
     }
 
+    // public function build()
+    // {
+    //     return $this->view('emails.demande_devis')
+    //                 ->with('data', $this->data)
+    //                 ->subject('Nouvelle demande de devis');
+    // }
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
     public function build()
     {
-        return $this->view('emails.demande_devis')
-                    ->with('data', $this->data)
-                    ->subject('Nouvelle demande de devis');
+        return $this->view('emails.demande_devis') // Vue pour le contenu de l'email
+                    ->with('data', $this->data)   // Passer les données à la vue
+                    ->subject('Nouvelle demande de devis'); // Objet de l'email
     }
     /**
      * Get the message envelope.
