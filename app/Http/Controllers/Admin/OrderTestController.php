@@ -36,7 +36,7 @@ class OrderTestController extends Controller
         $request->validate([
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
-            'phone' => 'nullable|string|max:20',
+            'phone' => 'nullable|string|min:10',
             'address' => 'nullable|string|max:255',
             'building_type' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -54,7 +54,7 @@ class OrderTestController extends Controller
             'firstname.max' => 'Le prénom ne doit pas dépasser 255 caractères.',
 
             'phone.string' => 'Le numéro de téléphone doit être une chaîne de caractères.',
-            'phone.max' => 'Le numéro de téléphone ne doit pas dépasser 20 caractères.',
+            'phone.min' => 'Le numéro de téléphone doit contenir au moins 10 chiffres.',
 
             'building_type.required' => 'Le type de batiment est obligatoire.',
             'building_type.string' => 'Le type de batiment doit être une chaîne de caractères.',

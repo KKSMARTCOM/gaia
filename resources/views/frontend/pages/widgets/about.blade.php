@@ -20,7 +20,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-6">
                 <figure class="about-image image-container">
                     <img src="{{ asset($about->image ?? 'frontend/assets/images/no-image.webp') }}"
                         alt="{{ $about->title }}" class="wow fadeInUp image-responsive" data-wow-delay="0.3s">

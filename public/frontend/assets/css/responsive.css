@@ -388,6 +388,9 @@
         font-size: 16px;
         line-height: 26px;
     }
+    .about-image {
+        margin-bottom: 0px;
+    }
 
     .section-title .desc {
         font-size: 14px;
@@ -401,5 +404,9 @@
     .blog-details .head-title,
     .portfolio-details .head-title {
         font-size: 22px;
+    }
+
+    .section-padding-top {
+        padding-top: 40px;
     }
 }

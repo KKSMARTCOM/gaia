@@ -29,13 +29,13 @@ body {
 
 .section-title .title {
     font-size: 28px;
-    margin-bottom: 40px !important;
+    margin-bottom: 40px;
 }
 
 .section-title .desc {
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 40px !important;
+    margin-bottom: 40px;
 }
 
 /* ---------------------

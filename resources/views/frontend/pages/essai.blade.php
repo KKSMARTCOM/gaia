@@ -52,7 +52,7 @@
                                 <label for="form-phone" class="form-label">Téléphone </label>
                                 <div class="form-box">
                                     <input type="text" name="phone" id="form-phone" class="input-box"
-                                        placeholder="Ex : +229 75102365">
+                                        placeholder="Ex : 0197XXXXXX">
                                 </div>
                             </div>
 

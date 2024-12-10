@@ -123,7 +123,7 @@ class HomeController extends Controller
         // Validation des données du formulaire
         $validated = $request->validate(
             [
-                'societe' => 'required|string',
+                'societe' => 'nullable|string',
                 'email' => 'required|email',
                 'nom' => 'required|string',
                 'prenoms' => 'required|string',
@@ -133,7 +133,6 @@ class HomeController extends Controller
                 'autre_document' => 'nullable|file|mimes:pdf,dwg', // Nouveau champ
             ],
             [
-                'societe.required' => 'Le nom de la société est obligatoire.',
                 'societe.string' => 'Le nom de la société doit être une chaîne de caractères.',
 
                 'email.required' => 'Le nom de famille est obligatoire.',
@@ -185,7 +184,7 @@ class HomeController extends Controller
             'autre_document' => $pathAutreDocument,
         ], function ($message) use ($validated, $pathPlan, $pathAutreDocument) {
             $message->to('kksmartcom.bj@gmail.com')
-                ->subject('Demande de devis de ' . $validated['societe'])
+                ->subject('Demande de devis de ' . $validated['nom'])
                 ->from($validated['email'], 'Gaia');
 
             if ($pathPlan) {
