@@ -36,14 +36,14 @@ class OrderTestController extends Controller
         $request->validate([
             'lastname' => 'required|string|max:255',
             'firstname' => 'required|string|max:255',
-            'phone' => 'required|string|max:20',
+            'phone' => 'nullable|string|min:10',
             'address' => 'nullable|string|max:255',
             'building_type' => 'required|string|max:255',
-            'email' => 'nullable|email|max:255',
+            'email' => 'required|email|max:255',
             'service_id' => 'required|exists:services,id',
             'commune_id' => 'required|exists:communes,id',
             'price' => 'nullable|numeric|min:0',
-            'topographic_survey' => 'nullable|file|mimes:pdf|max:2048',
+            'topographic_survey' => 'nullable|file|mimes:pdf|max:10148',
         ], [
             'lastname.required' => 'Le nom de famille est obligatoire.',
             'lastname.string' => 'Le nom de famille doit être une chaîne de caractères.',
@@ -53,9 +53,8 @@ class OrderTestController extends Controller
             'firstname.string' => 'Le prénom doit être une chaîne de caractères.',
             'firstname.max' => 'Le prénom ne doit pas dépasser 255 caractères.',
 
-            'phone.required' => 'Le numéro de téléphone est obligatoire.',
             'phone.string' => 'Le numéro de téléphone doit être une chaîne de caractères.',
-            'phone.max' => 'Le numéro de téléphone ne doit pas dépasser 20 caractères.',
+            'phone.min' => 'Le numéro de téléphone doit contenir au moins 10 chiffres.',
 
             'building_type.required' => 'Le type de batiment est obligatoire.',
             'building_type.string' => 'Le type de batiment doit être une chaîne de caractères.',
@@ -64,6 +63,7 @@ class OrderTestController extends Controller
             'address.string' => 'L\'adresse doit être une chaîne de caractères.',
             'address.max' => 'L\'adresse ne doit pas dépasser 255 caractères.',
 
+            'email.required' => 'Le numéro de téléphone est obligatoire.',
             'email.email' => 'Veuillez fournir une adresse email valide.',
             'email.max' => 'L\'adresse email ne doit pas dépasser 255 caractères.',
 
@@ -78,16 +78,14 @@ class OrderTestController extends Controller
 
             'topographic_survey.file' => 'Le fichier doit être un fichier valide.',
             'topographic_survey.mimes' => 'Le fichier doit être au format PDF.',
-            'topographic_survey.max' => 'Le fichier PDF ne doit pas dépasser 2 Mo.',
+            'topographic_survey.max' => 'Le fichier PDF ne doit pas dépasser 10 Mo.',
         ]);
 
         //dd($request->all());
 
         try {
             //code...
-            if ($request->hasFile('topographic_survey')) {
-                $validatedData['topographic_survey'] = $request->file('topographic_survey')->store('pdfs', 'public');
-            }
+            $pdf = handleUpload('topographic_survey');
 
             OrderTest::create([
                 'lastname' => $request->lastname,
@@ -99,12 +97,16 @@ class OrderTestController extends Controller
                 'commune_id' => $request->commune_id,
                 'building_type' => $request->building_type,
                 'price' => $request->price,
-                'topographic_survey' => $request->topographic_survey,
+                'topographic_survey' => $pdf,
             ]);
 
             toastr()->success('Votre demande d\'essai a été bien reçu', 'Félicitations !');
-
             return redirect()->back();
+            /* if (!empty(request('transaction-status')) && request('transaction-status') == 'approved') {
+            } else {
+                toastr()->error('Demande d\'esaai non effectuée. Veuillez procéder au paiement.');
+                return redirect()->back();
+            } */
         } catch (\Exception $e) {
             //throw $th;
             toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
@@ -154,5 +156,12 @@ class OrderTestController extends Controller
             //throw $th;
             return response()->json(['status' => 'error']);
         }
+    }
+
+    public function sheetDownload(string $id)
+    {
+        $order = OrderTest::where('id', $id)->firstOrFail();
+        //dd($order->topographic_survey);
+        return response()->download(public_path($order->topographic_survey));
     }
 }

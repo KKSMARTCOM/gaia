@@ -121,16 +121,44 @@ class HomeController extends Controller
     public function envoyerDevis(Request $request)
     {
         // Validation des données du formulaire
-        $validated = $request->validate([
-            'societe' => 'required|string',
-            'email' => 'required|email',
-            'nom' => 'required|string',
-            'prenoms' => 'required|string',
-            'adresseintervention' => 'required|string',
-            'message' => 'required|string',
-            'plan_topographique' => 'nullable|file|mimes:pdf,dwg',
-            'autre_document' => 'nullable|file|mimes:pdf,dwg', // Nouveau champ
-        ]);
+        $validated = $request->validate(
+            [
+                'societe' => 'nullable|string',
+                'email' => 'required|email',
+                'nom' => 'required|string',
+                'prenoms' => 'required|string',
+                'adresseintervention' => 'required|string',
+                'message' => 'required|string',
+                'plan_topographique' => 'nullable|file|mimes:pdf,dwg',
+                'autre_document' => 'nullable|file|mimes:pdf,dwg', // Nouveau champ
+            ],
+            [
+                'societe.string' => 'Le nom de la société doit être une chaîne de caractères.',
+
+                'email.required' => 'Le nom de famille est obligatoire.',
+                'email.email' => 'L\'email doit être un email valide.',
+
+                'nom.required' => 'Le nom de famille est obligatoire.',
+                'nom.string' => 'Le nom de famille doit être une chaîne de caractères.',
+
+                'prenoms.required' => 'Le prénom est obligatoire.',
+                'prenoms.string' => 'Le prénom doit être une chaîne de caractères.',
+
+                'adresseintervention.required' => 'L\'adresse d\'intervention est obligatoire.',
+                'adresseintervention.string' => 'L\'adresse d\'intervention doit être une chaîne de caractères.',
+
+                'message.required' => 'Le message est obligatoire.',
+                'message.string' => 'Le message doit être une chaîne de caractères.',
+
+                'plan_topographique.file' => 'Le plan topographique doit être un fichier.',
+                'plan_topographique.mimes' => 'Le plan topographique doit être un fichier de type pdf.',
+                'plan_topographique.max' => 'Le plan topographique ne doit pas dépasser 10MB.',
+
+                'autre_document.file' => 'Le document supplémentaire doit être un fichier.',
+                'autre_document.mimes' => 'Le document supplémentaire doit être un fichier de type pdf.',
+                'autre_document.max' => 'Le document supplémentaire ne doit pas dépasser 10MB.',
+            ]
+        );
 
         $data = [
             'societe' => $validated['societe'],
@@ -164,9 +192,9 @@ class HomeController extends Controller
             'plan_topographique' => $pathPlan,
             'autre_document' => $pathAutreDocument,
         ], function ($message) use ($validated, $pathPlan, $pathAutreDocument) {
-            $message->to($validated['email'])
-                ->subject('Demande de devis de ' . $validated['societe'])
-                ->from('dakevelyne@gmail.com', 'Gaia');
+            $message->to('kksmartcom.bj@gmail.com')
+                ->subject('Demande de devis de ' . $validated['nom'])
+                ->from($validated['email'], 'Gaia');
 
             if ($pathPlan) {
                 $message->attach(storage_path('app/public/' . $pathPlan));

@@ -139,4 +139,5 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
   // ** Orders Tests Route */
   Route::resource('order-tests', OrderTestController::class);
+  Route::get('sheet/download/{id}', [OrderTestController::class, 'sheetDownload'])->name('sheet.download');
 });

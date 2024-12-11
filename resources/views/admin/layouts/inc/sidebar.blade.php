@@ -6,7 +6,7 @@
     <ul class="navbar-nav navbar-right">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ Auth::user()->avatar ?? 'assets/img/avatar/avatar-1.png' }}"
+                <img alt="image" src="{{ asset(Auth::user()->avatar ?? 'frontend/assets/images/no-image.webp') }}"
                     class="rounded-circle mr-1">
                 <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name }}</div>
             </a>
@@ -18,7 +18,7 @@
                 <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profil
                 </a>
-                <a href="#" class="dropdown-item has-icon">
+                <a href="{{ route('admin.general-setting.index') }}" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Paramètre
                 </a>
                 <div class="dropdown-divider"></div>
@@ -39,10 +39,11 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
+            <div class="sidebar-brand-container">
+                <i class="fas fa-arrow-left menu-toggle-close"></i>
 
-            <i class="fas fa-arrow-left menu-toggle-close"></i>
-
-            <a href="{{ route('dashboard') }}">GAIA LAB</a>
+                <a href="{{ route('dashboard') }}">GAIA LAB</a>
+            </div>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="{{ route('dashboard') }}">St</a>

@@ -80,7 +80,7 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                     <div class="col-sm-12 col-md-7">
                                         @if (!empty($achievement->id))
-                                            <button class="btn btn-primary">Editer</button>
+                                            <button class="btn btn-primary">Enregistrer</button>
                                         @else
                                             <button class="btn btn-primary">Ajouter</button>
                                         @endif
@@ -94,4 +94,15 @@
             </div>
         </div>
     </section>
+    <!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const fileInput = document.getElementById('customFile');
+        
+        fileInput.addEventListener('change', function (event) {
+            const fileName = event.target.files[0]?.name || "Aucun fichier choisi";
+            this.nextElementSibling.textContent = fileName; // Met à jour le texte du label
+        });
+    });
+</script>
 @endsection

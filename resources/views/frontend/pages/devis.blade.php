@@ -15,14 +15,16 @@
                     </div>
                 </div>
                 <div class="col-sm-12">
-                    <p>Pour répondre aux besoins des entreprises, GAIA propose un processus clair et structuré de demande de devis. Remplissez le formulaire de demande en indiquant les informations essentielles suivantes :
+                    <p>Pour répondre aux besoins des entreprises, GAIA propose un processus clair et structuré de demande de
+                        devis. Remplissez le formulaire de demande en indiquant les informations essentielles suivantes :
                     </p>
                 </div>
             </div><br>
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Devis-Form -->
-                    <form class="devis-form" id="devis-form" action="{{ route('devis.store') }}" method="POST" enctype="multipart/form-data">   
+                    <form class="devis-form" id="devis-form" action="{{ route('devis.store') }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <!-- Société -->
@@ -73,7 +75,8 @@
 
                             <!-- Plan topographique -->
                             <div class="col-sm-12 mb-3">
-                                <label for="form-plan-topographique" class="form-label">Plan topographique</label>
+                                <label for="form-plan-topographique" class="form-label">Plan topographique (Max : 10
+                                    MB)</label>
                                 <div class="form-box">
                                     <input type="file" name="plan_topographique" id="form-plan-topographique"
                                         accept=".pdf,.dwg"
@@ -91,7 +94,7 @@
                             <!-- Tout autre document technique à votre disposition -->
                             <div class="col-sm-12 mb-3">
                                 <label for="form-autre-document" class="form-label">Tout autre document technique à votre
-                                    disposition</label>
+                                    disposition (Max: 10MB)</label>
                                 <div class="form-box">
                                     <input type="file" name="autre_document" id="form-autre-document" accept=".pdf,.dwg"
                                         onchange="updatePlaceholder(this, 'custom-file-input-autre-document')"

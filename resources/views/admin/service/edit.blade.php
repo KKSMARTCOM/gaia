@@ -122,4 +122,19 @@
             </div>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Cibler tous les champs de type "file" avec la classe "custom-file-input"
+            const fileInputs = document.querySelectorAll('.custom-file-input');
+            
+            fileInputs.forEach(input => {
+                input.addEventListener('change', function (event) {
+                    // Récupérer le nom du fichier sélectionné
+                    const fileName = event.target.files[0]?.name || "Aucun fichier choisi";
+                    // Mettre à jour le texte du label correspondant
+                    this.nextElementSibling.textContent = fileName;
+                });
+            });
+        });
+    </script>
 @endsection

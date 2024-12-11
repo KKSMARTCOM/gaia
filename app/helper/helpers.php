@@ -14,9 +14,9 @@ function handleUpload($inputName, $model = null)
 
             $file = request()->file($inputName);
             $fileName = rand() . $file->getClientOriginalName();
-            $file->move(public_path('/uploads'), $fileName);
+            $file->move(public_path('/uploads/pdf'), $fileName);
 
-            $filePath = "/uploads/" . $fileName;
+            $filePath = "/uploads/pdf/" . $fileName;
 
             return $filePath;
         }

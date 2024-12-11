@@ -49,19 +49,20 @@
 
                             <!-- Téléphone -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-phone" class="form-label">Téléphone</label>
+                                <label for="form-phone" class="form-label">Téléphone </label>
                                 <div class="form-box">
                                     <input type="text" name="phone" id="form-phone" class="input-box"
-                                        placeholder="Ex : +229 75102365">
+                                        placeholder="Ex : 0197XXXXXX">
                                 </div>
                             </div>
 
                             <!-- Email -->
                             <div class="col-md-6 mb-3">
-                                <label for="form-email" class="form-label">Email <span class="text-danger"> *</span></label>
+                                <label for="form-email" class="form-label">Email <span class="text-danger">
+                                        *</span> </label>
                                 <div class="form-box">
                                     <input type="email" name="email" id="form-email" class="input-box"
-                                        placeholder="Ex : john@gmail.com" required>
+                                        placeholder="Ex : john@gmail.com">
                                 </div>
                             </div>
 
@@ -128,10 +129,10 @@
 
                             <!-- Levé topographique du site -->
                             <div class="col-sm-12 mb-3">
-                                <label for="form-plan" class="form-label">Levé topographique du site</label>
+                                <label for="form-plan" class="form-label">Levé topographique du site (Max: 10MB)</label>
                                 <div class="form-box" style="position: relative;">
                                     <input type="file" name="topographic_survey" id="form-plan" accept=".pdf,.dwg"
-                                        required onchange="updatePlaceholderessai(this)"
+                                        onchange="updatePlaceholderessai(this)"
                                         style="opacity: 0; position: absolute; z-index: -1;">
                                     <input type="text" class="input-box" id="custom-file-input"
                                         placeholder="Ex : levé topographique .pdf"
@@ -171,6 +172,14 @@
                                     </table>
                                 </div>
                             </div>
+
+                            {{-- <div class="col-sm-12 text-center">
+                                <input type="hidden" name="field" value="test">
+                                <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7" data-public-key="{{ env('FEDAPAY_API_KEY') }}"
+                                    data-button-text="Procéder au paiement" data-button-class="button-blue-trans mouse-dir wow fadeInUp"
+                                    data-wow-delay="0.5s" data-transaction-amount="{{ 100 }}"
+                                    data-transaction-description="Description de la transaction" data-currency-iso="XOF"></script>
+                            </div> --}}
 
                             <!-- Bouton de soumission aligné à droite -->
                             <div class="col-sm-12 text-center">
