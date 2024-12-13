@@ -25,7 +25,7 @@
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="card-body">
-                            <h4>Profile</h4>
+                            <h4>Profil</h4>
                             <p>Informations de votre profile comme votre nom d'utilisateur, mot de passe, etc..
                             </p>
                             <a href="{{ route('profile.edit') }}" class="card-cta">Modifier <i

@@ -22,6 +22,15 @@
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
+                                <!-- Aperçu de l'image actuelle -->
+                                @if ($partner->image)
+                                    <div class="mb-4 d-flex justify-content-center">
+                                        <div style="height: 200px; width:300px; overflow:hidden">
+                                            <img style="height: 100%;width:100%;object-fit:contain;"
+                                                src="{{ asset('/' . $partner->image) }}" alt="Image actuelle">
+                                        </div>
+                                    </div>
+                                @endif
 
                                 <!-- Champ Nom du partenaire -->
                                 <div class="form-group row mb-4">
@@ -36,15 +45,6 @@
                                     </div>
                                 </div>
 
-                                <!-- Aperçu de l'image actuelle -->
-                                @if ($partner->image)
-                                    <div class="mb-4 d-flex justify-content-center">
-                                        <div style="height: 200px; width:300px; overflow:hidden">
-                                            <img style="height: 100%;width:100%;object-fit:cover;"
-                                                src="{{ asset('/' . $partner->image) }}" alt="Image actuelle">
-                                        </div>
-                                    </div>
-                                @endif
 
                                 <!-- Champ Image du partenaire -->
                                 <div class="form-group row mb-4">
@@ -63,8 +63,8 @@
                                 </div>
                                 <!-- Boutons -->
                                 <div class="form-group row mb-4">
-                                    <div class="col-sm-12 col-md-7 offset-md-3 d-flex justify-content-between">
-                                        <button type="submit" class="btn btn-success">Mettre à jour</button>
+                                    <div class="col-sm-12 col-md-7 offset-md-3 d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-success">Enregistrer</button>
                                     </div>
                                 </div>
                             </form>

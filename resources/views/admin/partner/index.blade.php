@@ -36,8 +36,8 @@
                                                     <td>{{ $item->id }}</td>
                                                     <td>{{ $item->nom }}</td> <!-- Correction ici -->
                                                     <td class="">
-                                                        <div style="height: 50px; width:50px;">
-                                                            <img style="height: 100%;width:100%; object-fit:cover;"
+                                                        <div style="height: 100px; width:100px;">
+                                                            <img style="height: 100%;width:100%; object-fit:contain;"
                                                                 src="{{ asset($item->image) }}" alt="partner-image" />
                                                         </div>
                                                     </td>

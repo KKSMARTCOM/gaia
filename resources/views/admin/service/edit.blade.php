@@ -78,7 +78,9 @@
                                 </div>
                                 @if ($communes && $communes->count() > 0)
                                     <div class="form-group row mb-4">
-                                        <label class="col-sm-12" for="">Prix additionnel pour chaque commune</label>
+                                        <label class="col-sm-12 card-header" for="">
+                                            <h4>Prix additionnel pour chaque ommune</h4>
+                                        </label>
                                         @foreach ($communes as $item)
                                             <div class="col-lg-6">
                                                 <div class="row">
@@ -107,9 +109,9 @@
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
-                                    <div class="col-sm-12 col-md-7">
+                                    <div class="col-sm-12 col-md-7 text-center">
                                         @if (!empty($service->id))
-                                            <button class="btn btn-primary">Editer</button>
+                                            <button class="btn btn-primary">Enregistrer</button>
                                         @else
                                             <button class="btn btn-primary">Ajouter</button>
                                         @endif
@@ -123,12 +125,12 @@
         </div>
     </section>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Cibler tous les champs de type "file" avec la classe "custom-file-input"
             const fileInputs = document.querySelectorAll('.custom-file-input');
-            
+
             fileInputs.forEach(input => {
-                input.addEventListener('change', function (event) {
+                input.addEventListener('change', function(event) {
                     // Récupérer le nom du fichier sélectionné
                     const fileName = event.target.files[0]?.name || "Aucun fichier choisi";
                     // Mettre à jour le texte du label correspondant

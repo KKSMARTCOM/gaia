@@ -23,7 +23,8 @@
 
                                 <!-- Nom du Partenaire -->
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nom du partenaire</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nom du
+                                        partenaire</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" name="nom" class="form-control" required>
                                         @error('nom')
@@ -31,10 +32,11 @@
                                         @enderror
                                     </div>
                                 </div>
-                                
+
                                 <!-- Image du Partenaire -->
                                 <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Ajouter une Image</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Ajouter une
+                                        Image</label>
                                     <div class="col-sm-12 col-md-7">
                                         <div id="image-preview" class="image-preview">
                                             <label for="image-upload" id="image-label">Choisir une image</label>
@@ -47,7 +49,7 @@
                                 </div>
 
                                 <!-- Bouton Ajouter -->
-                                <div class="form-group row mb-4">
+                                <div class="form-group row mb-4 text-center">
                                     <div class="col-sm-12 col-md-7 offset-md-3">
                                         <button class="btn btn-primary">Ajouter</button>
                                     </div>

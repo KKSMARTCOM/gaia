@@ -14,7 +14,8 @@
                         <div class="card-header">
                             <h4>Tous les utilisateurs</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin.users.create') }}" class="btn btn-success">Ajouter un utilisateur <i class="fas fa-plus"></i></a>
+                                <a href="{{ route('admin.users.create') }}" class="btn btn-success">Ajouter un utilisateur <i
+                                        class="fas fa-plus"></i></a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -38,11 +39,16 @@
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ $user->status ? 'Actif' : 'Inactif' }}</td>
                                                     <td>
-                                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-icon"><span class="fas fa-edit"></span></a>
-                                                        <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                                                        <a href="{{ route('admin.users.edit', $user->id) }}"
+                                                            class="btn btn-warning btn-icon"><span
+                                                                class="fas fa-edit"></span></a>
+                                                        <form action="{{ route('admin.users.destroy', $user->id) }}"
+                                                            method="POST" style="display:inline;">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger btn-icon" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')"><span class="fas fa-trash-alt"></span></button>
+                                                            <button type="submit" class="btn btn-danger btn-icon"
+                                                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')"><span
+                                                                    class="fas fa-trash-alt"></span></button>
                                                         </form>
                                                     </td>
                                                 </tr>
