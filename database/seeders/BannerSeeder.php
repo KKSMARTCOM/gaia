@@ -16,10 +16,10 @@ class BannerSeeder extends Seeder
         //
         $banners = [
             [
-                'image' => 'assets/img/banners/header1.jpg',
+                'image' => 'frontend/assets/images/png/b1.jpg',
             ],
             [
-                'image' => 'assets/img/banners/header2.jpg',
+                'image' => 'frontend/assets/images/png/b2.jpg',
             ],
         ];
 

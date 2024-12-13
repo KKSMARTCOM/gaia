@@ -9,16 +9,20 @@
                     </div>
                 </div>
                 <div class="single-service-container">
-                    <h4 class="mb-2 wow fadeInRight" data-wow-delay="0.3s">
+                    <h4 class="mb-2 wow fadeInRight title" data-wow-delay="0.3s">
                         {{ $item->title }}</h4>
                     <div class="desc wow fadeInRight mb-4" data-wow-delay="0.4s">
-                        {!! Str::limit($item->description, 50, '...') !!}
+                        {!! $item->description !!}
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <a href="{{ route('essai', $item->id) }}" class="button-blue">Commander</a>
-                        <a href="{{ route('show.service', $item->id) }}" class="button-blue text-nowrap">En savoir
-                            plus
+                    <div class="d-flex justify-content-center">
+                        <a href="{{ route('essai', $item->id) }}" class="button-blue-trans mouse-dir wow fadeInUp"
+                            data-wow-delay="0.5s">
+                            <span class="text">Commander</span>
+                            <span class="dir-part"></span>
                         </a>
+                        {{-- <a href="{{ route('show.service', $item->id) }}" class="button-blue text-nowrap">En savoir
+                            plus
+                        </a> --}}
                     </div>
                 </div>
             </div>

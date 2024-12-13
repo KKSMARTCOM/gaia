@@ -132,7 +132,7 @@
 
         /*-- Testimonail-Slider-Active --*/
         $('.testimonial-slider').slick({
-            dots: true,
+
             arrows: false,
             infinite: true,
             centerMode: false,

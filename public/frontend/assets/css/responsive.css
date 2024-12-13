@@ -64,9 +64,9 @@
         margin-bottom: 30px;
     }
 
-    .service-area .container {
+    /* .service-area .container {
         margin-bottom: -30px;
-    }
+    } */
 
     .about-image {
         margin-bottom: 30px;
@@ -260,6 +260,7 @@
 
     .main_menu .navbar-nav li a {
         color: #190844;
+        font-size: 14px;
         text-align: center;
         line-height: 60px;
     }
@@ -355,9 +356,9 @@
         overflow: hidden;
     }
 
-    .main_menu .navbar-nav li:last-child a {
+    /* .main_menu .navbar-nav li:last-child a {
         margin-right: 20px;
-    }
+    } */
 
     .single-navigation .nav-link {
         max-width: 100%;
@@ -381,9 +382,11 @@
 
     .section-title .title {
         font-size: 18px;
+        margin-bottom: 20px;
     }
 
     .experience-text .title,
+    .single-service .title,
     .about-text .title {
         font-size: 16px;
         line-height: 26px;
@@ -393,6 +396,12 @@
     }
 
     .section-title .desc {
+        margin-bottom: 20px;
+    }
+
+    .section-title .desc,
+    .about-text .desc,
+    .single-service .desc {
         font-size: 14px;
     }
 

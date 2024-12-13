@@ -34,7 +34,6 @@ body {
 
 .section-title .desc {
     font-size: 18px;
-    font-weight: 600;
     margin-bottom: 40px;
 }
 
@@ -215,9 +214,9 @@ Button-Styles
     -o-transition: all linear 0.3s;
 }
 
-.main_menu .navbar-nav li:last-child a {
+/* .main_menu .navbar-nav li:last-child a {
     margin-right: 0;
-}
+} */
 
 .main_menu .navbar-nav li .active,
 .main_menu .navbar-nav li:hover > a {
@@ -348,23 +347,23 @@ Button-Styles
     z-index: -1;
 }
 
-.header-text .typer-title {
+/* .header-text .typer-title {
     color: #fdfdfd;
     font-weight: 600;
     font-size: 24px;
-}
+} */
 
-.header-text .title {
+/* .header-text .title {
     font-size: 76px;
     color: #ffffff;
-}
+} */
 
-.header-text .desc {
+/* .header-text .desc {
     font-size: 24px;
     line-height: 38px;
     color: #ffffff;
     margin-bottom: 50px;
-}
+} */
 
 .play-buttons {
     position: absolute;
@@ -388,14 +387,11 @@ Button-Styles
 04. Service-Area
 ------------------------- */
 .single-service .title {
-    font-size: 22px;
-    line-height: 30px;
-    margin-bottom: 25px;
-    padding-left: 25px;
-    position: relative;
+    font-size: 20px;
+    text-transform: uppercase;
 }
 
-.single-service .title:before {
+/* .single-service .title:before {
     content: "";
     background: #ff885e;
     width: 15px;
@@ -404,7 +400,7 @@ Button-Styles
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-}
+} */
 
 /* --------------------
 05. About-Area
@@ -1039,6 +1035,7 @@ Footer-Area
     padding-top: 60px;
     padding-bottom: 60px;
     background-color: #003399;
+
 }
 
 .footer-widgets {
@@ -1416,7 +1413,7 @@ Footer-Area
 .single-service {
     position: relative;
     padding: 20px;
-    height: 350px;
+    height: 100%;
     border: 2px solid #f3f7ff;
     border-radius: 10px;
     display: flex;
@@ -1424,9 +1421,9 @@ Footer-Area
     align-items: center;
 }
 
-.header-text a.button-dark.mouse-dir {
+/* .header-text a.button-dark.mouse-dir {
     background: #ff885e;
-}
+} */
 
 .about-image img {
     width: 100% !important;

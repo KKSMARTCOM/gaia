@@ -69,7 +69,7 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                     <div class="col-sm-12 col-md-7">
                                         @if (!empty($job->id))
-                                            <button class="btn btn-primary">Editer</button>
+                                            <button class="btn btn-primary">Enregistrer</button>
                                         @else
                                             <button class="btn btn-primary">Ajouter</button>
                                         @endif

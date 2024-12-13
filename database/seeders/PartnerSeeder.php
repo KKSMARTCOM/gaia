@@ -16,16 +16,36 @@ class PartnerSeeder extends Seeder
     {
         $partners = [
             [
-                'nom' => 'Partenaire A',
-                'image' => 'frontend/assets/images/partner2.jpg'
+                'nom' => 'EIFFAGE',
+                'image' => 'frontend/assets/images/png/1.png'
             ],
             [
-                'nom' => 'Partenaire B',
-                'image' => 'frontend/assets/images/partner4.jpg'
+                'nom' => 'HNRB',
+                'image' => 'frontend/assets/images/png/2.png'
             ],
             [
-                'nom' => 'Partenaire C',
-                'image' => 'frontend/assets/images/partner6.png'
+                'nom' => 'COLAS',
+                'image' => 'frontend/assets/images/png/3.png'
+            ],
+            [
+                'nom' => 'DYJESCK MAURI',
+                'image' => 'frontend/assets/images/png/4.png'
+            ],
+            [
+                'nom' => 'FHC MEDICA',
+                'image' => 'frontend/assets/images/png/5.png'
+            ],
+            [
+                'nom' => 'SIPI',
+                'image' => 'frontend/assets/images/png/6.png'
+            ],
+            [
+                'nom' => 'WISDOM GENERAL CONSTRUCTION',
+                'image' => 'frontend/assets/images/png/7.png'
+            ],
+            [
+                'nom' => 'YATT & CO',
+                'image' => 'frontend/assets/images/png/8.png'
             ],
         ];
 

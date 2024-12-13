@@ -3,15 +3,15 @@
     @foreach ($slides as $item)
         <div class="header-area parallax-bg"
             style="background: url('{{ asset($item->image ?? 'frontend/assets/images/no-image.webp') }}') no-repeat scroll top center/cover">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="header-text">
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     @endforeach
 </header>
+
+<div class="header-text">
+    <div class="header-button">
+        <a href="{{ route('devis') }}">Demander un devis</a>
+        <a href="{{ route('contact') }}">Contactez-nous</a>
+    </div>
+</div>
+
 <!-- Header-Area-End -->

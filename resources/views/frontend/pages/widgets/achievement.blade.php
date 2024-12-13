@@ -29,13 +29,13 @@
                                 <h4 class="title wow fadeInUp" data-wow-delay="0.2s">
                                     {{ $item->title }}</h4>
                                 <div class="desc wow fadeInUp" data-wow-delay="0.4s">
-                                    {!! Str::limit($item->description, 100, '...') !!}
+                                    {!! $item->description !!}
                                 </div>
-                                <a href="{{ route('show.achievement', $item->id) }}"
+                                {{-- <a href="{{ route('show.achievement', $item->id) }}"
                                     class="button-blue-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s">
                                     <span class="text">En savoir plus</span>
                                     <span class="dir-part"></span>
-                                </a>
+                                </a> --}}
                             </div>
                         </div>
                         {{-- @if ($index % 2 == 0)

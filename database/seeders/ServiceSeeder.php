@@ -17,21 +17,43 @@ class ServiceSeeder extends Seeder
         //
         $services = [
             [
-                'title' => 'Étude de sol standard',
+                'title' => 'ESSAIS ET SONDAGES GEOTECHNIQUE',
                 'image' => 'assets/img/services/etude.png',
-                'description' => 'Étude de sol de base pour évaluer la stabilité du terrain.',
+                'description' => '<p><ul>
+                <li>Les essais géotechniques pour les bâtiments et les routes</li>
+                <li>Les essais de contrôle qualité des matériaux mis en œuvre sur les chantiers de construction (sols, granulats, bétons)</li>
+                <li>Les essais de contrôle et de suivi de l’exécution des travaux routiers (réception des couches de remblai, terrassements et corps de chaussées)</li>
+                <li>La prospection de matériaux</li>
+                <li>Les recherches de carrière de roches massives, d’emprunts de matériaux (silteux, latéritiques,) pour les routes</li>
+                </ul></p>',
                 'base_price' => 250000,
             ],
             [
-                'title' => 'Analyse géotechnique approfondie',
+                'title' => 'LABORATOIRES GAIA',
                 'image' => 'assets/img/services/etude.png',
-                'description' => 'Analyse complète de la composition du sol pour des constructions complexes.',
+                'description' => '<p>LABORATOIRES GAIA propose d’accompagner ses clients sur les essais à réaliser sur les matériaux de construction ( sol, granulats, béton, enrobé, etc. ) Les essais de laboratoire que ou proposons sont les suivants :</p>
+                <p><ul>
+                <li>Teneur en eau;</li>
+                <li>Analyse granulométrique sur sable et sur gros gravier/concassé;</li>
+                <li>Limite d’Atterberg;</li>
+                <li>Proctor normal;</li>
+                <li>Proctor Modifié;</li>
+                <li>Essai de CBR;</li>
+                <li>Essai Los Angeles;</li>
+                <li>Essai d’équivalence de Sable;</li>
+                </ul></p>',
                 'base_price' => 400000,
             ],
             [
                 'title' => 'Préparation du site pour construction',
                 'image' => 'assets/img/services/etude.png',
-                'description' => 'Préparation et étude de la viabilité du sol pour une fondation durable.',
+                'description' => '<p>Nous proposons :</p>
+                <p><ul>
+                <li>Détermination de capacité portante et tassements de fondations superficielles</li>
+                <li>Dimensionnement de fondations profondes pour les bâtiments et ouvrages d’art</li>
+                <li>Vérification de stabilité des talus</li>
+                <li>Dimensionnement des chaussées et plateformes logistiques</li>
+                </ul></p>',
                 'base_price' => 350000,
             ],
         ];
