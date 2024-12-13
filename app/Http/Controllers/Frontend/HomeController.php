@@ -160,6 +160,15 @@ class HomeController extends Controller
             ]
         );
 
+        $data = [
+            'societe' => $validated['societe'],
+            'email' => $validated['email'],
+            'nom' => $validated['nom'],
+            'prenoms' => $validated['prenoms'],
+            'adresseintervention' => $validated['adresseintervention'],
+            'projetMessage' => $validated['message'],
+        ];
+
         $pathPlan = null;
         $pathAutreDocument = null;
 

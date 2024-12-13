@@ -94,4 +94,15 @@
             </div>
         </div>
     </section>
+    <!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const fileInput = document.getElementById('customFile');
+        
+        fileInput.addEventListener('change', function (event) {
+            const fileName = event.target.files[0]?.name || "Aucun fichier choisi";
+            this.nextElementSibling.textContent = fileName; // Met à jour le texte du label
+        });
+    });
+</script>
 @endsection
