@@ -241,7 +241,7 @@
 }
 
 .header-button {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     gap: 20px;
@@ -260,7 +260,9 @@
     width: 200px;
     transition: all ease-in-out 0.3s;
 }
-
+.header-button:last-child a {
+    margin-top: 20px;
+}
 .header-button a:hover {
     color: #ffffff;
     background-color: #003399;
@@ -289,16 +291,8 @@
         font-size: 14px;
     }
 
-    .header-button {
-        display: block;
-    }
-
-    .header-button a{
+    .header-button a {
         font-size: 14px;
         width: 180px;
-    }
-
-    .header-button:last-child a {
-        margin-top: 20px;
     }
 }

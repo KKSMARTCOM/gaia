@@ -1,4 +1,4 @@
-<section class="testimonial-area section-padding-top">
+<section class="section-padding-top">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">

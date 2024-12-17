@@ -39,10 +39,10 @@ class PartnerSeeder extends Seeder
                 'nom' => 'SIPI',
                 'image' => 'frontend/assets/images/png/6.png'
             ],
-            [
+            /* [
                 'nom' => 'WISDOM GENERAL CONSTRUCTION',
                 'image' => 'frontend/assets/images/png/7.png'
-            ],
+            ], */
             [
                 'nom' => 'YATT & CO',
                 'image' => 'frontend/assets/images/png/8.png'
