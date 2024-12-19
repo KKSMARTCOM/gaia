@@ -8,6 +8,13 @@
 "use strict";
 
 $(document).on('ready', function () {
+    // Csrf token
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     $('.site-head').slick({
         dots: true,
         arrows: false,
@@ -89,6 +96,82 @@ $(document).on('ready', function () {
             });
         }
 
+    });
+
+    $('#essai-form').on('submit', function (e) {
+        e.preventDefault();
+
+        const price = $('#form-price').val();
+
+        openKkiapayWidget({
+            amount: price,
+            position: "center",
+            callback: "https://www.gaialab-bj.com/finish",
+            data: "Paiement GAIA",
+            sandbox: "true",
+            theme: "green",
+            key: "c4a82530b22611efae82a9f40a64c4a1"
+        })
+
+        addSuccessListener(response => {
+            console.log(response);
+            const transactionId = response.transactionId;
+
+            let formData = new FormData();
+
+            formData.append('transactionId', transactionId);
+            formData.append('lastname', $('#form-lastname').val());
+            formData.append('firstname', $('#form-firstname').val());
+            formData.append('phone', $('#form-phone').val());
+            formData.append('address', $('#form-address').val());
+            formData.append('email', $('#form-email').val());
+            formData.append('service_id', $('#form-services').val());
+            formData.append('commune_id', $('#form-commune').val());
+            formData.append('building_type', $('#form-building_type').val());
+            formData.append('price', price);
+
+            let fileInput = $('#form-plan')[0];
+            if (fileInput.files.length > 0) {
+                formData.append('topographic_survey', fileInput.files[0]);
+
+            }
+
+            let url = "/essai-store";
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    if (response.status == "success") {
+                        toastr.success(response.message);
+                        /* Swal.fire({
+                            title: 'Félicitations!',
+                            text: response.message,
+                            icon: 'success',
+                            confirmButtonText: 'OK',
+                        }); */
+                    } else {
+                        toastr.error(response.message);
+                        /* Swal.fire(
+                            'Oups!',
+                            'Une erreur est survenue lors de la validation, veuillez contacter le support.',
+                            'error'
+                        ) */
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
+
+        });
+
+        addFailedListener(error => {
+            console.log(error);
+        });
     });
 
 })

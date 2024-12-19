@@ -72,7 +72,6 @@ Route::middleware('sitesetting')->group(function () {
 
   // Route pour afficher le formulaire d'essai
   Route::get('essai/{id?}', [HomeController::class, 'essai'])->name('essai');
-  Route::post('essai-store', [HomeController::class, 'store'])->name('essai.store');
 
   Route::post('essai-store', [OrderTestController::class, 'store'])->name('essai.store');
 
@@ -85,6 +84,8 @@ Route::middleware('sitesetting')->group(function () {
   Route::get('jobs', [HomeController::class, 'jobs'])->name('jobs');
 
   Route::get('portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+
+  Route::get('finish', [HomeController::class, 'finish'])->name('finish');
 
   Route::post('contact', [HomeController::class, 'contact'])->name('contact.submit');
 

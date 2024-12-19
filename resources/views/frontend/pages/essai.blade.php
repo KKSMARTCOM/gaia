@@ -23,11 +23,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     <!-- Essai-Form -->
-                    <form class="essai-form" id="essai-form" action="{{ route('essai.store') }}" method="POST"
-                        enctype="multipart/form-data">
+                    <form class="essai-form" id="essai-form" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            <!-- Nom -->
                             <div class="col-md-6 mb-3">
                                 <label for="form-lastname" class="form-label">Nom <span class="text-danger">
                                         *</span></label>
@@ -37,7 +35,6 @@
                                 </div>
                             </div>
 
-                            <!-- Prénoms -->
                             <div class="col-md-6 mb-3">
                                 <label for="form-firstname" class="form-label">Prénoms <span class="text-danger">
                                         *</span></label>
@@ -47,7 +44,6 @@
                                 </div>
                             </div>
 
-                            <!-- Téléphone -->
                             <div class="col-md-6 mb-3">
                                 <label for="form-phone" class="form-label">Téléphone </label>
                                 <div class="form-box">
@@ -56,17 +52,15 @@
                                 </div>
                             </div>
 
-                            <!-- Email -->
                             <div class="col-md-6 mb-3">
                                 <label for="form-email" class="form-label">Email <span class="text-danger">
                                         *</span> </label>
                                 <div class="form-box">
                                     <input type="email" name="email" id="form-email" class="input-box"
-                                        placeholder="Ex : john@gmail.com">
+                                        placeholder="Ex : john@gmail.com" required>
                                 </div>
                             </div>
 
-                            <!-- Adresse -->
                             <div class="col-sm-12 mb-3">
                                 <label for="form-address" class="form-label">Adresse</label>
                                 <div class="form-box">
@@ -75,7 +69,6 @@
                                 </div>
                             </div>
 
-                            <!-- Service -->
                             <div class="col-sm-12 mb-3">
                                 <label for="form-adresse" class="form-label">Service <span class="text-danger">
                                         *</span></label>
@@ -93,7 +86,6 @@
                                 </div>
                             </div>
 
-                            <!-- Type de bâtiments  -->
                             <div class="col-sm-12 mb-3">
                                 <label for="form-building_type" class="form-label">Type de bâtiments <span
                                         class="text-danger">
@@ -107,7 +99,7 @@
                                 </div>
                             </div>
 
-                            <!-- Commune -->
+
                             <div class="col-sm-12 mb-3">
                                 <label for="form-adresse" class="form-label">Commune <span class="text-danger">
                                         *</span></label>
@@ -127,7 +119,6 @@
                                 </div>
                             </div>
 
-                            <!-- Levé topographique du site -->
                             <div class="col-sm-12 mb-3">
                                 <label for="form-plan" class="form-label">Levé topographique du site (Max: 10MB)</label>
                                 <div class="form-box" style="position: relative;">
@@ -143,7 +134,7 @@
                                 </div>
                             </div>
 
-                            <!-- Tableau de services -->
+
                             <div class="col-sm-12 mt-4">
                                 <div class="table-responsive">
                                     <table id="service-table" class="table table-bordered">
@@ -162,7 +153,7 @@
                                                 </td>
                                                 <td class="price-column d-flex align-items-center"
                                                     style="text-align: center;">
-                                                    <input type="text" readonly name="price"
+                                                    <input type="text" readonly name="price" id="form-price"
                                                         style="border: none; width:80px;"
                                                         value="{{ $service->base_price ?? $allServices[0]->base_price }}">
                                                     FCFA HT
@@ -173,18 +164,10 @@
                                 </div>
                             </div>
 
-                            {{-- <div class="col-sm-12 text-center">
-                                <input type="hidden" name="field" value="test">
-                                <script src="https://cdn.fedapay.com/checkout.js?v=1.1.7" data-public-key="{{ env('FEDAPAY_API_KEY') }}"
-                                    data-button-text="Procéder au paiement" data-button-class="button-blue-trans mouse-dir wow fadeInUp"
-                                    data-wow-delay="0.5s" data-transaction-amount="{{ 100 }}"
-                                    data-transaction-description="Description de la transaction" data-currency-iso="XOF"></script>
-                            </div> --}}
-
                             <!-- Bouton de soumission aligné à droite -->
                             <div class="col-sm-12 text-center">
-                                <button class="button-blue-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s"
-                                    type="submit" id="submit_btn">
+                                <button type="submit" class="button-blue-trans mouse-dir wow fadeInUp"
+                                    data-wow-delay="0.5s" id="submit_btn">
                                     <span class="text">Procéder au paiement</span>
                                     <span class="dir-part"></span>
                                 </button>

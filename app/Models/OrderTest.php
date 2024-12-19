@@ -10,6 +10,7 @@ class OrderTest extends Model
     use HasFactory;
 
     protected $fillable = [
+        'transactionId',
         'lastname',
         'firstname',
         'phone',

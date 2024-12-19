@@ -118,6 +118,11 @@ class HomeController extends Controller
         return view('frontend.pages.devis');
     }
 
+    public function finish()
+    {
+        return view('frontend.pages.finish');
+    }
+
     public function envoyerDevis(Request $request)
     {
         // Validation des données du formulaire
@@ -238,56 +243,6 @@ class HomeController extends Controller
         }
 
         return view('frontend.pages.essai', compact('services', 'allServices', 'remaining'));
-    }
-
-    public function store(Request $request)
-    {
-        // Valider les données du formulaire
-        $validated = $request->validate([
-            'nom' => 'required|string|max:255',
-            'prenoms' => 'required|string|max:255',
-            'email' => 'required|email',
-            'service_id' => 'required|integer',
-            'batiments' => 'required|string',
-            'commune' => 'required|integer',
-            'plan_topographique' => 'nullable|file|mimes:pdf,dwg',
-            'telephone' => 'nullable|string|max:20',
-            'adresse' => 'nullable|string|max:255',
-        ]);
-
-        // Récupérer le service à partir de la base de données
-        $service = DB::table('services')->where('id', $validated['service_id'])->first();
-
-        if (!$service) {
-            return redirect()->back()->withErrors(['service_id' => 'Service non trouvé']);
-        }
-
-        // Calculer le prix à partir du champ base_price
-        $price = $service->base_price; // Utiliser directement la colonne `base_price`
-
-        $filePath = null;
-        if ($request->hasFile('plan_topographique')) {
-            // Sauvegarder le fichier dans `storage/app/plans`
-            $filePath = $request->file('plan_topographique')->store('plans');
-        }
-
-        // Insérer les données dans la table
-        DB::table('order_tests')->insert([
-            'lastname' => $validated['nom'],
-            'firstname' => $validated['prenoms'],
-            'phone' => $validated['telephone'] ?? null,
-            'address' => $validated['adresse'] ?? null,
-            'email' => $validated['email'],
-            'building_type' => $validated['batiments'],
-            'service_id' => $validated['service_id'],
-            'commune_id' => $validated['commune'],
-            'price' => $price, // Assigner le prix calculé ici
-            'topographic_survey' => $filePath,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-
-        return redirect()->back()->with('success', 'Demande d\'essai envoyée avec succès !');
     }
 
 

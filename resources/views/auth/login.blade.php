@@ -56,11 +56,11 @@
                                     <div class="form-group">
                                         <div class="d-block">
                                             <label for="password" class="control-label">Mot de passe</label>
-                                            <div class="float-right">
+                                            {{--  <div class="float-right">
                                                 <a href="{{ route('password.request') }}" class="text-small">
                                                     Mot de passe oublié ?
                                                 </a>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                         <input id="password" type="password" class="form-control" name="password"
                                             tabindex="2" required>
@@ -83,7 +83,7 @@
                                     <div class="form-group">
                                         <button type="submit" style="background-color: #394eea !important"
                                             class="btn-primary btn-lg btn-block" tabindex="4">
-                                            Login
+                                            Se connecter
                                         </button>
                                     </div>
                                 </form>

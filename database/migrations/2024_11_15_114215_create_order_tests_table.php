@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('order_tests', function (Blueprint $table) {
             $table->id();
+            $table->string('transactionId');
             $table->string('lastname');
             $table->string('firstname');
             $table->string('phone')->nullable();

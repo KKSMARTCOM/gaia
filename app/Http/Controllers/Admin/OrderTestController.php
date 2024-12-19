@@ -35,6 +35,7 @@ class OrderTestController extends Controller
         //
         $request->validate([
             'lastname' => 'required|string|max:255',
+            'transactionId' => 'required',
             'firstname' => 'required|string|max:255',
             'phone' => 'nullable|string|min:10',
             'address' => 'nullable|string|max:255',
@@ -48,6 +49,8 @@ class OrderTestController extends Controller
             'lastname.required' => 'Le nom de famille est obligatoire.',
             'lastname.string' => 'Le nom de famille doit être une chaîne de caractères.',
             'lastname.max' => 'Le nom de famille ne doit pas dépasser 255 caractères.',
+
+            'transactionId.required' => 'L\'Id de la transaction est obligatoire.',
 
             'firstname.required' => 'Le prénom est obligatoire.',
             'firstname.string' => 'Le prénom doit être une chaîne de caractères.',
@@ -96,21 +99,15 @@ class OrderTestController extends Controller
                 'service_id' => $request->service_id,
                 'commune_id' => $request->commune_id,
                 'building_type' => $request->building_type,
+                'transactionId' => $request->transactionId,
                 'price' => $request->price,
                 'topographic_survey' => $pdf,
             ]);
 
-            toastr()->success('Votre demande d\'essai a été bien reçu', 'Félicitations !');
-            return redirect()->back();
-            /* if (!empty(request('transaction-status')) && request('transaction-status') == 'approved') {
-            } else {
-                toastr()->error('Demande d\'esaai non effectuée. Veuillez procéder au paiement.');
-                return redirect()->back();
-            } */
+            return response()->json(["status" => "success", "message" => "Votre demande d\'essai a été bien reçu"], 200);
         } catch (\Exception $e) {
             //throw $th;
-            toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
-            return redirect()->back();
+            return response()->json(["status" => "error", 'erreur' => $e, "message" => "Une erreur est intervenue au niveau du serveur !"], 500);
         }
     }
 

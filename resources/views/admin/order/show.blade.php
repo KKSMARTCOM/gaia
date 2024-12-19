@@ -18,6 +18,7 @@
                             <h4>Informations sur la demande</h4>
                         </div>
                         <div class="card-body">
+                            <p> <span style="font-weight: 700">Id de la transaction :</span> {{ $order->transactionId }}</p>
                             <p> <span style="font-weight: 700">Nom du client :</span> {{ $order->lastname }}</p>
                             <p> <span style="font-weight: 700">Prénom du client :</span> {{ $order->firstname }}</p>
                             <p> <span style="font-weight: 700">Adresse du client :</span> {{ $order->address }}</p>
