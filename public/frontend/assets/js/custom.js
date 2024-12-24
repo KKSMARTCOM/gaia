@@ -15,6 +15,20 @@ $(document).on('ready', function () {
         }
     });
 
+    /* Navbar Toggle */
+
+    $('.navbar-toggler').on('click', function () {
+        $('.mobile-navbar').css({ 'display': 'block' });
+    });
+
+    $('.navbar-close').on('click', function () {
+        $('.mobile-navbar').css({ 'display': 'none' });
+    });
+
+    $('.nav-item').on('click', function () {
+        $('.mobile-navbar').css({ 'display': 'none' });
+    });
+
     $('.site-head').slick({
         dots: true,
         arrows: false,
@@ -108,10 +122,10 @@ $(document).on('ready', function () {
             position: "center",
             callback: "https://www.gaialab-bj.com/finish",
             data: "Paiement GAIA",
-            sandbox: "true",
+            //sandbox: "true",
             theme: "green",
-            key: "c4a82530b22611efae82a9f40a64c4a1"
-        })
+            key: "0a21cd7b21155d517c094fdbff1a07c8b5809f38"
+        });
 
         addSuccessListener(response => {
             console.log(response);

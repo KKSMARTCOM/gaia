@@ -17,7 +17,7 @@ class AchievementSeeder extends Seeder
         $achievements = [
             [
                 'title' => 'ESSAI CPTU AU PORT AUTOMOMME DE COTONOU',
-                'image' => 'frontend/assets/images/2.png',
+                'image' => 'frontend/assets/images/2.jpg',
                 'description' => '<p>Dans le cadre du projet de réhabilitation du mur de l\'ancien quai du Port, nous avons réalisé des essais CPTu avant et après le vibro compactage d\'un remblai en sable afin d\’évaluer l’efficacité de la méthode. </p>
                 <p>Les essais ont été réalisés sur une profondeur de 15 m à 20 m dont 14 m de remblai par endroit.</p>
                 <p>L’essai CPTu (pénétromètre statique avec mesure de pression interstitielle), conforme à la norme NF EN ISO 22476-1 est une méthode très fiable de caractérisation géotechnique des sols. Ce test consiste en l’enfoncement d’une pointe électrique dans le sol pour mesurer divers paramètres clés permettant la détermination de la stratigraphique des sols à travers leur comportement, leur capacité portante et leur déformabilité (tassement). </p>

@@ -4,7 +4,7 @@
             <div class="col-12 text-center">
                 <div class="section-title">
                     <h3 class="title">{{ 'Nos services' }}</h3>
-                    <div class="desc">
+                    <div class="desc mobile-text">
                         {!! 'Notre laboratoire se spécialise dans divers domaines d\'intervention, garantissant des solutions adaptées aux besoins de chaque projet. Voici nos principaux services.' !!}
                     </div>
                 </div>

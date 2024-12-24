@@ -7,11 +7,11 @@
     @endforeach
 </header>
 
-<div class="header-text">
+{{-- <div class="header-text">
     <div class="header-button">
-        <a href="{{ route('devis') }}">Demander un devis</a>
+        <a href="{{ route('choixcategorie') }}">Demander un essai</a>
         <a href="{{ route('contact') }}">Contactez-nous</a>
     </div>
-</div>
+</div> --}}
 
 <!-- Header-Area-End -->

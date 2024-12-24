@@ -9,10 +9,12 @@
                     </div>
                 </div>
                 <div class="single-service-container">
-                    <h4 class="mb-2 wow fadeInRight title" data-wow-delay="0.3s">
-                        {{ $item->title }}</h4>
-                    <div class="desc wow fadeInRight mb-4" data-wow-delay="0.4s">
-                        {!! $item->description !!}
+                    <div>
+                        <h4 class="wow fadeInRight title" data-wow-delay="0.3s">
+                            {{ $item->title }}</h4>
+                        <div class="desc wow fadeInRight" data-wow-delay="0.4s">
+                            {!! $item->description !!}
+                        </div>
                     </div>
                     <div class="d-flex justify-content-center">
                         <a href="{{ route('essai', $item->id) }}" class="button-blue-trans mouse-dir wow fadeInUp"

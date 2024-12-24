@@ -197,7 +197,7 @@ class HomeController extends Controller
             'plan_topographique' => $pathPlan,
             'autre_document' => $pathAutreDocument,
         ], function ($message) use ($validated, $pathPlan, $pathAutreDocument) {
-            $message->to('kksmartcom.bj@gmail.com')
+            $message->to('contact@gaialab-bj.com')
                 ->subject('Demande de devis de ' . $validated['nom'])
                 ->from($validated['email'], 'Gaia');
 
@@ -283,7 +283,7 @@ class HomeController extends Controller
             return response()->json($totalPrice);
         } catch (\Exception $e) {
             //dd($e);
-            toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
+            toastr()->error('Une erreur est intervenue au niveau du serveur !', $e->getMessage());
             //throw $th;
         }
     }

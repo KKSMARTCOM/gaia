@@ -69,7 +69,6 @@
 
 .footer-menu li a {
     color: #ffffff;
-    font-weight: 800;
 }
 
 .footer-icon {
@@ -130,7 +129,7 @@
 .achievement-image {
     display: flex;
     justify-content: center;
-    height: 300px;
+    height: 400px;
     margin-bottom: 50px;
     overflow: hidden;
 }
@@ -173,7 +172,7 @@
 /* Debut CSS de réalisations */
 .image-container {
     width: 100%; /*donne une largeur spécifique */
-    height: 300px; /* définit la hauteur de l’espace */
+    height: 400px; /* définit la hauteur de l’espace */
     overflow: hidden;
     position: relative;
 }

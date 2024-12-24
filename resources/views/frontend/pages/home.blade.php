@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title', 'Acceuil')
+@section('title', 'Accueil')
 
 @section('content')
     <!-- Banner-Area-Start -->

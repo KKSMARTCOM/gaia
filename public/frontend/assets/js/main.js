@@ -251,17 +251,14 @@
                 }
             });
 
-
-
-
         $(window).on("load", function () {
             /*-- Preloader-Fade-Out-After-Load-Window --*/
-            $('.preloader').fadeOut(500);
+            //$('.preloader').fadeOut(500);
             $('body').append('<a href="#" id="scrollUp"><i class="fal fa-long-arrow-up"></i></a>');
             $('#scrollUp').on('click', function () {
                 $('body,html').animate({
                     scrollTop: 0
-                }, 500);
+                }, 10);
                 return false;
             });
             /*-- WoW-Animation-JS --*/
@@ -269,6 +266,7 @@
                 mobile: false,
             });
         });
+
         $('.navi-trigger').on('click', function () {
             $(this).toggleClass('active');
         });
@@ -284,7 +282,7 @@
             speed: 1000,
             parallax: true,
             autoplay: {
-                delay: 6500,
+                delay: 10,
                 disableOnInteraction: false,
             },
             watchSlidesProgress: true,

@@ -8,36 +8,36 @@
             <div class="col-md-4 mb-4 mb-md-0">
                 <ul class="footer-menu">
                     <li class="">
-                        <a class="" aria-current="page" href="/#home-page">Acceuil</a>
+                        <a class="" aria-current="page" href="{{ route('home') }}">Accueil</a>
                     </li>
                     <li class="">
-                        <a class="" href="/#services-page">Services</a>
+                        <a class="" href="{{ route('home') }}#services-page">Services</a>
                     </li>
                     <li class="">
-                        <a class="" href="/#achievements-page">Réalisations</a>
+                        <a class="" href="{{ route('realisations') }}">Réalisations</a>
                     </li>
                     <li class="">
-                        <a class="" href="/#jobs-page">Recrutement</a>
+                        <a class="" href="{{ route('jobs') }}">Recrutement</a>
                     </li>
                     <li class="">
-                        <a class="" href="/#contact-page">Contact</a>
+                        <a class="" href="{{ route('contact') }}">Contact</a>
                     </li>
                     <li class="">
-                        <a class="" href="">Demander un essai</a>
+                        <a class="" href="{{ route('choixcategorie') }}">Demander un essai</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-4 mb-4 mb-md-0">
                 <div class="footer-icon mb-4">
-                    <a href="">
+                    {{-- <a href="">
                         <i class="fab fa-instagram"></i>
-                    </a>
+                    </a> --}}
 
-                    <a href="">
+                    <a href="https://web.facebook.com/profile.php?id=61568337231314" target="_blank">
                         <i class="fab fa-facebook"></i>
                     </a>
 
-                    <a href="">
+                    <a href="https://www.linkedin.com/company/laboratoires-gaia/" target="_blank">
                         <i class="fab fa-linkedin"></i>
                     </a>
                 </div>

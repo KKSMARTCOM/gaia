@@ -16,9 +16,9 @@
 
 <body>
     {{-- Preloader --}}
-    <div class="preloader">
+    {{-- <div class="preloader">
         <img src="{{ asset('frontend/assets') }}/images/preloader.gif" alt="">
-    </div>
+    </div> --}}
 
     <!-- include Navbar -->
     <nav class="navbar navbar-expand-lg main_menu" id="main_menu_area">
@@ -27,18 +27,17 @@
                 <img src="{{ asset('frontend/assets/images/logo-w.png') }}" alt="logo" class="logo1">
                 <img src="{{ asset('frontend/assets/images/logo-b.png') }}" alt="logo" class="logo2">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button">
                 <i class="far fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+            <div class="navbar-web">
+                <ul class="navbar-web-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('/') ? 'active' : '' }}" aria-current="page"
-                            href="/">Acceuil</a>
+                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" aria-current="page"
+                            href="{{ route('home') }}">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#services-page">Services</a>
+                        <a class="nav-link" href="{{ route('home') }}#services-page">Services</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('realisations') ? 'active' : '' }}"
@@ -53,6 +52,47 @@
                             href="{{ route('contact') }}">Contact</a>
                     </li>
                     <li class="">
+                        <a class="nav-button {{ request()->routeIs('choixcategorie') || request()->routeIs('essai') || request()->routeIs('devis')
+                            ? 'active'
+                            : '' }}"
+                            href="{{ route('choixcategorie') }}">Demander un essai</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="mobile-navbar" id="navbarNav">
+                <div class="navbar-close-container">
+                    <button class="navbar-toggler navbar-close" type="button">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <ul class="navbar-mobile ms-auto">
+                    <li class="nav-item">
+                        <i class="fas fa-circle"></i>
+                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" aria-current="page"
+                            href="{{ route('home') }}">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-circle"></i>
+                        <a class="nav-link" href="{{ route('home') }}#services-page">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-circle"></i>
+                        <a class="nav-link {{ request()->routeIs('realisations') ? 'active' : '' }}"
+                            href="{{ route('realisations') }}">Réalisations</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-circle"></i>
+                        <a class="nav-link {{ request()->routeIs('jobs') ? 'active' : '' }}"
+                            href="{{ route('jobs') }}">Recrutement</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-circle"></i>
+                        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}"
+                            href="{{ route('contact') }}">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-circle"></i>
                         <a class="nav-button {{ request()->routeIs('choixcategorie') || request()->routeIs('essai') || request()->routeIs('devis')
                             ? 'active'
                             : '' }}"
