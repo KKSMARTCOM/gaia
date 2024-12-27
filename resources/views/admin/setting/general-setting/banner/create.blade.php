@@ -34,6 +34,14 @@
                                 </div>
 
                                 <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Titre</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <input type="text" name="texte" class="form-control"
+                                            value="{{ old('texte') }}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                     <div class="col-sm-12 col-md-7 text-center">
                                         <button class="btn btn-primary">Ajouter</button>

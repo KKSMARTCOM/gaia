@@ -269,6 +269,7 @@
     }
     .main_menu .mobile-navbar .nav-item i {
         color: #003399;
+        font-size: 10px;
     }
     .navbar-mobile li {
         list-style: none;

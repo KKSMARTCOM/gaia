@@ -18,7 +18,7 @@ class ServiceSeeder extends Seeder
         $services = [
             [
                 'title' => 'ESSAIS ET SONDAGES GEOTECHNIQUE',
-                'image' => 'assets/img/services/etude.png',
+                'image' => 'frontend/assets/images/etude.jpg',
                 'description' => '<p><ul>
                 <li>Les essais géotechniques pour les bâtiments et les routes</li>
                 <li>Les essais de contrôle qualité des matériaux mis en œuvre sur les chantiers de construction (sols, granulats, bétons)</li>
@@ -29,8 +29,8 @@ class ServiceSeeder extends Seeder
                 'base_price' => 250000,
             ],
             [
-                'title' => 'LABORATOIRES GAIA',
-                'image' => 'assets/img/services/etude.png',
+                'title' => 'Essais de Laboratoire',
+                'image' => 'frontend/assets/images/etude.jpg',
                 'description' => '<p>LABORATOIRES GAIA propose d’accompagner ses clients sur les essais à réaliser sur les matériaux de construction ( sol, granulats, béton, enrobé, etc. ) Les essais de laboratoire que ou proposons sont les suivants :</p>
                 <p><ul>
                 <li>Teneur en eau;</li>
@@ -46,7 +46,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'title' => 'Préparation du site pour construction',
-                'image' => 'assets/img/services/etude.png',
+                'image' => 'frontend/assets/images/etude.jpg',
                 'description' => '<p>Nous proposons :</p>
                 <p><ul>
                 <li>Détermination de capacité portante et tassements de fondations superficielles</li>

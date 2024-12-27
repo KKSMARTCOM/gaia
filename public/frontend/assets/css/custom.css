@@ -234,9 +234,15 @@
     position: absolute;
     top: 0;
     left: 0;
+    padding: 0 100px;
     display: flex;
-    justify-content: center;
     align-items: center;
+}
+
+.header-text h4 {
+    color: #ffffff;
+    font-size: 38px;
+    width: 400px;
 }
 
 .header-button {
@@ -276,7 +282,7 @@
 
 @media (max-width: 598px) {
     .navbar-brand {
-        width: 100px;
+        width: 140px;
     }
     .load-more-blue,
     .button-blue-trans {
@@ -300,5 +306,13 @@
     .header-button a {
         font-size: 14px;
         width: 180px;
+    }
+
+    .header-text {
+        padding: 0 50px;
+    }
+    .header-text h4 {
+        font-size: 28px;
+        width: 200px;
     }
 }

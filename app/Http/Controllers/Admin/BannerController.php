@@ -30,10 +30,14 @@ class BannerController extends Controller
     {
         $request->validate([
             'image' => ['required', 'max:5000', 'image'],
+            'texte' => ['nullable', 'max:255', 'string'],
         ], [
             'image.required' => 'L\'image est requise',
             'image.max' => 'L\'image doit avoir une taille maximale de 5Mo',
             'image.image' => 'Vous devez ajoutez une image',
+
+            'texte.max' => 'Le titre doit ne doit pas dépasser 255 caractères.',
+            'texte.string' => 'Le titre doit être une chaîne de caractères.',
         ]);
 
         //dd($request->all());
@@ -49,7 +53,8 @@ class BannerController extends Controller
         try {
             //code...
             Banner::create([
-                'image' => $imgurl
+                'image' => $imgurl,
+                'texte' => $request->texte
             ]);
 
             toastr()->success('Image de la bannière ajoutée avec succès.', 'Félicitations !');

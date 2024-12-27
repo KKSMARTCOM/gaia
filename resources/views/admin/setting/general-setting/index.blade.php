@@ -29,6 +29,7 @@
                                         <tr>
                                             <th>Id</th>
                                             <th>Image</th>
+                                            <th>Titre</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -39,11 +40,11 @@
                                                     <td>{{ $item->id }}</td>
                                                     <td class="">
                                                         <div style="height: 50px; width:50px;">
-
                                                             <img style="height: 100%;width:100%; object-fit:cover;"
                                                                 src="{{ asset($item->image) }}" alt="banner-image" />
                                                         </div>
                                                     </td>
+                                                    <td>{{ $item->texte }}</td>
                                                     <td class="">
                                                         <!-- Bouton pour supprimer avec une icône de corbeille -->
                                                         <a href="{{ route('admin.banner.destroy', $item->id) }}"

@@ -17,9 +17,15 @@ class BannerSeeder extends Seeder
         $banners = [
             [
                 'image' => 'frontend/assets/images/png/b1.jpg',
+                'texte' => 'Sonder, prélever & Analyser',
             ],
             [
                 'image' => 'frontend/assets/images/png/b2.jpg',
+                'texte' => 'Étudier les risques & Formuler les  préconisations techniques ',
+            ],
+            [
+                'image' => 'frontend/assets/images/png/b3.jpg',
+                'texte' => 'Contrôler la qualité des matériaux',
             ],
         ];
 
