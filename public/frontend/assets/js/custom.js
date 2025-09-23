@@ -72,10 +72,6 @@ $(document).on('ready', function () {
                         <tr>
                             <td>${response.title}</td>
                             <td>${response.description}</td>
-                            <td class="price-column" style="white-space: nowrap; text-align: center;">
-                                <input type="text" style="border: none; width:80px;" readonly name="price" value="${response.base_price}">
-                                    FCFA HT
-                            </td>
                         </tr>
                     `);
                     }
@@ -91,8 +87,6 @@ $(document).on('ready', function () {
     $('#form-commune').on('change', function () {
         var communeId = $(this).val();
         var serviceId = $('#form-services').val();
-
-
 
         if (communeId) {
             $.ajax({
@@ -115,9 +109,60 @@ $(document).on('ready', function () {
     $('#essai-form').on('submit', function (e) {
         e.preventDefault();
 
-        const price = $('#form-price').val();
+        let formData = new FormData();
 
-        openKkiapayWidget({
+        //formData.append('transactionId', transactionId);
+        formData.append('lastname', $('#form-lastname').val());
+        formData.append('firstname', $('#form-firstname').val());
+        formData.append('phone', $('#form-phone').val());
+        formData.append('address', $('#form-address').val());
+        formData.append('email', $('#form-email').val());
+        formData.append('service_id', $('#form-services').val());
+        formData.append('commune_id', $('#form-commune').val());
+        formData.append('building_type', $('#form-building_type').val());
+        //formData.append('price', price);
+
+        let fileInput = $('#form-plan')[0];
+        if (fileInput.files.length > 0) {
+            formData.append('topographic_survey', fileInput.files[0]);
+        }
+
+        let button = $('#submit_btn'); // Stocke le bouton
+        let originalText = button.html(); // Sauvegarde le texte original
+        let loader = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Envoi...';
+        let finishUrl = button.data("finish-url");
+
+        button.html(loader).prop('disabled', true); // Désactive et change le texte du bouton
+
+
+        let url = "/essai-store";
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                if (response.status == "success") {
+                    toastr.success(response.message);
+                    window.location.href = finishUrl;
+                } else {
+                    toastr.error(response.message);
+                }
+            },
+            error: function (xhr) {
+                console.log(xhr.responseText);
+                button.html(originalText).prop('disabled', false); // Réactive le bouton
+            },
+            complete: function () {
+                button.html(originalText).prop('disabled', false); // Réactive le bouton
+            }
+        });
+
+        //const price = $('#form-price').val();
+
+        /* openKkiapayWidget({
             amount: price,
             position: "center",
             callback: "https://www.gaialab-bj.com/finish",
@@ -125,67 +170,19 @@ $(document).on('ready', function () {
             //sandbox: "true",
             theme: "green",
             key: "0a21cd7b21155d517c094fdbff1a07c8b5809f38"
-        });
+        }); */
 
-        addSuccessListener(response => {
+        /* addSuccessListener(response => {
             console.log(response);
             const transactionId = response.transactionId;
 
-            let formData = new FormData();
-
-            formData.append('transactionId', transactionId);
-            formData.append('lastname', $('#form-lastname').val());
-            formData.append('firstname', $('#form-firstname').val());
-            formData.append('phone', $('#form-phone').val());
-            formData.append('address', $('#form-address').val());
-            formData.append('email', $('#form-email').val());
-            formData.append('service_id', $('#form-services').val());
-            formData.append('commune_id', $('#form-commune').val());
-            formData.append('building_type', $('#form-building_type').val());
-            formData.append('price', price);
-
-            let fileInput = $('#form-plan')[0];
-            if (fileInput.files.length > 0) {
-                formData.append('topographic_survey', fileInput.files[0]);
-
-            }
-
-            let url = "/essai-store";
-
-            $.ajax({
-                url: url,
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (response) {
-                    if (response.status == "success") {
-                        toastr.success(response.message);
-                        /* Swal.fire({
-                            title: 'Félicitations!',
-                            text: response.message,
-                            icon: 'success',
-                            confirmButtonText: 'OK',
-                        }); */
-                    } else {
-                        toastr.error(response.message);
-                        /* Swal.fire(
-                            'Oups!',
-                            'Une erreur est survenue lors de la validation, veuillez contacter le support.',
-                            'error'
-                        ) */
-                    }
-                },
-                error: function (xhr) {
-                    console.log(xhr.responseText);
-                }
-            });
+            
 
         });
 
         addFailedListener(error => {
             console.log(error);
-        });
+        }); */
     });
 
 })

@@ -229,12 +229,8 @@
 
 .header-text {
     background-color: transparent;
-    width: 100%;
     height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0 100px;
+    padding: 0 35px;
     display: flex;
     align-items: center;
 }
@@ -308,9 +304,9 @@
         width: 180px;
     }
 
-    .header-text {
+    /* .header-text {
         padding: 0 50px;
-    }
+    } */
     .header-text h4 {
         font-size: 28px;
         width: 200px;

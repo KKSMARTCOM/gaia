@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('commune_id')->constrained('communes')->onDelete('cascade')->onUpdate('cascade');
-            $table->decimal('additional_price', 10, 2);
+            $table->decimal('additional_price', 10, 2)->nullable();
             $table->timestamps();
 
             $table->unique(['service_id', 'commune_id']);

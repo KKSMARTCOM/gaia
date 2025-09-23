@@ -1,10 +1,10 @@
 @extends('admin.layouts.master')
-@section('title', 'Services')
+@section('title', 'Liste Activités')
 
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Section Services</h1>
+            <h1>Section Activités</h1>
         </div>
 
         <div class="section-body">
@@ -12,9 +12,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Tous les services</h4>
+                            <h4>Toutes les activités</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin.service.create') }}" class="btn btn-success">Ajouter <i
+                                <a href="{{ route('admin.activities.create') }}" class="btn btn-success">Ajouter <i
                                         class="fas fa-plus"></i></a>
                             </div>
                         </div>
@@ -29,19 +29,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (!empty($services) && $services->count() > 0)
-                                            @foreach ($services as $item)
+                                        @if (!empty($activities) && $activities->count() > 0)
+                                            @foreach ($activities as $item)
                                                 <tr class="item" item-id="{{ $item->id }}">
                                                     <td>{{ $item->id }}</td>
-                                                    <td>{{ $item->title }}</td>
+                                                    <td>{{ $item->name }}</td>
                                                     <td class="d-flex align-items-center">
                                                         <!-- Lien pour modifier avec une icône de crayon -->
-                                                        <a href="{{ route('admin.service.edit', $item->id) }}"
+                                                        <a href="{{ route('admin.activities.edit', $item->id) }}"
                                                             class="btn btn-primary btn-icon mr-2">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
                                                         <!-- Bouton pour supprimer avec une icône de corbeille -->
-                                                        <a href="{{ route('admin.service.destroy', $item->id) }}"
+                                                        <a href="{{ route('admin.activities.destroy', $item->id) }}"
                                                             class="btn btn-danger btn-icon delete-item">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </a>
@@ -50,7 +50,7 @@
                                             @endforeach
                                         @else
                                             <tr>
-                                                <td colspan="4" class="text-center">Pas de services disponibles</td>
+                                                <td colspan="4" class="text-center">Pas d'activités disponibles</td>
                                             </tr>
                                         @endif
                                     </tbody>

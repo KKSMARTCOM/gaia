@@ -83,7 +83,7 @@
                                         onchange="updatePlaceholder(this, 'custom-file-input-topographique')"
                                         style="opacity: 0; position: absolute; z-index: -1;">
                                     <input type="text" class="input-box" id="custom-file-input-topographique"
-                                        placeholder="Ex : ancienne étude de sol, diagnostic etc."
+                                        placeholder="Ex : Plan topographique.pdf"
                                         onclick="document.getElementById('form-plan-topographique').click();" readonly>
                                     <i class="fa fa-download" aria-hidden="true"
                                         style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"
@@ -100,7 +100,7 @@
                                         onchange="updatePlaceholder(this, 'custom-file-input-autre-document')"
                                         style="opacity: 0; position: absolute; z-index: -1;">
                                     <input type="text" class="input-box" id="custom-file-input-autre-document"
-                                        placeholder="Ex : Plan topographique .pdf"
+                                        placeholder="Ex : ancienne étude de sol, diagnostic etc."
                                         onclick="document.getElementById('form-autre-document').click();" readonly>
                                     <i class="fa fa-download" aria-hidden="true"
                                         style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"

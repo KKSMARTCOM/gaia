@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row" id="serviceList">
-            @include('frontend.ajax.serviceList', ['services' => $services])
+            @include('frontend.ajax.serviceList', ['activities' => $activities])
         </div>
         <div class="row mt-2">
             @if ($remaining)

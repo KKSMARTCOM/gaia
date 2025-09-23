@@ -8,7 +8,9 @@ use App\Models\Service;
 use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\DevisMail;
 use App\Models\Achievement;
+use App\Models\Activity;
 use App\Models\Commune;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\DB;
@@ -25,14 +27,14 @@ class HomeController extends Controller
         $offset = $request->input('offset', 0);
 
         // Récupère les services avec une pagination personnalisée
-        $services = Service::skip($offset)->take($limit)->get();
+        $activities = Activity::skip($offset)->take($limit)->get();
 
         // Vérifie s'il reste d'autres services à charger
-        $remaining = Service::count() > ($offset + $limit);
+        $remaining = Activity::count() > ($offset + $limit);
 
         if ($request->ajax()) {
             return response()->json([
-                'service' => view('frontend.ajax.serviceList', compact('services'))->render(),
+                'service' => view('frontend.ajax.serviceList', compact('activities'))->render(),
                 'remaining' => $remaining
             ]);
         }
@@ -41,7 +43,7 @@ class HomeController extends Controller
 
         $achievements = Achievement::inRandomOrder()->limit(2)->get();
 
-        return view('frontend.pages.home', compact('about', 'achievements', 'services', 'remaining'));
+        return view('frontend.pages.home', compact('about', 'achievements', 'activities', 'remaining'));
     }
 
     public function contact(Request $request)
@@ -68,7 +70,7 @@ class HomeController extends Controller
             'ip' => $request->ip(),
         ];
 
-        Mail::send(new ContactMail($mailData));
+        Mail::to('kksmartcom.bj@gmail.com')->send(new ContactMail($mailData));
 
         return response(['status' => 'success', 'message' => 'Mail envoyé avec succès !']);
     }
@@ -180,35 +182,16 @@ class HomeController extends Controller
         if ($request->hasFile('plan_topographique')) {
             $pathPlan = $request->file('plan_topographique')->store('public/plans');
             $pathPlan = str_replace('public/', '', $pathPlan);
+            $data['plan_topographique'] = $pathPlan;
         }
 
         if ($request->hasFile('autre_document')) {
             $pathAutreDocument = $request->file('autre_document')->store('public/plans');
             $pathAutreDocument = str_replace('public/', '', $pathAutreDocument);
+            $data['autre_document'] = $pathAutreDocument;
         }
 
-        Mail::send('mail.demande_devis', [
-            'societe' => $validated['societe'],
-            'email' => $validated['email'],
-            'nom' => $validated['nom'],
-            'prenoms' => $validated['prenoms'],
-            'adresseintervention' => $validated['adresseintervention'],
-            'projetMessage' => $validated['message'],
-            'plan_topographique' => $pathPlan,
-            'autre_document' => $pathAutreDocument,
-        ], function ($message) use ($validated, $pathPlan, $pathAutreDocument) {
-            $message->to('contact@gaialab-bj.com')
-                ->subject('Demande de devis de ' . $validated['nom'])
-                ->from($validated['email'], 'Gaia');
-
-            if ($pathPlan) {
-                $message->attach(storage_path('app/public/' . $pathPlan));
-            }
-
-            if ($pathAutreDocument) {
-                $message->attach(storage_path('app/public/' . $pathAutreDocument));
-            }
-        });
+        Mail::to('kksmartcom.bj@gmail.com')->send(new DevisMail($data));
 
         return redirect()->back()->with('success', 'Votre demande de devis a été envoyée avec succès.');
     }
@@ -221,28 +204,28 @@ class HomeController extends Controller
         $offset = $request->input('offset', 0);
 
         // Récupère les services avec une pagination personnalisée
-        $services = Service::skip($offset)->take($limit)->get();
+        $activities = Activity::skip($offset)->take($limit)->get();
 
         // Vérifie s'il reste d'autres services à charger
-        $remaining = Service::count() > ($offset + $limit);
+        $remaining = Activity::count() > ($offset + $limit);
 
         if ($request->ajax()) {
             return response()->json([
-                'service' => view('frontend.ajax.serviceList', compact('services'))->render(),
+                'service' => view('frontend.ajax.serviceList', compact('activities'))->render(),
                 'remaining' => $remaining
             ]);
         }
 
-        $allServices = Service::with('communes')->get();
+        $services = Service::with('communes')->get();
 
         if ($id) {
 
             $service = Service::findOrFail($id);
 
-            return view('frontend.pages.essai', compact('services', 'allServices', 'remaining', 'service'));
+            return view('frontend.pages.essai', compact('services', 'services', 'remaining', 'service'));
         }
 
-        return view('frontend.pages.essai', compact('services', 'allServices', 'remaining'));
+        return view('frontend.pages.essai', compact('activities', 'services', 'remaining'));
     }
 
 

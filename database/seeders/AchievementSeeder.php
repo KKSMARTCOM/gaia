@@ -25,7 +25,7 @@ class AchievementSeeder extends Seeder
             ],
             [
                 'title' => 'TRAVAUX D’ETUDES GEOTECHNIQUE A LA GDIZ GLO DJIGBE',
-                'image' => 'frontend/assets/images/3.jpg',
+                'image' => 'frontend/assets/images/5.jpg',
                 'description' => '<p>Dans le cadre du projet construction d\'un entrepôt de biscuits de 5000 m² dans la GDIZ, le laboratoire GAIA a été sollicité pour une étude G2 AVP afin d\'effectuer le prédimensionnement des fondations.</p>
                 <p>Les activités de sondage ont inclut : des sondages au pénétromètre dynamique à l\'aide d\'un pénétromètre PAGANI ; des sondages au pénétromètre statique type CTPm avec un pénétromètre PAGANI et des reconnaissances du sous-sol par des sondages à la tarière. </p>
                 <p>Nous exprimons notre sincère gratitude à l\'entreprise pour avoir placé sa confiance en nos équipes.</p>'

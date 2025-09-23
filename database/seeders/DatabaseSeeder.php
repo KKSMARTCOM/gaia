@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
                 UsersSeeder::class,
                 PartnerSeeder::class,
                 JobSeeder::class,
+                ActivitySeeder::class,
             ]
         );
     }

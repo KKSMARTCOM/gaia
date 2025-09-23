@@ -73,9 +73,9 @@
                                 <label for="form-adresse" class="form-label">Service <span class="text-danger">
                                         *</span></label>
                                 <div class="form-box">
-                                    @if ($allServices && $allServices->count() > 0)
+                                    @if ($services && $services->count() > 0)
                                         <select name="service_id" id="form-services" class="input-box select2" required>
-                                            @foreach ($allServices as $item)
+                                            @foreach ($services as $item)
                                                 <option
                                                     {{ isset($service->id) && $service->id == $item->id ? 'selected' : '' }}
                                                     value="{{ $item->id }}">{{ $item->title }}
@@ -93,8 +93,10 @@
                                 <div class="form-box">
                                     <select name="building_type" id="form-building_type" class="input-box" required>
                                         <option value="">Veuillez choisir le type de votre bâtiment</option>
-                                        <option value="R+2">R + 2</option>
-                                        <option value="R+3">R + 3</option>
+                                        <option value="RDC">RDC</option>
+                                        <option value="RDC+1">RDC+1</option>
+                                        <option value="RDC+2">RDC+2</option>
+                                        {{-- <option value="R+3">R + 3</option> --}}
                                     </select>
                                 </div>
                             </div>
@@ -110,8 +112,8 @@
                                             @foreach ($service->communes as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
-                                        @elseif ($allServices)
-                                            @foreach ($allServices[0]->communes as $item)
+                                        @elseif ($services)
+                                            @foreach ($services[0]->communes as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         @endif
@@ -142,22 +144,22 @@
                                             <tr>
                                                 <th>Libellé du service</th>
                                                 <th>Description</th>
-                                                <th>Prix</th>
+                                                {{-- <th>Prix</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>{{ $service->title ?? $allServices[0]->title }}</td>
+                                                <td>{{ $service->title ?? $services[0]->title }}</td>
                                                 <td>
-                                                    {!! $service->description ?? $allServices[0]->description !!}
+                                                    {!! $service->description ?? $services[0]->description !!}
                                                 </td>
-                                                <td class="price-column d-flex align-items-center"
+                                                {{-- <td class="price-column d-flex align-items-center"
                                                     style="text-align: center;">
                                                     <input type="text" readonly name="price" id="form-price"
                                                         style="border: none; width:80px;"
                                                         value="{{ $service->base_price ?? $allServices[0]->base_price }}">
                                                     FCFA HT
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         </tbody>
                                     </table>
@@ -167,8 +169,8 @@
                             <!-- Bouton de soumission aligné à droite -->
                             <div class="col-sm-12 text-center">
                                 <button type="submit" class="button-blue-trans mouse-dir wow fadeInUp"
-                                    data-wow-delay="0.5s" id="submit_btn">
-                                    <span class="text">Procéder au paiement</span>
+                                    data-finish-url="{{ route('finish') }}" data-wow-delay="0.5s" id="submit_btn">
+                                    <span class="text">Envoyer</span>
                                     <span class="dir-part"></span>
                                 </button>
                             </div>

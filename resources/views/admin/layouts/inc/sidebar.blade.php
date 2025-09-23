@@ -80,6 +80,10 @@
                     href="{{ route('admin.achievement.index') }}"><i class="fas fa-trophy"></i>
                     <span>Réalisations</span></a></li>
 
+            <li class="{{ setSidebarActive(['admin.activities.*']) }}"><a class="nav-link"
+                    href="{{ route('admin.activities.index') }}"><i class="fas fa-shield-alt"></i>
+                    <span>Activités</span></a></li>
+
             <li class="{{ setSidebarActive(['admin.service.*']) }}"><a class="nav-link"
                     href="{{ route('admin.service.index') }}"><i class="fas fa-concierge-bell"></i>
                     <span>Services</span></a></li>

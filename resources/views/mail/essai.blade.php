@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demande de devis - {{ config('app.name') }}</title>
+    <title>Demande d'essai - {{ config('app.name') }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,47 +56,47 @@
 <body>
     <div class="container">
         <div class="header">
-            <h2>Nouvelle demande de devis</h2>
+            <h2>Nouvelle demande d'essai</h2>
         </div>
         <div class="content">
             <p>Bonjour,</p>
-            <p>Un utilisateur vient de soumettre une demande de devis. Voici les détails :</p>
+            <p>Un utilisateur vient de soumettre une demande d'essai pour un service. Voici les détails :</p>
 
             <table border="0" cellpadding="5" cellspacing="0" width="100%">
                 <tr>
-                    <td><strong>Société :</strong></td>
-                    <td>{{ $data['societe'] ?? 'Non renseigné' }}</td>
+                    <td><strong>Nom & Prénom :</strong></td>
+                    <td>{{ $orderTest->lastname }} {{ $orderTest->firstname }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Adresse :</strong></td>
+                    <td>{{ $orderTest->address }}</td>
                 </tr>
                 <tr>
                     <td><strong>Email :</strong></td>
-                    <td>{{ $data['email'] }}</td>
+                    <td>{{ $orderTest->email }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Nom & Prénom :</strong></td>
-                    <td>{{ $data['nom'] }} {{ $data['prenoms'] }}</td>
+                    <td><strong>Téléphone :</strong></td>
+                    <td>{{ $orderTest->phone }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Adresse d'intervention :</strong></td>
-                    <td>{{ $data['adresseintervention'] }}</td>
+                    <td><strong>Service demandé :</strong></td>
+                    <td>{{ $orderTest->service->title }}</td>
                 </tr>
                 <tr>
-                    <td><strong>Description du projet :</strong></td>
-                    <td>{{ $data['projetMessage'] }}</td>
+                    <td><strong>Commune :</strong></td>
+                    <td>{{ $orderTest->commune->name }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Type de bâtiment :</strong></td>
+                    <td>{{ $orderTest->building_type }}</td>
                 </tr>
             </table>
 
-            @if (!empty($data['plan_topographique']))
-                <p>Vous pouvez télécharger le plan topographique en cliquant sur le bouton ci-dessous :</p>
-                <p><a href="{{ asset('storage/' . $data['plan_topographique']) }}" class="btn" download>Télécharger
+            @if (!empty($orderTest->topographic_survey))
+                <p>Vous pouvez télécharger la levée topographique en cliquant sur le bouton ci-dessous :</p>
+                <p><a href="{{ asset($orderTest->topographic_survey) }}" class="btn" target="_blank">Télécharger
                         le fichier</a></p>
-            @endif
-
-            @if (!empty($data['autre_document']))
-                <p>Autre document technique:</p>
-                <p>
-                    <a href="{{ asset('storage/' . $data['autre_document']) }}" class="btn" download>Télécharger le
-                        fichier</a>
-                </p>
             @endif
 
             <p>Merci de traiter cette demande rapidement.</p>

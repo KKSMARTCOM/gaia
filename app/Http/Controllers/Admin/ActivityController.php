@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Service;
-use Illuminate\Http\Request;
-use App\DataTables\ServiceDataTable;
 use App\Http\Controllers\Controller;
-use App\Models\Commune;
+use App\Models\Activity;
+use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class ActivityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +15,9 @@ class ServiceController extends Controller
     {
         try {
             //code...
-            $services = Service::all();
+            $activities = Activity::all();
 
-            return view('admin.service.index', compact('services'));
+            return view('admin.activity.index', compact('activities'));
         } catch (\Exception $e) {
             //throw $th;
             toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
@@ -32,7 +30,8 @@ class ServiceController extends Controller
     public function create()
     {
         try {
-            return view('admin.service.edit');
+            //code...
+            return view('admin.activity.edit');
         } catch (\Exception $e) {
             //throw $th;
             toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
@@ -46,17 +45,12 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => ['required', 'max:200'],
-            'description' => ['nullable', 'string'],
-            'image' => ['nullable', 'max:5000', 'image'],/* 
-            'base_price' => ['required', 'numeric', 'min:0'],
-            'additionnal_price' => ['required', 'array'],
-            'additionnal_price.*' => ['nullable', 'numeric', 'min:0'] */
+            'name' => ['required', 'max:200'],
+            'description' => ['required', 'string'],
+            'image' => ['nullable', 'max:5000', 'image'],
         ], [
-            'title.required' => 'Le titre du service est requis',
-
-            'description.required' => 'La description est requise',
-
+            'name.required' => 'Le nom de l\'activité est requis',
+            'description.required' => 'La description de l\'activité est requise',
             'image.max' => 'L\'image doit avoir une taille maximale de 5Mo',
             'image.image' => 'Vous devez ajoutez une image',
         ]);
@@ -64,24 +58,18 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $img = $request->file('image');
             $folderName = $request->name;
-            $uploadFolder = 'assets/img/services/';
+            $uploadFolder = 'assets/img/activity/';
             folderOpen($uploadFolder);
             $imgurl = uploadImage($img, $folderName, $uploadFolder);
         }
         try {
             //code...
 
-            $service = Service::create([
-                'title' => $request->title,
+            $activity = Activity::create([
+                'name' => $request->name,
                 'image' => $imgurl ?? null,
                 'description' => $request->description,
             ]);
-
-            $communes = Commune::all();
-
-            foreach ($communes as $commune) {
-                $service->communes()->attach($commune->id);
-            }
 
             toastr()->success('Ajout éffectué avec succès', 'Félicitations !');
 
@@ -107,8 +95,8 @@ class ServiceController extends Controller
     public function edit($id)
     {
         try {
-            $service = Service::where('id', $id)->firstOrFail();
-            return view('admin.service.edit', compact('service'));
+            $activity = Activity::where('id', $id)->firstOrFail();
+            return view('admin.activity.edit', compact('activity'));
         } catch (\Exception $e) {
             //throw $th;
             toastr()->error('Une erreur est intervenue au niveau du serveur ! ', $e->getMessage());
@@ -122,35 +110,34 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => ['required', 'max:200'],
-            'description' => ['nullable', 'string'],
+            'name' => ['required', 'max:200'],
+            'description' => ['required', 'string'],
             'image' => ['max:5000', 'image'],
         ], [
-            'title.required' => 'Le titre du service est requis',
+            'name.required' => 'Le nom est requis',
             'description.required' => 'La description est requise',
-
             'image.max' => 'L\'image doit avoir une taille maximale de 5Mo',
             'image.image' => 'Vous devez ajoutez une image',
         ]);
 
         try {
             //code...
-            $service = Service::where('id', $id)->firstOrFail();
+            $activity = Activity::where('id', $id)->firstOrFail();
 
             if ($request->hasFile('image')) {
-                deleteFile($service->image);
+                deleteFile($activity->image);
 
                 $img = $request->file('image');
                 $folderName = $request->name;
-                $uploadFolder = 'assets/img/services/';
+                $uploadFolder = 'assets/img/activity/';
                 folderOpen($uploadFolder);
                 $imgurl = uploadImage($img, $folderName, $uploadFolder);
             }
 
-            $service->update([
-                'title' => $request->title,
+            $activity->update([
+                'name' => $request->name,
                 'description' => $request->description,
-                'image' => $imgurl ?? $service->image,
+                'image' => $imgurl ?? $activity->image,
             ]);
 
             toastr()->success('Mise à jour éffectuée avec succès', 'Félicitations !');
@@ -169,13 +156,11 @@ class ServiceController extends Controller
     {
         try {
             //code...
-            $service = Service::findOrFail($id);
+            $activity = Activity::findOrFail($id);
 
-            $service->communes()->detach();
+            deleteFile($activity->image);
 
-            deleteFile($service->image);
-
-            $service->delete();
+            $activity->delete();
             return response()->json(['status' => 'success'], 200);
         } catch (\Exception $e) {
             //throw $th;

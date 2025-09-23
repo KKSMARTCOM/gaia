@@ -9,18 +9,19 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactMail extends Mailable
+class EssaiMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $mailData;
+    public $orderTest;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($mailData)
+    public function __construct($orderTest)
     {
-        $this->mailData = $mailData;
+        //
+        $this->orderTest = $orderTest;
     }
 
     /**
@@ -29,7 +30,7 @@ class ContactMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Message de contact GAIA Lab',
+            subject: 'Nouvelle demande d\'essai',
         );
     }
 
@@ -39,7 +40,7 @@ class ContactMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.contact-mail',
+            view: 'mail.essai',
         );
     }
 

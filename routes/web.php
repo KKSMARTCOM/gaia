@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\AchievementController;
+use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -121,6 +122,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
   // ** Service Route */
   Route::resource('service', ServiceController::class);
+
+  // ** Activities Route */
+  Route::resource('activities', ActivityController::class);
 
   /** About Route */
   Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');

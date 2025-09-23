@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class DemandeDevisMail extends Mailable
+class DevisMail extends Mailable
 {
     use Queueable, SerializesModels;
     public $data;
@@ -21,30 +21,13 @@ class DemandeDevisMail extends Mailable
         $this->data = $data;
     }
 
-    // public function build()
-    // {
-    //     return $this->view('emails.demande_devis')
-    //                 ->with('data', $this->data)
-    //                 ->subject('Nouvelle demande de devis');
-    // }
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
-        return $this->view('emails.demande_devis') // Vue pour le contenu de l'email
-                    ->with('data', $this->data)   // Passer les données à la vue
-                    ->subject('Nouvelle demande de devis'); // Objet de l'email
-    }
     /**
      * Get the message envelope.
      */
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Demande Devis Mail',
+            subject: 'Nouvelle demande de devis',
         );
     }
 
@@ -54,7 +37,7 @@ class DemandeDevisMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.demande_devis',
         );
     }
 

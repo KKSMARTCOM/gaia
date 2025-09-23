@@ -1,4 +1,4 @@
-<section class="section-padding-top">
+<section class="section-padding">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">

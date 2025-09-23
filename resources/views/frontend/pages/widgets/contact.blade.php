@@ -1,4 +1,4 @@
-<section class="contact-area section-padding-top mb-5" id="contact-page">
+<section class="contact-area mb-5" id="contact-page">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3 text-center">

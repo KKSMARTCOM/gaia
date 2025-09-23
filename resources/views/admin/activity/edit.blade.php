@@ -1,13 +1,13 @@
 @extends('admin.layouts.master')
-@section('title', 'About')
+@section('title', 'Ajouter ou Modifier Activités')
 
 @section('content')
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="{{ route('admin.service.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{ route('admin.activities.index') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <h1>Services</h1>
+            <h1>Activités</h1>
 
         </div>
 
@@ -16,7 +16,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            @if (!empty($service->id))
+                            @if (!empty($activity->id))
                                 <h4>Mise à jour</h4>
                             @else
                                 <h4>Création</h4>
@@ -24,78 +24,48 @@
                         </div>
                         <div class="card-body">
 
-                            @if (!empty($service->id))
+                            @if (!empty($activity->id))
                                 @php
-                                    $routeLink = route('admin.service.update', $service->id);
+                                    $routeLink = route('admin.activities.update', $activity->id);
                                 @endphp
                             @else
                                 @php
-                                    $routeLink = route('admin.service.store');
+                                    $routeLink = route('admin.activities.store');
                                 @endphp
                             @endif
 
-                            {{-- @if (!empty($service->id))
+                            @if (!empty($activity->id))
                                 <div class="mb-4 d-flex justify-content-center">
                                     <div style="height: 200px; width:300px; overflow:hidden">
                                         <img style="height: 100%;width:100%;object-fit:cover;"
-                                            src="{{ asset($service->image) }}" alt="">
+                                            src="{{ asset($activity->image) }}" alt="">
                                     </div>
                                 </div>
-                            @endif --}}
+                            @endif
 
                             <form action="{{ $routeLink }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
-                                @if (!empty($service->id))
+                                @if (!empty($activity->id))
                                     @method('PUT')
                                 @endif
 
                                 <div class="form-group row mb-4">
 
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Titre du
-                                        service</label>
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Nom de
+                                        l'activité</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <input type="text" name="title" class="form-control"
-                                            value="{{ $service->title ?? old('title') }}">
+                                        <input type="text" name="name" class="form-control"
+                                            value="{{ $activity->name ?? old('name') }}">
                                     </div>
                                 </div>
-
-                                {{-- <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Prix de
-                                        base</label>
-                                    <div class="col-sm-12 col-md-7">
-                                        <input type="number" name="base_price" class="form-control"
-                                            value="{{ $service->base_price ?? old('base_price') }}">
-                                    </div>
-                                </div> --}}
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Description</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <textarea name="description" class="form-control" rows="10">{!! $service->description ?? '' !!}</textarea>
+                                        <textarea name="description" class="summernote">{!! $activity->description ?? '' !!}</textarea>
                                     </div>
                                 </div>
-
-                                {{-- @if ($communes && $communes->count() > 0)
-                                    <div class="form-group row mb-4">
-                                        <label class="col-sm-12 card-header" for="">
-                                            <h4>Prix additionnel pour chaque commune</h4>
-                                        </label>
-                                        @foreach ($communes as $item)
-                                            <div class="col-lg-6">
-                                                <div class="row">
-                                                    <label class="col-form-label col-6 mb-4">{{ $item->name }}</label>
-                                                    <div class="col-6 mb-4">
-
-                                                        <input type="number" name="additionnal_price[{{ $item->id }}]"
-                                                            class="form-control"
-                                                            value="{{ old('additionnal_price.' . $item->id, isset($service) ? $service->communes->where('id', $item->id)->first()->pivot->additional_price ?? 0 : '') }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                @endif --}}
 
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Image</label>
@@ -110,7 +80,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                                     <div class="col-sm-12 col-md-7 text-center">
-                                        @if (!empty($service->id))
+                                        @if (!empty($activity->id))
                                             <button class="btn btn-primary">Enregistrer</button>
                                         @else
                                             <button class="btn btn-primary">Ajouter</button>

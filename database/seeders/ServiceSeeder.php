@@ -17,45 +17,12 @@ class ServiceSeeder extends Seeder
         //
         $services = [
             [
-                'title' => 'ESSAIS ET SONDAGES GEOTECHNIQUE',
+                'title' => 'Étude de sol pour les bâtiments',
                 'image' => 'frontend/assets/images/etude.jpg',
-                'description' => '<p><ul>
-                <li>Les essais géotechniques pour les bâtiments et les routes</li>
-                <li>Les essais de contrôle qualité des matériaux mis en œuvre sur les chantiers de construction (sols, granulats, bétons)</li>
-                <li>Les essais de contrôle et de suivi de l’exécution des travaux routiers (réception des couches de remblai, terrassements et corps de chaussées)</li>
-                <li>La prospection de matériaux</li>
-                <li>Les recherches de carrière de roches massives, d’emprunts de matériaux (silteux, latéritiques,) pour les routes</li>
-                </ul></p>',
-                'base_price' => 250000,
-            ],
-            [
-                'title' => 'Essais de Laboratoire',
-                'image' => 'frontend/assets/images/etude.jpg',
-                'description' => '<p>LABORATOIRES GAIA propose d’accompagner ses clients sur les essais à réaliser sur les matériaux de construction ( sol, granulats, béton, enrobé, etc. ) Les essais de laboratoire que ou proposons sont les suivants :</p>
-                <p><ul>
-                <li>Teneur en eau;</li>
-                <li>Analyse granulométrique sur sable et sur gros gravier/concassé;</li>
-                <li>Limite d’Atterberg;</li>
-                <li>Proctor normal;</li>
-                <li>Proctor Modifié;</li>
-                <li>Essai de CBR;</li>
-                <li>Essai Los Angeles;</li>
-                <li>Essai d’équivalence de Sable;</li>
-                </ul></p>',
-                'base_price' => 400000,
-            ],
-            [
-                'title' => 'Préparation du site pour construction',
-                'image' => 'frontend/assets/images/etude.jpg',
-                'description' => '<p>Nous proposons :</p>
-                <p><ul>
-                <li>Détermination de capacité portante et tassements de fondations superficielles</li>
-                <li>Dimensionnement de fondations profondes pour les bâtiments et ouvrages d’art</li>
-                <li>Vérification de stabilité des talus</li>
-                <li>Dimensionnement des chaussées et plateformes logistiques</li>
-                </ul></p>',
-                'base_price' => 350000,
-            ],
+                'description' => '4 Sondages pénétromètres dynamiques a 10 m de profondeur;
+1 sondage pénétromètre statique à pointe mécanique à 10 m ou au refus;
+1 sondage à la tarière de 3 à 5 m et essais de laboratoire sur les matériaux prélevés.',
+            ]
         ];
 
         foreach ($services as $serviceData) {
@@ -64,8 +31,7 @@ class ServiceSeeder extends Seeder
             $communes = Commune::all();
 
             foreach ($communes as $commune) {
-                $additionalPrice = rand(50000, 150000);
-                $service->communes()->attach($commune->id, ['additional_price' => $additionalPrice]);
+                $service->communes()->attach($commune->id);
             }
         }
     }
